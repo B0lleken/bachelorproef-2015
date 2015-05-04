@@ -1,0 +1,30 @@
+<html manifest="/cache.manifest">
+<head>
+    <title>Bachelorproef 2015 - offline</title>
+</head>
+
+<body>
+<div id="info">
+    <b>When going offline:</b><br>
+    <ol>
+        <li>This page should still get loaded. You should not see a "no connection" message.</li>
+        <li>Below the text "I loaded from offline" should be visible, indicating that the javascript file was loaded from the cache.</li>
+        <li>The second image, with "homework" on it, should not be visible as it is not in the manifest file.</li>
+    </ol>
+</div>
+
+<div id="manifest-message"></div>
+
+<div id="offline"></div>
+
+<img src="/img/game-of-thrones-simpsons-ized.jpg">
+<img src="/img/video-games-to-the-rescue.jpeg">
+
+<script src="/src/offline.js"></script>
+<script>
+    // todo: Check support functionality (applicationCache, localstorage, ...)
+    // todo: Add application cache listeners
+    // todo: Call functions from offline.js
+</script>
+</body>
+</html>
