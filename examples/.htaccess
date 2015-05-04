@@ -1,0 +1,47 @@
+Options +MultiViews
+
+RewriteEngine On
+
+# Remove caching of manifest file - manifest file must expire immediately
+ExpiresActive On
+ExpiresByType text/cache-manifest "access plus 0 seconds"
+# Remove caching on ALL files
+#ExpiresDefault "access plus 0 seconds"
+
+# cache.manifest is used and NOT manifest.appcache !!
+#AddType text/cache-manifest .appcache
+AddType text/cache-manifest .manifest
+
+# Ensure the correct mime type is used for certain file extensions
+# To force a download of a certain file type, "application/octet-stream" is used
+# Audio
+AddType audio/aac .aac
+AddType audio/mp4 .mp4 .m4a
+AddType audio/mpeg .mp1 .mp2 .mp3 .mpg .mpeg
+AddType audio/ogg .oga .ogg
+AddType audio/wav .wav
+AddType audio/webm .webm
+
+# Video
+AddType video/mp4 .mp4 .m4v
+AddType video/ogg .ogv
+AddType video/webm .webm
+
+# Image
+AddType image/gif .gif
+AddType image/jpeg .jpg .jpeg
+AddType image/png .png
+
+# Other
+AddType text/x-component .htc
+AddType text/plain .txt
+AddType text/html .html .htm
+
+# Some hosts may require you to use the `RewriteBase` directive.
+# If you need to use the `RewriteBase` directive, it should be the
+# absolute physical path to the directory that contains this htaccess file.
+#
+#RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
