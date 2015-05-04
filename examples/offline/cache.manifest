@@ -1,0 +1,9 @@
+CACHE MANIFEST
+
+#rev 1.0.0
+
+CACHE:
+/src/offline.js
+/img/game-of-thrones-simpsons-ized.jpg
+NETWORK:
+*
