@@ -1,0 +1,3287 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)https://gist.github.com/paulirish/1579671 -->
+<html lang="en" class=" is-copy-enabled" pmbx_context="695488AD-1540-4FD8-8ABB-035312C8A858"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=1020">
+    <meta content="origin-when-crossorigin" name="referrer">
+    
+    <title>requestAnimationFrame polyfill · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://gist.github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://gist.github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://gist.github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://gist.github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://gist.github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://gist.github.com/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="requestAnimationFrame polyfill" name="twitter:title"><meta content="requestAnimationFrame polyfill" name="twitter:description"><meta content="https://avatars0.githubusercontent.com/u/39191?v=3&amp;s=400" name="twitter:image:src">
+      <meta content="Gist" property="og:site_name"><meta content="object" property="og:type"><meta content="https://avatars0.githubusercontent.com/u/39191?v=3&amp;s=400" property="og:image"><meta content="requestAnimationFrame polyfill" property="og:title"><meta content="https://gist.github.com/paulirish/1579671" property="og:url"><meta content="requestAnimationFrame polyfill" property="og:description">
+      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    
+    <meta name="pjax-timeout" content="1000">
+    
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="gist_code" data-pjax-transient="">
+
+        <meta name="google-analytics" content="UA-3769691-4">
+
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="gist" name="octolytics-app-id"><meta content="4E159380:1CB9:9725E8E:55D07E27" name="octolytics-dimension-request_id">
+    
+    <meta content="Rails, view, gists/gists#show" data-pjax-transient="true" name="analytics-event">
+    <meta class="js-ga-set" name="dimension1" content="Logged Out">
+      <meta class="js-ga-set" name="dimension4" content="Current repo nav">
+    <meta name="is-dotcom" content="true">
+        <meta name="hostname" content="gist.github.com">
+    <meta name="user-login" content="">
+
+      <link rel="icon" sizes="any" mask="" href="https://assets-cdn.github.com/pinned-octocat.svg">
+      <meta name="theme-color" content="#4078c0">
+      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+    <!-- </textarea> --><!-- '"` --><meta content="authenticity_token" name="csrf-param">
+<meta content="pHPpudcJSHLfNACwYz3GDiMcgegoRLNwrOND5rL65z1sdyoKWd1zaL7T5+nX6ITRmhgyJuWtiyMCOXPYnqLoPw==" name="csrf-token">
+    
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github/index-78350b39bf13714f4b06a2153e5374de01bc939bfa60ec9bdb34dbb2032dda4b.css" media="all" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github2/index-fe5622bab39e70fefc28ebe1ea2e8fa620c0c026df4a6b089aac3bf495d3463e.css" media="all" rel="stylesheet">
+    
+    
+
+
+    <meta http-equiv="x-pjax-version" content="a26d7fe411f453e1f88034a366ff5217">
+
+        <link href="https://gist.github.com/paulirish.atom" rel="alternate" title="atom" type="application/atom+xml">
+  <meta content="true" name="octolytics-dimension-public"><meta content="1579671" name="octolytics-dimension-gist_id"><meta content="1579671" name="octolytics-dimension-gist_name"><meta content="false" name="octolytics-dimension-anonymous"><meta content="39191" name="octolytics-dimension-owner_id"><meta content="paulirish" name="octolytics-dimension-owner_login"><meta content="false" name="octolytics-dimension-forked">
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/gist/index-f40eeef4241c4c1a57149ae79f55891fe4acf366d6140c9890506ea6c5f72c1e.css" media="all" rel="stylesheet">
+
+  <script type="text/javascript" async="" src="./requestAnimationFrame polyfill · GitHub_files/api.js"></script></head>
+
+
+  <body class="logged_out  env-production windows">
+    <a href="https://gist.github.com/paulirish/1579671#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+
+
+
+          <div class="header gist-header header-logged-out" role="banner">
+  <div class="container clearfix">
+
+    <a href="https://gist.github.com/" aria-label="Gist Homepage" class="header-logo-wordmark" data-hotkey="g d">
+      <span class="mega-octicon octicon-logo-github"></span>
+      <span class="mega-octicon octicon-gist-logo"></span>
+</a>
+    <div class="site-search js-site-search" role="search">
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="https://gist.github.com/search" method="get" pmbx_context="21C9CC94-6A39-4EBD-810A-68F77EAC92E3"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" pmbx_context="9892B523-9B84-4893-8CD9-6DEEA20B5D82"></div>
+  <label class="js-chromeless-input-container form-control">
+    <input type="text" class="js-site-search-focus chromeless-input" data-hotkey="s" name="q" placeholder="Search…" tabindex="1" autocorrect="off" autocomplete="off" autocapitalize="off" pmbx_context="E911A1B2-D163-45A3-815D-A79B8CE162B4">
+  </label>
+
+</form>
+    </div>
+    <ul class="header-nav left" role="navigation">
+      <li class="header-nav-item">
+        <a href="https://gist.github.com/discover" class="header-nav-link" data-ga-click="Header, go to all gists, text:all gists">All gists</a>
+      </li>
+
+      <li class="header-nav-item">
+        <a href="https://github.com/" class="header-nav-link" data-ga-click="Header, go to GitHub, text:GitHub">GitHub</a>
+      </li>
+    </ul>
+
+      <ul class="header-nav user-nav right" id="user-links">
+        <li class="header-nav-item">
+          <a href="https://github.com/join?return_to=gist" class="btn btn-primary">Sign up for a GitHub account</a>
+        </li>
+
+        <li class="header-nav-item">
+          <a href="https://gist.github.com/auth/github?return_to=gist" class="btn">Sign in</a>
+        </li>
+      </ul>
+
+  </div>
+</div>
+
+
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+
+    <div id="gist-pjax-container" class="gist-content-wrapper" data-pjax-container="">
+        <div class="gisthead pagehead repohead instapaper_ignore readability-menu">
+    <div class="container">
+        
+<h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+  <img alt="@paulirish" class="gist-avatar" height="26" src="./requestAnimationFrame polyfill · GitHub_files/39191" width="26">
+  <span class="author"><a href="https://gist.github.com/paulirish" class="url fn" itemprop="url" rel="author"><span itemprop="title">paulirish</span></a></span><!--
+       --><span class="path-divider">/</span><!--
+       --><strong><a href="./requestAnimationFrame polyfill · GitHub_files/requestAnimationFrame polyfill · GitHub.html">rAF.js</a></strong>
+
+  <span class="page-context-loader">
+    <img alt="" height="16" src="./requestAnimationFrame polyfill · GitHub_files/octocat-spinner-32.gif" width="16">
+  </span>
+
+  <div class="gist-timestamp">Last active <time datetime="2015-08-15T15:09:42Z" is="time-ago" title="15 aug. 2015 17:09 CEST">21 hours ago</time></div>
+</h1>
+
+<ul class="pagehead-actions">
+</ul>
+
+
+    </div><!-- /.container -->
+  </div><!-- /.repohead -->
+
+<div class="container">
+  <div class="repository-with-sidebar repo-container new-discussion-timeline with-full-navigation ">
+    <div class="repository-sidebar clearfix">
+          <div class="sunken-menu repo-nav js-repo-nav js-sidenav-container-pjax js-octicon-loaders" data-pjax="#gist-pjax-container">
+  <ul class="sunken-menu-group">
+    <li class="tooltipped tooltipped-w" aria-label="Code">
+      <a href="./requestAnimationFrame polyfill · GitHub_files/requestAnimationFrame polyfill · GitHub.html" aria-label="Code" aria-selected="true" class="js-selected-navigation-item selected sunken-menu-item" data-hotkey="g c" data-pjax="true" data-selected-links="gist_code /paulirish/1579671">
+        <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+        <img alt="" class="mini-loader" height="16" src="./requestAnimationFrame polyfill · GitHub_files/octocat-spinner-32.gif" width="16">
+</a>    </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Revisions">
+        <a href="https://gist.github.com/paulirish/1579671/revisions" aria-label="Revisions" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g r" data-pjax="true" data-selected-links="gist_revisions /paulirish/1579671/revisions">
+          <span class="octicon octicon-git-commit"></span> <span class="full-word">Revisions</span>
+          <span class="counter">6</span>
+          <img alt="" class="mini-loader" height="16" src="./requestAnimationFrame polyfill · GitHub_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Stars">
+        <a href="https://gist.github.com/paulirish/1579671/stargazers" aria-label="Stars" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g s" data-pjax="true" data-selected-links="gist_stars /paulirish/1579671/stargazers">
+          <span class="octicon octicon-star"></span> <span class="full-word">Stars</span>
+          <span class="counter">956</span>
+          <img alt="" class="mini-loader" height="16" src="./requestAnimationFrame polyfill · GitHub_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Forks">
+        <a href="https://gist.github.com/paulirish/1579671/forks" aria-label="Forks" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g f" data-pjax="true" data-selected-links="gist_forks /paulirish/1579671/forks">
+          <span class="octicon octicon-git-branch"></span> <span class="full-word">Forks</span>
+          <span class="counter">235</span>
+          <img alt="" class="mini-loader" height="16" src="./requestAnimationFrame polyfill · GitHub_files/octocat-spinner-32.gif" width="16">
+</a>      </li>
+  </ul>
+</div>
+
+
+    <div class="only-with-full-nav">
+      <div class="embed-url open">
+  <h3><span class="text-emphasized">Embed</span> URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="&lt;script src=&quot;https://gist.github.com/paulirish/1579671.js&quot;&gt;&lt;/script&gt;" readonly="readonly" aria-label="Gist Embed URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+        
+<div class="js-clone-url clone-url open" data-protocol-type="http">
+  <h3><span class="text-emphasized">HTTPS</span> clone URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="https://gist.github.com/1579671.git" readonly="readonly" aria-label="HTTPS clone URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="js-clone-url clone-url " data-protocol-type="subversion">
+  <h3><span class="text-emphasized">Subversion</span> checkout URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="https://github.com/1579671" readonly="readonly" aria-label="Subversion checkout URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+
+  <div class="clone-options">You can clone with
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="https://gist.github.com/users/set_protocol?protocol_selector=http&protocol_type=clone" class="inline-form js-clone-selector-form " data-form-nonce="ed28f57cc492eb77aa1f1566b678a9f8eb65f3d0" data-remote="true" method="post" pmbx_context="C672E8E3-FCCD-4CE4-9F67-96375E67CB44"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" pmbx_context="47D12D8E-F9BA-4E69-8963-11976018FD54"><input name="authenticity_token" type="hidden" value="TP8R0ZbEkDCIMltt0Dauo2D05EZF9PVZlYOx9eGQGJ7Xf5Edr+KAavyCQiSdQEzrJUx7wiUnqVGh77HCdh/oow==" pmbx_context="67787931-8E27-4CCC-8D70-C54FCEFFAEDE"></div><button class="btn-link js-clone-selector" data-protocol="http" type="submit">HTTPS</button></form> or <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="https://gist.github.com/users/set_protocol?protocol_selector=subversion&protocol_type=clone" class="inline-form js-clone-selector-form " data-form-nonce="ed28f57cc492eb77aa1f1566b678a9f8eb65f3d0" data-remote="true" method="post" pmbx_context="6D9EC413-63A1-417A-8330-693CE8339409"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" pmbx_context="A6994DC0-0014-4A4F-98E8-B22A53EE0ED3"><input name="authenticity_token" type="hidden" value="v1bWcFyeUPNlTDBAF9COnpvL6OIotaN8KP6xBpQQvbPiWxdTq/l6f1TFsklrJ/JRUkfX4uxo072GojNhrwpNhA==" pmbx_context="25C41D06-BED1-4667-8D2A-92B14CF06EBE"></div><button class="btn-link js-clone-selector" data-protocol="subversion" type="submit">Subversion</button></form>.
+    <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+      <span class="octicon octicon-question"></span>
+    </a>
+  </div>
+    <a href="https://windows.github.com/" class="btn btn-sm sidebar-button" title="Save paulirish/1579671 to your computer and use it in GitHub Desktop." aria-label="Save paulirish/1579671 to your computer and use it in GitHub Desktop.">
+      <span class="octicon octicon-desktop-download"></span>
+      Clone in Desktop
+    </a>
+
+
+        <a href="https://gist.github.com/paulirish/1579671/archive/682e5c880c92b445650c4880a6bf9f3897ec1c5b.zip" class="btn btn-block" aria-label="Download the contents of paulirish/1579671 as a zip file" title="Download the contents of paulirish/1579671 as a zip file" rel="nofollow">
+          <span class="octicon octicon-cloud-download"></span>
+          Download ZIP
+        </a>
+    </div>
+
+
+    </div><!-- /.repository-sidebar -->
+
+    <div class="repository-content gist-content context-loader-container">
+      
+
+
+
+<span id="js-show-full-navigation"></span>
+
+<div>
+  <div class="repository-meta js-details-container">
+  <div class="repository-description">
+    requestAnimationFrame polyfill
+  </div>
+</div>
+
+      <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-raf-js" class="file">
+      <div class="file-header">
+        <div class="file-actions">
+
+          <a href="https://gist.github.com/paulirish/1579671/raw/682e5c880c92b445650c4880a6bf9f3897ec1c5b/rAF.js" class="btn btn-sm ">Raw</a>
+        </div>
+        <div class="file-info">
+          <span class="icon">
+            <b class="octicon octicon-gist"></b>
+          </span>
+          <a class="tooltipped tooltipped-s" aria-label="Permalink" href="https://gist.github.com/paulirish/1579671#file-raf-js">
+            <strong class="js-selectable-text">
+              rAF.js
+            </strong>
+          </a>
+        </div>
+      </div>
+    
+
+  <div class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-raf-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-raf-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// http://paulirish.com/2011/requestanimationframe-for-smart-animating/</span></td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-raf-js-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating</span></td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-raf-js-LC3" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-raf-js-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel</span></td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-raf-js-LC5" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-raf-js-LC6" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// MIT license</span></td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-raf-js-LC7" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-raf-js-LC8" class="blob-code blob-code-inner js-file-line">(<span class="pl-k">function</span>() {</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-raf-js-LC9" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> lastTime <span class="pl-k">=</span> <span class="pl-c1">0</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-raf-js-LC10" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> vendors <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>ms<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>moz<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>webkit<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>];</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-raf-js-LC11" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">for</span>(<span class="pl-k">var</span> x <span class="pl-k">=</span> <span class="pl-c1">0</span>; x <span class="pl-k">&lt;</span> vendors.<span class="pl-c1">length</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>; <span class="pl-k">++</span>x) {</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-raf-js-LC12" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-c1">window</span>[vendors[x]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>RequestAnimationFrame<span class="pl-pds">'</span></span>];</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-raf-js-LC13" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">window</span>.<span class="pl-c1">cancelAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-c1">window</span>[vendors[x]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>CancelAnimationFrame<span class="pl-pds">'</span></span>] </td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-raf-js-LC14" class="blob-code blob-code-inner js-file-line">                                   <span class="pl-k">||</span> <span class="pl-c1">window</span>[vendors[x]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>CancelRequestAnimationFrame<span class="pl-pds">'</span></span>];</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-raf-js-LC15" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-raf-js-LC16" class="blob-code blob-code-inner js-file-line"> </td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-raf-js-LC17" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-raf-js-LC18" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">window</span>.<span class="pl-en">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">callback</span>, <span class="pl-smi">element</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-raf-js-LC19" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">var</span> currTime <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Date</span>().<span class="pl-c1">getTime</span>();</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-raf-js-LC20" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">var</span> timeToCall <span class="pl-k">=</span> <span class="pl-c1">Math</span>.<span class="pl-c1">max</span>(<span class="pl-c1">0</span>, <span class="pl-c1">16</span> <span class="pl-k">-</span> (currTime <span class="pl-k">-</span> lastTime));</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-raf-js-LC21" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">var</span> id <span class="pl-k">=</span> <span class="pl-c1">window</span>.<span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span>() { <span class="pl-c1">callback</span>(currTime <span class="pl-k">+</span> timeToCall); }, </td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-raf-js-LC22" class="blob-code blob-code-inner js-file-line">              timeToCall);</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-raf-js-LC23" class="blob-code blob-code-inner js-file-line">            lastTime <span class="pl-k">=</span> currTime <span class="pl-k">+</span> timeToCall;</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-raf-js-LC24" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> id;</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-raf-js-LC25" class="blob-code blob-code-inner js-file-line">        };</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-raf-js-LC26" class="blob-code blob-code-inner js-file-line"> </td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-raf-js-LC27" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">cancelAnimationFrame</span>)</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-raf-js-LC28" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">window</span>.<span class="pl-en">cancelAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-raf-js-LC29" class="blob-code blob-code-inner js-file-line">            <span class="pl-c1">clearTimeout</span>(id);</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-raf-js-LC30" class="blob-code blob-code-inner js-file-line">        };</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-raf-js-LC31" class="blob-code blob-code-inner js-file-line">}());</td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+
+  <a name="comments"></a>
+  <div class="discussion-timeline gist-discussion-timeline js-quote-selection-container">
+    <div class="js-discussion js-socket-channel" data-channel="paulirish/1579671:marked-as-read:1579671">
+      
+
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/charliewalnut"><img alt="@charliewalnut" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/490040" width="48"></a>
+    <div id="gistcomment-75515" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="b030c034d561319acccb0fb3396be626">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/charliewalnut" class="author">charliewalnut</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-75515" class="timestamp">
+      <time datetime="2012-01-12T20:34:50Z" is="relative-time" title="12 jan. 2012 21:34 CET">on 12 Jan 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Not a bad shim. A few improvements could be made, though:</p>
+
+<p>1.) use Date.now() instead of new Date().getTime(), avoids one object allocation</p>
+
+<p>2.) Date.now() and setTimeout() operate in terms of integer milliseconds, but 60fps doesn't map to an integer number of milliseconds. This tries to map to 16ms/frame, which is 62.5 and will produce aliasing (meaning bad looking frames) every few seconds. See <a href="https://lists.webkit.org/pipermail/webkit-dev/2011-September/018095.html">https://lists.webkit.org/pipermail/webkit-dev/2011-September/018095.html</a> for a very wordy description of why.  It is possible to do better, however, by tracking the error between the actual callback rate and the target.  <a href="http://trac.webkit.org/browser/trunk/Source/WebCore/platform/graphics/chromium/cc/CCDelayBasedTimeSource.cpp?rev=104644#L101">http://trac.webkit.org/browser/trunk/Source/WebCore/platform/graphics/chromium/cc/CCDelayBasedTimeSource.cpp?rev=104644#L101</a> describes in detail how to do this with some C++ code</p>
+
+<p>3.) It's slightly better to set the timer before ticking rather than after - you don't have to worry about setTimeout() clamping if the callback takes &gt;12ms to run and the precision errors are less of a concern.  The easiest way to do this is to setTimeout() before invoking the callbacks assuming that somebody will call requestAnimationFrame() within the ticks, and then if they don't end up doing that call clearTimeout() after running the callbacks.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/paulirish"><img alt="@paulirish" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/39191(1)" width="48"></a>
+    <div id="gistcomment-76452" class="comment previewable-edit timeline-comment js-comment js-task-list-container owner-comment" data-body-version="1a83debefe16002bf65b68b99e65a260">
+
+  <div class="timeline-comment-header ">
+
+
+    <span class="timeline-comment-label">Owner</span>
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/paulirish" class="author">paulirish</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-76452" class="timestamp">
+      <time datetime="2012-01-17T08:51:09Z" is="relative-time" title="17 jan. 2012 09:51 CET">on 17 Jan 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>1) Date.now() doesnt exist in oldIE.. <a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/now">https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Date/now</a>  so how about <code>+new Date</code></p>
+
+<p>2) true. dunno how else we can tackle this in JS land though..</p>
+
+<p>3) can i ask you to fork this and make those changes? I can then review and pull 'em in.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/geddski"><img alt="@geddski" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/515722" width="48"></a>
+    <div id="gistcomment-77504" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="b106d10ce74bd4ab2b0d9f7e1451618b">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/geddski" class="author">geddski</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-77504" class="timestamp">
+      <time datetime="2012-01-20T21:41:04Z" is="relative-time" title="20 jan. 2012 22:41 CET">on 20 Jan 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Current Chrome (16) supports webkitRequestAnimationFrame but not webkitCancelAnimationFrame (or webkitCancelRequestAnimationFrame). This breaks the polyfill because it starts the animation loop with requestAnimationFrame, but there's no way to stop it. I've <a href="https://gist.github.com/1649729">patched the polyfill to return the setTimeout in this case</a></p>
+
+<p>Not sure how to send a pull request for a gist...</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/also"><img alt="@also" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/15624" width="48"></a>
+    <div id="gistcomment-77809" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="5a15808e9c6c71812f1c9febb81c6de8">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/also" class="author">also</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-77809" class="timestamp">
+      <time datetime="2012-01-22T20:42:16Z" is="relative-time" title="22 jan. 2012 21:42 CET">on 22 Jan 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>It should be <code>CancelRequestAnimationFrame</code> not <code>RequestCancelAnimationFrame</code>. The only references to <code>RequestCancelAnimationFrame</code> are this gist.</p>
+
+<p>webkitCancelRequestAnimationFrame exists in current Chrome (16.0.912.75)</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/paulirish"><img alt="@paulirish" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/39191(1)" width="48"></a>
+    <div id="gistcomment-77851" class="comment previewable-edit timeline-comment js-comment js-task-list-container owner-comment" data-body-version="f80b8b17d82572c07db9d840ad4d84ac">
+
+  <div class="timeline-comment-header ">
+
+
+    <span class="timeline-comment-label">Owner</span>
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/paulirish" class="author">paulirish</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-77851" class="timestamp">
+      <time datetime="2012-01-23T02:01:05Z" is="relative-time" title="23 jan. 2012 03:01 CET">on 23 Jan 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>lol dyslexia. thx also. Fixed.</p>
+
+<p>fwiw, the new name is present in canary.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/desandro"><img alt="@desandro" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/85566" width="48"></a>
+    <div id="gistcomment-84685" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="9fb98cc6f4a4b75648943b40dcbb7ca7">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/desandro" class="author">desandro</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-84685" class="timestamp">
+      <time datetime="2012-02-20T01:25:57Z" is="relative-time" title="20 feb. 2012 02:25 CET">on 20 Feb 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I ran into an issue with Firefox 10, where <code>mozRequestAnimationFrame</code> is supported, but not an equivalent for <code>cancelAnimationFrame</code>. So I was able to start an animation, but not properly stop it. if <code>cancelAnimationFrame</code> is a deal-breaker for you then <a href="https://gist.github.com/1866474">https://gist.github.com/1866474</a> might be more your flavor.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/paulirish"><img alt="@paulirish" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/39191(1)" width="48"></a>
+    <div id="gistcomment-85755" class="comment previewable-edit timeline-comment js-comment js-task-list-container owner-comment" data-body-version="46c374d7b64c107c914eb18bb56765ca">
+
+  <div class="timeline-comment-header ">
+
+
+    <span class="timeline-comment-label">Owner</span>
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/paulirish" class="author">paulirish</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-85755" class="timestamp">
+      <time datetime="2012-02-23T17:47:38Z" is="relative-time" title="23 feb. 2012 18:47 CET">on 23 Feb 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Why cAF is not at all in FF10 is a complete mystery to me. Seems no tickets at all filed about it either...</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/Breton"><img alt="@Breton" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/74322" width="48"></a>
+    <div id="gistcomment-88467" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="67e4e2023a7f9c09dc4625eabf7504db">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/Breton" class="author">Breton</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-88467" class="timestamp">
+      <time datetime="2012-03-05T06:47:54Z" is="relative-time" title="5 mrt. 2012 07:47 CET">on 5 Mar 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>couldn't you simulate cAF by wrapping requestAnimationFrame in a function grabs the ID and passes in a wrapped function that only calls its inner function if cancelAnimationFrame has not been called with a particular ID? (which you can check by having your fake cancelAnimation set the passed in ID on a private/closure variable object to true, and then checking that key in the wrap function.)<br>
+or maybe that's all just too complicated/too much overhead etc.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/cacheflowe"><img alt="@cacheflowe" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/349969" width="48"></a>
+    <div id="gistcomment-89052" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="fc4322a933c63731435bc430afb1890b">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/cacheflowe" class="author">cacheflowe</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-89052" class="timestamp">
+      <time datetime="2012-03-06T19:18:20Z" is="relative-time" title="6 mrt. 2012 20:18 CET">on 6 Mar 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I tried this out on an iOS Phonegap project, and it runs at a really terrible frame rate on my iPhone 4. I switched back to using a simple setTimeout and am getting close to 60fps. The timeToCall calculation is not good on iOS.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/taybenlor"><img alt="@taybenlor" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/137128" width="48"></a>
+    <div id="gistcomment-91114" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="d5731019136ea462b78ab86a7d92a8e9">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/taybenlor" class="author">taybenlor</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-91114" class="timestamp">
+      <time datetime="2012-03-13T12:22:13Z" is="relative-time" title="13 mrt. 2012 13:22 CET">on 13 Mar 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I think the timeToCall calculation is mostly useless anyway. It falls apart as soon as you call RAF twice in a row. And as mentioned by the commenter above adds a bunch of overhead.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/jrus"><img alt="@jrus" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/83411" width="48"></a>
+    <div id="gistcomment-91425" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="6d3d750dd6e5ea2c7e7193adec5be345">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/jrus" class="author">jrus</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-91425" class="timestamp">
+      <time datetime="2012-03-14T02:59:48Z" is="relative-time" title="14 mrt. 2012 03:59 CET">on 14 Mar 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/paulirish" class="user-mention">@paulirish</a> [edit: whoops, was looking at a previous version of the gist. Removing some of the criticism here.]</p>
+
+<p>To handle <a href="https://github.com/taybenlor" class="user-mention">@taybenlor</a>’s concern about calling RAF multiple times in a row, we can do something like:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> targetTime <span class="pl-k">=</span> <span class="pl-c1">0</span>;
+<span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>)
+  <span class="pl-c1">window</span>.<span class="pl-en">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">callback</span>) {
+    <span class="pl-k">var</span> currentTime <span class="pl-k">=</span> <span class="pl-k">+</span><span class="pl-k">new</span> <span class="pl-en">Date</span>;
+    targetTime <span class="pl-k">=</span> <span class="pl-c1">Math</span>.<span class="pl-c1">max</span>(targetTime <span class="pl-k">+</span> <span class="pl-c1">16</span>, currentTime);
+    <span class="pl-k">var</span> <span class="pl-en">timeoutCb</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() { <span class="pl-c1">callback</span>(<span class="pl-k">+</span><span class="pl-k">new</span> <span class="pl-en">Date</span>); }
+    <span class="pl-k">return</span> <span class="pl-c1">window</span>.<span class="pl-c1">setTimeout</span>(timeoutCb, targetTime <span class="pl-k">-</span> currentTime);
+  };</pre></div>
+
+<p>This also clarifies the code a bit (the previous variable names were a  bit confusing), and makes sure that the timestamp passed to the callback is correct, because it is determined (by getting <code>+new Date</code> again) right as the callback is being called.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/taybenlor"><img alt="@taybenlor" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/137128" width="48"></a>
+    <div id="gistcomment-91428" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="8e699a1de4744973891f9e09bb6f693d">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/taybenlor" class="author">taybenlor</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-91428" class="timestamp">
+      <time datetime="2012-03-14T03:02:45Z" is="relative-time" title="14 mrt. 2012 04:02 CET">on 14 Mar 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/jrus" class="user-mention">@jrus</a> I think you misunderstand what is going on</p>
+
+<p>The time passed into the callback is <code>currTime + timeToCall</code> which gives you the time at which we expect the callback to be called (not necessarily when it will actually be called).</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/jrus"><img alt="@jrus" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/83411" width="48"></a>
+    <div id="gistcomment-91462" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="35192da2bdb1c0eafec42733bf626f17">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/jrus" class="author">jrus</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-91462" class="timestamp">
+      <time datetime="2012-03-14T06:40:41Z" is="relative-time" title="14 mrt. 2012 07:40 CET">on 14 Mar 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/taybenlor" class="user-mention">@taybenlor</a> yeah, but the semantics of requestAnimationFrame (as far as I can understand from reading the spec; it’s not entirely clear/explicit what time should be passed to the callback) should send the time when it’s actually called into the callback. [Also, I edited my previous comment a bit: was looking at the previous version of the gist when I first wrote it.]</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/jrus"><img alt="@jrus" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/83411" width="48"></a>
+    <div id="gistcomment-91474" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="ff8f22a1457c08ec8435b32e4137aa65">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/jrus" class="author">jrus</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-91474" class="timestamp">
+      <time datetime="2012-03-14T08:17:51Z" is="relative-time" title="14 mrt. 2012 09:17 CET">on 14 Mar 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Here’s a cute CoffeeScript port of the whole thing</p>
+
+<div class="highlight highlight-coffeescript"><pre><span class="pl-k">do</span> <span class="pl-k">-&gt;</span>
+    <span class="pl-v"><span class="pl-v">w <span class="pl-k">=</span></span></span> <span class="pl-c1">window</span>
+    <span class="pl-k">for</span> vendor <span class="pl-k">in</span> [<span class="pl-s"><span class="pl-pds">'</span>ms<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>moz<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>webkit<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>]
+        <span class="pl-k">break</span> <span class="pl-k">if</span> w.requestAnimationFrame
+        <span class="pl-v"><span class="pl-v">w.requestAnimationFrame <span class="pl-k">=</span></span></span> w[<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-pse">#{</span>vendor<span class="pl-pse">}</span></span>RequestAnimationFrame<span class="pl-pds">"</span></span>]
+        <span class="pl-v"><span class="pl-v">w.cancelAnimationFrame <span class="pl-k">=</span></span></span> (w[<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-pse">#{</span>vendor<span class="pl-pse">}</span></span>CancelAnimationFrame<span class="pl-pds">"</span></span>] <span class="pl-k">or</span>
+                                  w[<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-pse">#{</span>vendor<span class="pl-pse">}</span></span>CancelRequestAnimationFrame<span class="pl-pds">"</span></span>])
+
+    <span class="pl-v"><span class="pl-v">targetTime <span class="pl-k">=</span></span></span> <span class="pl-c1">0</span>
+    w.requestAnimationFrame <span class="pl-k">or=</span> <span class="pl-smi">(callback)</span> <span class="pl-k">-&gt;</span>
+        <span class="pl-v"><span class="pl-v">targetTime <span class="pl-k">=</span></span></span> <span class="pl-c1">Math</span>.<span class="pl-c1">max</span> targetTime <span class="pl-k">+</span> <span class="pl-c1">16</span>, <span class="pl-v"><span class="pl-v">currentTime <span class="pl-k">=</span></span></span> <span class="pl-k">+</span><span class="pl-k">new</span> <span class="pl-en">Date</span>
+        w.setTimeout (<span class="pl-k">-&gt;</span> callback <span class="pl-k">+</span><span class="pl-k">new</span> <span class="pl-en">Date</span>), targetTime <span class="pl-k">-</span> currentTime
+
+    w.cancelAnimationFrame <span class="pl-k">or=</span> <span class="pl-smi">(id)</span> <span class="pl-k">-&gt;</span> clearTimeout id</pre></div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/jrus"><img alt="@jrus" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/83411" width="48"></a>
+    <div id="gistcomment-91515" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="3764e889ca6472cc729e4d9b77541fc4">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/jrus" class="author">jrus</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-91515" class="timestamp">
+      <time datetime="2012-03-14T12:26:13Z" is="relative-time" title="14 mrt. 2012 13:26 CET">on 14 Mar 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/breton" class="user-mention">@breton</a>, <a href="https://github.com/geddesign" class="user-mention">@geddesign</a> this version should I think do cAF properly in browsers that only implement rAF, assuming they actually return a unique ID for each call to rAF:</p>
+
+<div class="highlight highlight-coffeescript"><pre><span class="pl-k">do</span> <span class="pl-k">-&gt;</span>
+    <span class="pl-v"><span class="pl-v">w <span class="pl-k">=</span></span></span> <span class="pl-c1">window</span>
+    <span class="pl-k">for</span> vendor <span class="pl-k">in</span> [<span class="pl-s"><span class="pl-pds">'</span>ms<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>moz<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>webkit<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>]
+        <span class="pl-k">break</span> <span class="pl-k">if</span> w.requestAnimationFrame
+        <span class="pl-v"><span class="pl-v">w.requestAnimationFrame <span class="pl-k">=</span></span></span> w[<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-pse">#{</span>vendor<span class="pl-pse">}</span></span>RequestAnimationFrame<span class="pl-pds">"</span></span>]
+        <span class="pl-v"><span class="pl-v">w.cancelAnimationFrame <span class="pl-k">=</span></span></span> (w[<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-pse">#{</span>vendor<span class="pl-pse">}</span></span>CancelAnimationFrame<span class="pl-pds">"</span></span>] <span class="pl-k">or</span>
+                                  w[<span class="pl-s"><span class="pl-pds">"</span><span class="pl-s1"><span class="pl-pse">#{</span>vendor<span class="pl-pse">}</span></span>CancelRequestAnimationFrame<span class="pl-pds">"</span></span>])
+
+    <span class="pl-c"># deal with the case where rAF is built in but cAF is not.</span>
+    <span class="pl-k">if</span> w.requestAnimationFrame
+        <span class="pl-k">return</span> <span class="pl-k">if</span> w.cancelAnimationFrame
+        <span class="pl-v"><span class="pl-v">browserRaf <span class="pl-k">=</span></span></span> w.requestAnimationFrame
+        <span class="pl-v"><span class="pl-v">canceled <span class="pl-k">=</span></span></span> {}
+        <span class="pl-en">w.requestAnimationFrame </span><span class="pl-k">=</span><span class="pl-smi"> <span class="pl-smi">(callback)</span></span> <span class="pl-k"><span class="pl-k">-&gt;</span></span>
+            <span class="pl-v"><span class="pl-v">id <span class="pl-k">=</span></span></span> browserRaf <span class="pl-smi">(time)</span> <span class="pl-k">-&gt;</span>
+                <span class="pl-k">if</span> id <span class="pl-k">of</span> canceled <span class="pl-k">then</span> <span class="pl-k">delete</span> canceled[id]
+                <span class="pl-k">else</span> callback time
+        <span class="pl-en">w.cancelAnimationFrame </span><span class="pl-k">=</span><span class="pl-smi"> <span class="pl-smi">(id)</span></span> <span class="pl-k"><span class="pl-k">-&gt;</span></span> canceled[id] <span class="pl-k">=</span> <span class="pl-c1">true</span>
+
+    <span class="pl-c"># handle legacy browsers which don’t implement rAF</span>
+    <span class="pl-k">else</span>
+        <span class="pl-v"><span class="pl-v">targetTime <span class="pl-k">=</span></span></span> <span class="pl-c1">0</span>
+        <span class="pl-en">w.requestAnimationFrame </span><span class="pl-k">=</span><span class="pl-smi"> <span class="pl-smi">(callback)</span></span> <span class="pl-k"><span class="pl-k">-&gt;</span></span>
+            <span class="pl-v"><span class="pl-v">targetTime <span class="pl-k">=</span></span></span> <span class="pl-c1">Math</span>.<span class="pl-c1">max</span> targetTime <span class="pl-k">+</span> <span class="pl-c1">16</span>, <span class="pl-v"><span class="pl-v">currentTime <span class="pl-k">=</span></span></span> <span class="pl-k">+</span><span class="pl-k">new</span> <span class="pl-en">Date</span>
+            w.setTimeout (<span class="pl-k">-&gt;</span> callback <span class="pl-k">+</span><span class="pl-k">new</span> <span class="pl-en">Date</span>), targetTime <span class="pl-k">-</span> currentTime
+
+        <span class="pl-en">w.cancelAnimationFrame </span><span class="pl-k">=</span><span class="pl-smi"> <span class="pl-smi">(id)</span></span> <span class="pl-k"><span class="pl-k">-&gt;</span></span> clearTimeout id</pre></div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/erik-landvall"><img alt="@erik-landvall" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/839818" width="48"></a>
+    <div id="gistcomment-326388" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="cacd9e39d77d2cd2badcb955ad04b312">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/erik-landvall" class="author">erik-landvall</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-326388" class="timestamp">
+      <time datetime="2012-05-21T18:07:36Z" is="relative-time" title="21 mei 2012 20:07 CEST">on 21 May 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I created a script somewhat based on this gist.<br>
+You find the code at: <a href="https://github.com/erik-landvall/animator">https://github.com/erik-landvall/animator</a></p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/LeoDutra"><img alt="@LeoDutra" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/444344" width="48"></a>
+    <div id="gistcomment-374349" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="b4f44500a29b0289fc3b770a12420d80">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/LeoDutra" class="author">LeoDutra</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-374349" class="timestamp">
+      <time datetime="2012-07-17T15:29:35Z" is="relative-time" title="17 jul. 2012 17:29 CEST">on 17 Jul 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Suggestion:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> id <span class="pl-k">=</span> <span class="pl-c1">window</span>.<span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span>() { <span class="pl-c1">callback</span>(currTime <span class="pl-k">+</span> timeToCall); }, timeToCall);
+lastTime <span class="pl-k">=</span> currTime <span class="pl-k">+</span> timeToCall;
+<span class="pl-k">return</span> id;</pre></div>
+
+<p>to</p>
+
+<div class="highlight highlight-javascript"><pre>lastTime <span class="pl-k">=</span> currTime <span class="pl-k">+</span> timeToCall;
+<span class="pl-k">return</span> <span class="pl-c1">window</span>.<span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span>() { <span class="pl-c1">callback</span>(currTime <span class="pl-k">+</span> timeToCall); }, timeToCall);</pre></div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/rwaldron"><img alt="@rwaldron" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/27985" width="48"></a>
+    <div id="gistcomment-395086" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="ca3ec748df2d9c1e832c3056e39340df">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/rwaldron" class="author">rwaldron</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-395086" class="timestamp">
+      <time datetime="2012-08-09T20:11:48Z" is="relative-time" title="9 aug. 2012 22:11 CEST">on 9 Aug 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Just for fun... <a href="https://gist.github.com/1058681">https://gist.github.com/1058681</a></p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/rma4ok"><img alt="@rma4ok" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/470292" width="48"></a>
+    <div id="gistcomment-399386" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="d615bc08fdd7017ab1c8a9925aa3b2d0">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/rma4ok" class="author">rma4ok</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-399386" class="timestamp">
+      <time datetime="2012-08-16T16:09:57Z" is="relative-time" title="16 aug. 2012 18:09 CEST">on 16 Aug 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Hello!</p>
+
+<p>There is <a href="https://gist.github.com/3371337">my version</a> of the polyfill</p>
+
+<p>It has a lot of size and performance optimizations </p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/bradley"><img alt="@bradley" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/806129" width="48"></a>
+    <div id="gistcomment-575948" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="04219198239f69c6d8b61091ddc24a76">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/bradley" class="author">bradley</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-575948" class="timestamp">
+      <time datetime="2012-09-21T05:00:05Z" is="relative-time" title="21 sep. 2012 07:00 CEST">on 21 Sep 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Just some minor tweaks in case anyone is interested: implemented the single var pattern and LeoDutra's suggestion.</p>
+
+<div class="highlight highlight-javascript"><pre>(<span class="pl-k">function</span>() {
+    <span class="pl-k">var</span> lastTime <span class="pl-k">=</span> <span class="pl-c1">0</span>,
+        vendors <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>ms<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>moz<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>webkit<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>],
+        x,
+        length,
+        currTime,
+        timeToCall;
+
+    <span class="pl-k">for</span>(x <span class="pl-k">=</span> <span class="pl-c1">0</span>, length <span class="pl-k">=</span> vendors.<span class="pl-c1">length</span>; x <span class="pl-k">&lt;</span> length <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>; <span class="pl-k">++</span>x) {
+        <span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-c1">window</span>[vendors[x]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>RequestAnimationFrame<span class="pl-pds">'</span></span>];
+        <span class="pl-c1">window</span>.<span class="pl-c1">cancelAnimationFrame</span> <span class="pl-k">=</span> 
+          <span class="pl-c1">window</span>[vendors[x]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>CancelAnimationFrame<span class="pl-pds">'</span></span>] <span class="pl-k">||</span> <span class="pl-c1">window</span>[vendors[x]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>CancelRequestAnimationFrame<span class="pl-pds">'</span></span>];
+    }
+
+    <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>)
+        <span class="pl-c1">window</span>.<span class="pl-en">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">callback</span>, <span class="pl-smi">element</span>) {
+            currTime <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Date</span>().<span class="pl-c1">getTime</span>();
+            timeToCall <span class="pl-k">=</span> <span class="pl-c1">Math</span>.<span class="pl-c1">max</span>(<span class="pl-c1">0</span>, <span class="pl-c1">16</span> <span class="pl-k">-</span> (currTime <span class="pl-k">-</span> lastTime));
+            lastTime <span class="pl-k">=</span> currTime <span class="pl-k">+</span> timeToCall;
+            <span class="pl-k">return</span> <span class="pl-c1">window</span>.<span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span>() { <span class="pl-c1">callback</span>(currTime <span class="pl-k">+</span> timeToCall); }, 
+              timeToCall);
+        };
+
+    <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">cancelAnimationFrame</span>)
+        <span class="pl-c1">window</span>.<span class="pl-en">cancelAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+            <span class="pl-c1">clearTimeout</span>(id);
+        };
+}());</pre></div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/EmilMarian"><img alt="@EmilMarian" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/2736809" width="48"></a>
+    <div id="gistcomment-593403" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="2c3890ef244bf85d2ed9b3bb4fd53160">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/EmilMarian" class="author">EmilMarian</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-593403" class="timestamp">
+      <time datetime="2012-11-06T17:42:00Z" is="relative-time" title="6 nov. 2012 18:42 CET">on 6 Nov 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Just downloaded the code, really easy to use and effective.<br>
+Thank you!</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/unphased"><img alt="@unphased" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/1542910" width="48"></a>
+    <div id="gistcomment-686001" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="dc65bd8d7a6e95b0b9679c3e79ca4660">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/unphased" class="author">unphased</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-686001" class="timestamp">
+      <time datetime="2012-12-31T06:42:44Z" is="relative-time" title="31 dec. 2012 07:42 CET">on 31 Dec 2012</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Would it make sense to augment this shim so that the setTimeout fallback uses <code>performance.webkitNow</code> or <code>performance.now</code> to better determine a good value to setTimeout?</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/jonasfj"><img alt="@jonasfj" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/149732" width="48"></a>
+    <div id="gistcomment-695765" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="7f99398a0222982cca512d502edf1a01">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/jonasfj" class="author">jonasfj</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-695765" class="timestamp">
+      <time datetime="2013-01-02T23:54:45Z" is="relative-time" title="3 jan. 2013 00:54 CET">on 3 Jan 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Maybe it's horribly overkill, but if you can multiple animations at the same time. It could pay of to use a list and avoid multiple setTimeout's, also making sure the requests runs at the same time.<br>
+I posted my approach here: <a href="https://gist.github.com/4438815">https://gist.github.com/4438815</a></p>
+
+<p>Although, it's probably overkill for normal usage...</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/jalleyne"><img alt="@jalleyne" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/163205" width="48"></a>
+    <div id="gistcomment-770962" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="1e06c891cd35f38cbf0b384cb32e4007">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/jalleyne" class="author">jalleyne</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-770962" class="timestamp">
+      <time datetime="2013-02-11T01:40:41Z" is="relative-time" title="11 feb. 2013 02:40 CET">on 11 Feb 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I've been testing this version out and for some reason i can't cancel the animation request in webkit browsers. It does cancel in Firefox though. Has anyone else run into this?</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/kikito"><img alt="@kikito" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/63131" width="48"></a>
+    <div id="gistcomment-801936" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="dd409f4c166d45f6c0818fd0d1689d6a">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/kikito" class="author">kikito</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-801936" class="timestamp">
+      <time datetime="2013-03-19T23:13:09Z" is="relative-time" title="20 mrt. 2013 00:13 CET">on 20 Mar 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Note that the latest browsers (confirmed in Chrome, Firefox and IE10) have moved away from Date-based timestamps on requestAnimationFrame. They now all use <a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">the new precision API</a>.</p>
+
+<p>If you are having issues during the first 1 or 2 frames, and you are substracting Date.now or something similar, that's the reason.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/deCastongrene"><img alt="@deCastongrene" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/1251576" width="48"></a>
+    <div id="gistcomment-805446" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="36b908b0a6e8212b4868d45d70aecbee">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/deCastongrene" class="author">deCastongrene</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-805446" class="timestamp">
+      <time datetime="2013-03-26T01:45:28Z" is="relative-time" title="26 mrt. 2013 02:45 CET">on 26 Mar 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>What is the licensing for this code? Is it reusable for commercial software?</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/mizzao"><img alt="@mizzao" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/2080084" width="48"></a>
+    <div id="gistcomment-807270" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="ebaa05b9ebfc909d7c433d8e838fb8ef">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/mizzao" class="author">mizzao</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-807270" class="timestamp">
+      <time datetime="2013-03-29T03:56:06Z" is="relative-time" title="29 mrt. 2013 04:56 CET">on 29 Mar 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>The rAF / cAF shim above for browsers that don't support it (read: IE9) was completely broken for me. In my app I call cAF if rAF is called before a previous callback completes, otherwise some serious lag happens. With the shim it was basically adding 16 ms for each callback so if a whole bunch of events were fired off, the actual final non-cancelled callback might not happen until many seconds later. Hence, I subtracted the 16 ms for each cAF. This works much better in IE9; the part I changed is as follows</p>
+
+<div class="highlight highlight-coffeescript"><pre>        <span class="pl-c"># handle legacy browsers which don't implement rAF</span>
+        <span class="pl-v"><span class="pl-v">targetTime <span class="pl-k">=</span></span></span> <span class="pl-c1">0</span>
+        <span class="pl-en">w.requestAnimationFrame </span><span class="pl-k">=</span><span class="pl-smi"> <span class="pl-smi">(callback)</span></span> <span class="pl-k"><span class="pl-k">-&gt;</span></span>
+            <span class="pl-v"><span class="pl-v">targetTime <span class="pl-k">=</span></span></span> <span class="pl-c1">Math</span>.<span class="pl-c1">max</span> targetTime <span class="pl-k">+</span> <span class="pl-c1">16</span>, <span class="pl-v"><span class="pl-v">currentTime <span class="pl-k">=</span></span></span> <span class="pl-k">+</span><span class="pl-k">new</span> <span class="pl-en">Date</span>
+            w.setTimeout (<span class="pl-k">-&gt;</span> callback <span class="pl-k">+</span><span class="pl-k">new</span> <span class="pl-en">Date</span>), targetTime <span class="pl-k">-</span> currentTime            
+
+        <span class="pl-en">w.cancelAnimationFrame </span><span class="pl-k">=</span><span class="pl-smi"> <span class="pl-smi">(id)</span></span> <span class="pl-k"><span class="pl-k">-&gt;</span></span>
+            <span class="pl-v"><span class="pl-v">targetTime <span class="pl-k">-=</span></span></span> <span class="pl-c1">16</span>
+            clearTimeout id</pre></div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/mzgol"><img alt="@mzgol" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/1758366" width="48"></a>
+    <div id="gistcomment-821127" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="bdbe5b66c69c3f229254cd9873a084f1">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/mzgol" class="author">mzgol</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-821127" class="timestamp">
+      <time datetime="2013-04-25T10:45:07Z" is="relative-time" title="25 apr. 2013 12:45 CEST">on 25 Apr 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>You can remove the o prefix, it won't ever be implemented.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/yckart"><img alt="@yckart" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/529130" width="48"></a>
+    <div id="gistcomment-822405" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="7bca04abb6e738151dafdda75d823616">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/yckart" class="author">yckart</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-822405" class="timestamp">
+      <time datetime="2013-04-27T15:38:07Z" is="relative-time" title="27 apr. 2013 17:38 CEST">on 27 Apr 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <blockquote>
+<p>You can remove the o prefix, it won't ever be implemented.</p>
+</blockquote>
+
+<p><a href="https://github.com/mzgol" class="user-mention">@mzgol</a> How do you know that?</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/bbudd"><img alt="@bbudd" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/637211" width="48"></a>
+    <div id="gistcomment-827469" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="22ddade6ff935ec14f64108af7a0141b">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/bbudd" class="author">bbudd</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-827469" class="timestamp">
+      <time datetime="2013-05-08T04:34:54Z" is="relative-time" title="8 mei 2013 06:34 CEST">on 8 May 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I know I'm super late to the game here, but I actually needed to adjust this polyfill because I am making use of the time argument -- which mean I not only need to fill the method, I also need to overwrite any <code>window.requestAnimationFrame</code> call that doesn't give me <code>time</code>. </p>
+
+<p>Here's my go (note: I didn't rewrite the cancelAnimationFrame polyfill, so I didn't include it here)</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> lastTime <span class="pl-k">=</span> <span class="pl-c1">0</span>,
+    vendors <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>ms<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>moz<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>webkit<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>],
+    <span class="pl-en">polyfill</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">callback</span>, <span class="pl-smi">element</span>) {
+        <span class="pl-k">var</span> currTime <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Date</span>().<span class="pl-c1">getTime</span>(),
+            timeToCall <span class="pl-k">=</span> <span class="pl-c1">Math</span>.<span class="pl-c1">max</span>(<span class="pl-c1">0</span>, <span class="pl-c1">16</span> <span class="pl-k">-</span> (currTime <span class="pl-k">-</span> lastTime)),
+            id <span class="pl-k">=</span> <span class="pl-c1">window</span>.<span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span>() { 
+                <span class="pl-c1">callback</span>(currTime <span class="pl-k">+</span> timeToCall); 
+            }, timeToCall);
+
+        lastTime <span class="pl-k">=</span> currTime <span class="pl-k">+</span> timeToCall;
+
+        <span class="pl-k">return</span> id;
+    };
+<span class="pl-k">for</span>(<span class="pl-k">var</span> x <span class="pl-k">=</span> <span class="pl-c1">0</span>, xx <span class="pl-k">=</span> vendors.<span class="pl-c1">length</span>; x <span class="pl-k">&lt;</span> xx <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>; <span class="pl-k">++</span>x) {
+    <span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-c1">window</span>[vendors[x]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>RequestAnimationFrame<span class="pl-pds">'</span></span>];
+    <span class="pl-c1">window</span>.<span class="pl-c1">cancelAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-c1">window</span>[vendors[x]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>CancelAnimationFrame<span class="pl-pds">'</span></span>] 
+                               <span class="pl-k">||</span> <span class="pl-c1">window</span>[vendors[x]<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>CancelRequestAnimationFrame<span class="pl-pds">'</span></span>];
+}
+
+<span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>) {
+    <span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span> <span class="pl-k">=</span> polyfill;
+} <span class="pl-k">else</span> {
+    <span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>(<span class="pl-k">function</span>() {
+        <span class="pl-k">var</span> isTime <span class="pl-k">=</span> <span class="pl-c1">false</span>,
+            args <span class="pl-k">=</span> <span class="pl-c1">Array</span>.<span class="pl-c1">prototype</span>.<span class="pl-c1">slice</span>.<span class="pl-c1">apply</span>(arguments);
+        <span class="pl-k">for</span> (<span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>, ii <span class="pl-k">=</span> args.<span class="pl-c1">length</span>; i <span class="pl-k">&lt;</span> ii; i<span class="pl-k">++</span>) {
+            <span class="pl-k">if</span> (<span class="pl-k">typeof</span> args <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>number<span class="pl-pds">'</span></span>) {
+                isTime <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+                <span class="pl-k">break</span>;
+            }
+        }
+        <span class="pl-k">if</span> (<span class="pl-k">!</span>isTime) {
+            <span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span> <span class="pl-k">=</span> polyfill;
+        }
+    });
+}</pre></div>
+
+<p>EDIT: Oh, and <a href="https://github.com/yckart" class="user-mention">@yckart</a> - because opera's moved to webkit. Hard to believe they wouldn't just use -webkit- instead of -o-</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/danb-cws"><img alt="@danb-cws" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/2528249" width="48"></a>
+    <div id="gistcomment-830045" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="d127bb920ec60f85660e16089210167e">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/danb-cws" class="author">danb-cws</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-830045" class="timestamp">
+      <time datetime="2013-05-14T09:53:33Z" is="relative-time" title="14 mei 2013 11:53 CEST">on 14 May 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>webkitRequestAnimationFrame is broken in iOS if you try and use it on additional pages, you can reenable it by focusing on the url bar then back to the page. (tested on ios6.1 iPad3)<br>
+The code by KrofDrakula fixed the issue for me (although the bug he describes was in an iframe, my issue was with basic page-to-page navigation).<br>
+<a href="https://gist.github.com/KrofDrakula/5318048">https://gist.github.com/KrofDrakula/5318048</a></p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/darius"><img alt="@darius" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/6712" width="48"></a>
+    <div id="gistcomment-837945" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="89da19a2ca90b62b767474c1b70defb5">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/darius" class="author">darius</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-837945" class="timestamp">
+      <time datetime="2013-05-30T20:43:48Z" is="relative-time" title="30 mei 2013 22:43 CEST">on 30 May 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>A simpler fix for the problem mizzao pointed out: update lastTime after the timeout instead of immediately, so you never have to undo it. Also fixed to make sure request and cancelAnimationFrame are defined consistently, plus gratuitous style changes.</p>
+
+<pre><code>(function() {
+    var vendors = ['webkit', 'moz'];
+    for (var i = 0; i &lt; vendors.length &amp;&amp; !window.requestAnimationFrame; ++i) {
+        var vp = vendors[i];
+        window.requestAnimationFrame = window[vp+'RequestAnimationFrame'];
+        window.cancelAnimationFrame = (window[vp+'CancelAnimationFrame']
+                                   || window[vp+'CancelRequestAnimationFrame']);
+    }
+    if (!window.requestAnimationFrame || !window.cancelAnimationFrame) {
+        var lastTime = 0;
+        window.requestAnimationFrame = function(callback) {
+            var now = new Date().getTime();
+            var nextTime = Math.max(lastTime + 16, now);
+            return setTimeout(function() { callback(lastTime = nextTime); },
+                              nextTime - now);
+        };
+        window.cancelAnimationFrame = clearTimeout;
+    }
+}());
+</code></pre>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/darius"><img alt="@darius" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/6712" width="48"></a>
+    <div id="gistcomment-838049" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="707c5715886fe590854b71d55fe7696a">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/darius" class="author">darius</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-838049" class="timestamp">
+      <time datetime="2013-05-30T23:27:33Z" is="relative-time" title="31 mei 2013 01:27 CEST">on 31 May 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>A couple people have offered versions that collect multiple callbacks into a list all called for the same frame -- my code should handle the same usage without any extra fuss, assuming multiple setTimeouts with the same target time will get called without too much time in between. (I wonder if they will.)</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/stakach"><img alt="@stakach" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/368013" width="48"></a>
+    <div id="gistcomment-846392" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="db1551bc15438ca1a94e0302b66065e1">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/stakach" class="author">stakach</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-846392" class="timestamp">
+      <time datetime="2013-06-17T02:21:48Z" is="relative-time" title="17 jun. 2013 04:21 CEST">on 17 Jun 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Added cancellation support to <a href="https://github.com/darius" class="user-mention">@darius</a>'s mod</p>
+
+<div class="highlight highlight-javascript"><pre>(<span class="pl-k">function</span>(<span class="pl-smi">window</span>) {
+    <span class="pl-s"><span class="pl-pds">'</span>use strict<span class="pl-pds">'</span></span>;
+
+    <span class="pl-k">var</span> lastTime <span class="pl-k">=</span> <span class="pl-c1">0</span>,
+        vendors <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>moz<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>webkit<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>ms<span class="pl-pds">'</span></span>],
+        x;
+
+    <span class="pl-c">// Remove vendor prefixing if prefixed and break early if not</span>
+    <span class="pl-k">for</span> (x <span class="pl-k">=</span> <span class="pl-c1">0</span>; x <span class="pl-k">&lt;</span> vendors.<span class="pl-c1">length</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>; x <span class="pl-k">+=</span> <span class="pl-c1">1</span>) {
+        <span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-c1">window</span>[vendors[x] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>RequestAnimationFrame<span class="pl-pds">'</span></span>];
+        <span class="pl-c1">window</span>.<span class="pl-c1">cancelAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-c1">window</span>[vendors[x] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>CancelAnimationFrame<span class="pl-pds">'</span></span>]
+                                   <span class="pl-k">||</span> <span class="pl-c1">window</span>[vendors[x] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>CancelRequestAnimationFrame<span class="pl-pds">'</span></span>];
+    }
+
+    <span class="pl-c">// Check if full standard supported</span>
+    <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">cancelAnimationFrame</span>) {
+        <span class="pl-c">// Check if standard partially supported</span>
+        <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>) {
+            <span class="pl-c">// No support, emulate standard</span>
+            <span class="pl-c1">window</span>.<span class="pl-en">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">callback</span>) {
+                <span class="pl-k">var</span> now <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Date</span>().<span class="pl-c1">getTime</span>(),
+                    nextTime <span class="pl-k">=</span> <span class="pl-c1">Math</span>.<span class="pl-c1">max</span>(lastTime <span class="pl-k">+</span> <span class="pl-c1">16</span>, now);
+
+                <span class="pl-k">return</span> <span class="pl-c1">window</span>.<span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span>() { <span class="pl-c1">callback</span>(lastTime <span class="pl-k">=</span> nextTime); }, nextTime <span class="pl-k">-</span> now);
+            };
+
+            <span class="pl-c1">window</span>.<span class="pl-c1">cancelAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-c1">window</span>.<span class="pl-c1">clearTimeout</span>;
+        } <span class="pl-k">else</span> {
+            <span class="pl-c">// Emulate cancel for browsers that don't support it</span>
+            vendors <span class="pl-k">=</span> <span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span>;
+            lastTime <span class="pl-k">=</span> {};
+
+            <span class="pl-c1">window</span>.<span class="pl-en">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">callback</span>) {
+                <span class="pl-k">var</span> id <span class="pl-k">=</span> x; <span class="pl-c">// Generate the id (x is initialized in the for loop above)</span>
+                x <span class="pl-k">+=</span> <span class="pl-c1">1</span>;
+                lastTime[id] <span class="pl-k">=</span> callback;
+
+                <span class="pl-c">// Call the vendors requestAnimationFrame implementation</span>
+                <span class="pl-c1">vendors</span>(<span class="pl-k">function</span>(<span class="pl-smi">timestamp</span>) {
+                    <span class="pl-k">if</span> (lastTime.<span class="pl-c1">hasOwnProperty</span>(id)) {
+                        <span class="pl-k">var</span> error;
+                        <span class="pl-k">try</span> {
+                            lastTime[id](timestamp);
+                        } <span class="pl-k">catch</span> (e) {
+                            error <span class="pl-k">=</span> e;
+                        } <span class="pl-k">finally</span> {
+                            <span class="pl-k">delete</span> lastTime[id];
+                            <span class="pl-k">if</span> (error) { <span class="pl-k">throw</span> error; }         <span class="pl-c">// re-throw the error if an error occurred</span>
+                        }
+                    }
+                });
+
+                <span class="pl-c">// return the id for cancellation capabilities</span>
+                <span class="pl-k">return</span> id;
+            };
+
+            <span class="pl-c1">window</span>.<span class="pl-en">cancelAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">id</span>) {
+                <span class="pl-k">delete</span> lastTime[id];
+            };
+        }
+    }
+
+}(<span class="pl-v">this</span>));</pre></div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/ngryman"><img alt="@ngryman" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/892048" width="48"></a>
+    <div id="gistcomment-857557" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="6ec6e6531c2ed43442b83eb549672fa2">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/ngryman" class="author">ngryman</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-857557" class="timestamp">
+      <time datetime="2013-07-07T00:55:47Z" is="relative-time" title="7 jul. 2013 02:55 CEST">on 7 Jul 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Just published an slightly modified version of this polyfill on <strong>bower</strong> and <strong>jamjs</strong> if you use those package managers: <a href="https://github.com/ngryman/raf.js">https://github.com/ngryman/raf.js</a>.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/malandrew"><img alt="@malandrew" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/141789" width="48"></a>
+    <div id="gistcomment-861824" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="38a0f591b14a474cbde5f924d1d23e13">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/malandrew" class="author">malandrew</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-861824" class="timestamp">
+      <time datetime="2013-07-13T00:14:54Z" is="relative-time" title="13 jul. 2013 02:14 CEST">on 13 Jul 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I went through all the comments and revisions. Of all the iterations posted (or not), is there a best version of the polyfill to use as of July 12th 2013?</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/matthew-dean"><img alt="@matthew-dean" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/414752" width="48"></a>
+    <div id="gistcomment-866715" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="188d79fb95dda5dcd450fc6b235b6e7d">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/matthew-dean" class="author">matthew-dean</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-866715" class="timestamp">
+      <time datetime="2013-07-19T19:46:10Z" is="relative-time" title="19 jul. 2013 21:46 CEST">on 19 Jul 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>As @DanB-66 noted, requestAnimationFrame is completely borked in a variety of scenarios: iframes, page-to-page navigation, and, in our observation, in conjunction with infinitely running CSS animations.</p>
+
+<p>CanIuse.com mentions that requestAnimationFrame has bugs. Other notable mentions: <br>
+<a href="http://shitwebkitdoes.tumblr.com/post/47186945856/native-requestanimationframe-broken-on-ios-6">http://shitwebkitdoes.tumblr.com/post/47186945856/native-requestanimationframe-broken-on-ios-6</a><br>
+<a href="http://forums.greensock.com/topic/6639-tweens-not-working-on-ios6/?p=24455#entry24455">http://forums.greensock.com/topic/6639-tweens-not-working-on-ios6/?p=24455#entry24455</a></p>
+
+<p>The problem has not been fixed (thus far) in iOS7. IMO, this shim should detect iOS and simply not support it, for the time being.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/paulirish"><img alt="@paulirish" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/39191(1)" width="48"></a>
+    <div id="gistcomment-897541" class="comment previewable-edit timeline-comment js-comment js-task-list-container owner-comment" data-body-version="e041c109ea460df3acc9ed9c02134edb">
+
+  <div class="timeline-comment-header ">
+
+
+    <span class="timeline-comment-label">Owner</span>
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/paulirish" class="author">paulirish</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-897541" class="timestamp">
+      <time datetime="2013-08-30T02:24:54Z" is="relative-time" title="30 aug. 2013 04:24 CEST">on 30 Aug 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I think it's time we move this to a repo. :D I won't be able to maintain it so I'm looking for some responsible people.</p>
+
+<p>Also we need to address the iOS issues. I haven't researched them in-depth myself but we need to resolve them ASAP.</p>
+
+<p><a href="https://github.com/KrofDrakula" class="user-mention">@KrofDrakula</a> (<a href="https://gist.github.com/KrofDrakula/5318048">his iOS-fix fork</a>) or <a href="https://github.com/darius" class="user-mention">@darius</a> .. either of you interested?  </p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/geedew"><img alt="@geedew" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/37583" width="48"></a>
+    <div id="gistcomment-900468" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="28df7e615f463233c12b507c898ddba8">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/geedew" class="author">geedew</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-900468" class="timestamp">
+      <time datetime="2013-09-04T14:32:37Z" is="relative-time" title="4 sep. 2013 16:32 CEST">on 4 Sep 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/paulirish" class="user-mention">@paulirish</a> I would be happy to maintain it; I'm about to release code at work (SproutSocial) that relies on a very similar polyfil)</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/DavidVValdez"><img alt="@DavidVValdez" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/890852" width="48"></a>
+    <div id="gistcomment-906801" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="b876eae9378c8cacc117e67a60ab99a9">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/DavidVValdez" class="author">DavidVValdez</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-906801" class="timestamp">
+      <time datetime="2013-09-14T03:34:42Z" is="relative-time" title="14 sep. 2013 05:34 CEST">on 14 Sep 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>very nice, thanks for sharing</p>
+
+<p>i made two little modifications, instead of checking for the method to be falsy like this:</p>
+
+<p>!window.requestAnimationFrame</p>
+
+<p>i check for it to be explicitly undefined</p>
+
+<p>window.requestAnimationFrame === undefined</p>
+
+<p>and also when declaring vars i do it in a single var statement:</p>
+
+<p>var lastTime = 0,vendors = ['ms', 'moz', 'webkit', 'o'],x;</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/darius"><img alt="@darius" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/6712" width="48"></a>
+    <div id="gistcomment-908597" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="96d2e2dd1199038e141656f2e26ecae8">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/darius" class="author">darius</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-908597" class="timestamp">
+      <time datetime="2013-09-16T20:56:24Z" is="relative-time" title="16 sep. 2013 22:56 CEST">on 16 Sep 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/paulirish" class="user-mention">@paulirish</a>, I just made a repo at <a href="https://github.com/darius/requestAnimationFrame">https://github.com/darius/requestAnimationFrame</a>. It has KrofDrakula's test merged into my version above, though I haven't tested that on an iOS device yet.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/kof"><img alt="@kof" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/52824" width="48"></a>
+    <div id="gistcomment-912557" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="76b2bb5fb36b4a43d39b63e992ed9df7">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/kof" class="author">kof</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-912557" class="timestamp">
+      <time datetime="2013-09-22T01:57:24Z" is="relative-time" title="22 sep. 2013 03:57 CEST">on 22 Sep 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>just wrote an even better shim <a href="https://github.com/kof/animation-frame">https://github.com/kof/animation-frame</a></p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/Gaubee"><img alt="@Gaubee" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/2151644" width="48"></a>
+    <div id="gistcomment-929361" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="a3b69a06f9aea9818cea1fa29a545239">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/Gaubee" class="author">Gaubee</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-929361" class="timestamp">
+      <time datetime="2013-10-15T14:19:56Z" is="relative-time" title="15 okt. 2013 16:19 CEST">on 15 Oct 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <ul>
+<li>How about:</li>
+</ul>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> now <span class="pl-k">=</span> <span class="pl-c1">Date</span>.<span class="pl-c1">now</span> <span class="pl-k">||</span> <span class="pl-k">function</span>() {
+        <span class="pl-k">return</span> <span class="pl-k">+</span><span class="pl-k">new</span> <span class="pl-en">Date</span>
+    }</pre></div>
+
+<ul>
+<li>And the long list of strings and attribute name is not friendly to compression,recommended to use the variable string concatenation if readability is  in the extent permitted.</li>
+</ul>
+
+<p>For example:</p>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> _KEY_AnimationFrame <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>AnimationFrame<span class="pl-pds">'</span></span>,
+    _KEY_requestAnimationFrame <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>request<span class="pl-pds">'</span></span> <span class="pl-k">+</span> _KEY_AnimationFrame;
+<span class="pl-c1">window</span>[_KEY_requestAnimationFrame] <span class="pl-k">=</span> <span class="pl-k">function</span>(){<span class="pl-c">/*............*/</span>}</pre></div>
+
+<ul>
+<li>But as an shim, readability is consider can not do, need to be more concerned about is the compression ratio.</li>
+</ul>
+
+<p>It is my fork: <a href="https://gist.github.com/Gaubee/6991570">https://gist.github.com/Gaubee/6991570</a></p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/Ugoku"><img alt="@Ugoku" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/3470653" width="48"></a>
+    <div id="gistcomment-987892" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="76bda7d55e29cbd41225821a492e0386">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/Ugoku" class="author">Ugoku</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-987892" class="timestamp">
+      <time datetime="2014-01-16T14:58:29Z" is="relative-time" title="16 jan. 2014 15:58 CET">on 16 Jan 2014</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>FWIW, -o-requestAnimationFrame and -ms-requestAnimationFrame have never been used. Both browsers (IE 10+ and Opera 15+) use the unprefixed version. Firefox supports the unprefixed version since FF23, which was released last August (we are now 3 versions further).<br>
+So lines 10-15 can be rewritten to:</p>
+
+<pre><code>if (!window.requestAnimationFrame)
+{
+    window.requestAnimationFrame = window['webkitRequestAnimationFrame'];
+    window.cancelAnimationFrame = window['webkitCancelAnimationFrame'] || window['webkitCancelRequestAnimationFrame'];
+}
+</code></pre>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/pseidemann"><img alt="@pseidemann" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/431162" width="48"></a>
+    <div id="gistcomment-999234" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="012421951d8392213f4adac643318a06">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/pseidemann" class="author">pseidemann</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-999234" class="timestamp">
+      <time datetime="2014-02-04T15:12:10Z" is="relative-time" title="4 feb. 2014 16:12 CET">on 4 Feb 2014</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I did cleaned up the original a little bit:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// http://paulirish.com/2011/requestanimationframe-for-smart-animating/</span>
+<span class="pl-c">// http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating</span>
+
+<span class="pl-c">// requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel</span>
+
+<span class="pl-c">// MIT license</span>
+
+(<span class="pl-k">function</span> (<span class="pl-smi">window</span>, <span class="pl-smi">rAF</span>, <span class="pl-smi">cAF</span>) {
+    <span class="pl-k">var</span> lastTime <span class="pl-k">=</span> <span class="pl-c1">0</span>, vendors <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>ms<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>moz<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>webkit<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>o<span class="pl-pds">'</span></span>], x;
+
+    <span class="pl-k">for</span> (x <span class="pl-k">=</span> <span class="pl-c1">0</span>; x <span class="pl-k">&lt;</span> vendors.<span class="pl-c1">length</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-c1">window</span>[rAF]; <span class="pl-k">++</span>x) {
+        <span class="pl-c1">window</span>[rAF] <span class="pl-k">=</span> <span class="pl-c1">window</span>[vendors[x] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>RequestAnimationFrame<span class="pl-pds">'</span></span>];
+        <span class="pl-c1">window</span>[cAF] <span class="pl-k">=</span> <span class="pl-c1">window</span>[vendors[x] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>CancelAnimationFrame<span class="pl-pds">'</span></span>]
+            <span class="pl-k">||</span> <span class="pl-c1">window</span>[vendors[x] <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>CancelRequestAnimationFrame<span class="pl-pds">'</span></span>];
+    }
+
+    <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>[rAF]) {
+        <span class="pl-c1">window</span>[rAF] <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">callback</span>) {
+            <span class="pl-k">var</span> currTime <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Date</span>().<span class="pl-c1">getTime</span>(),
+                timeToCall <span class="pl-k">=</span> <span class="pl-c1">Math</span>.<span class="pl-c1">max</span>(<span class="pl-c1">0</span>, <span class="pl-c1">16</span> <span class="pl-k">-</span> (currTime <span class="pl-k">-</span> lastTime)),
+                id <span class="pl-k">=</span> <span class="pl-c1">window</span>.<span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span> () { <span class="pl-c1">callback</span>(currTime <span class="pl-k">+</span> timeToCall); }, timeToCall);
+
+            lastTime <span class="pl-k">=</span> currTime <span class="pl-k">+</span> timeToCall;
+
+            <span class="pl-k">return</span> id;
+        };
+    }
+
+    <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>[cAF]) {
+        <span class="pl-c1">window</span>[cAF] <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">id</span>) {
+            <span class="pl-c1">window</span>.<span class="pl-c1">clearTimeout</span>(id);
+        };
+    }
+}(<span class="pl-v">this</span>, <span class="pl-s"><span class="pl-pds">'</span>requestAnimationFrame<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>cancelAnimationFrame<span class="pl-pds">'</span></span>));</pre></div>
+
+<p>which compresses to 423 bytes:</p>
+
+<blockquote>
+<p>!function(a,b,c){var f,d=0,e=["ms","moz","webkit","o"];for(f=0;f&lt;e.length&amp;&amp;!a[b];++f)a[b]=a[e[f]+"RequestAnimationFrame"],a[c]=a[e[f]+"CancelAnimationFrame"]||a[e[f]+"CancelRequestAnimationFrame"];a[b]||(a[b]=function(b){var c=(new Date).getTime(),e=Math.max(0,16-(c-d)),f=a.setTimeout(function(){b(c+e)},e);return d=c+e,f}),a[c]||(a[c]=function(b){a.clearTimeout(b)})}(this,"requestAnimationFrame","cancelAnimationFrame");</p>
+</blockquote>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/knod"><img alt="@knod" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/4466164" width="48"></a>
+    <div id="gistcomment-999901" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="6dce594ef79318593c832edd9c50fc38">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/knod" class="author">knod</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-999901" class="timestamp">
+      <time datetime="2014-02-05T14:57:00Z" is="relative-time" title="5 feb. 2014 15:57 CET">on 5 Feb 2014</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/paulirish" class="user-mention">@paulirish</a> - Is this being hosted somewhere new now? There are links to various repos, but I couldn't tell which one of them is "officially sanctioned".</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/stoikerty"><img alt="@stoikerty" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/3392110" width="48"></a>
+    <div id="gistcomment-1185685" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="30733cd2733535708dd63246dd7c54cf">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/stoikerty" class="author">stoikerty</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1185685" class="timestamp">
+      <time datetime="2014-03-06T11:49:35Z" is="relative-time" title="6 mrt. 2014 12:49 CET">on 6 Mar 2014</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/knod" class="user-mention">@knod</a> - As far as I can tell, the <a href="https://github.com/darius/requestAnimationFrame">requestAnimationFrame polyfill-repo</a> from <a href="https://github.com/darius" class="user-mention">@darius</a> is the most up-to-date one.</p>
+
+<p>If you want <a href="http://updates.html5rocks.com/2012/05/requestAnimationFrame-API-now-with-sub-millisecond-precision">sub-millisecond precision</a>, you can try adding the <a href="http://stackoverflow.com/questions/13241314/up-to-date-polyfill-for-requestanimationframe">performance.now polyfill</a> from <a href="https://github.com/timhall" class="user-mention">@timhall</a> after <a href="https://github.com/darius" class="user-mention">@darius</a>'s one. <a href="https://github.com/timhall" class="user-mention">@timhall</a> also uses the <a href="http://afuchs.tumblr.com/post/23550124774/date-now-in-ie8">more compatible shorthand notation</a> instead of Date.now().</p>
+
+<pre><code>var hasPerformance = !!(window.performance &amp;&amp; window.performance.now);
+
+// Add new wrapper for browsers that don't have performance
+if (!hasPerformance) {
+    // Store reference to existing rAF and initial startTime
+    var rAF = window.requestAnimationFrame,
+        startTime = +new Date;
+
+    // Override window rAF to include wrapped callback
+    window.requestAnimationFrame = function (callback, element) {
+        // Wrap the given callback to pass in performance timestamp
+        var wrapped = function (timestamp) {
+            // Get performance-style timestamp
+            var performanceTimestamp = (timestamp &lt; 1e12) 
+                ? timestamp 
+                : timestamp - startTime;
+
+            return callback(performanceTimestamp);
+        };
+
+        // Call original rAF with wrapped callback
+        rAF(wrapped, element);
+    }        
+}
+</code></pre>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/pyrsmk"><img alt="@pyrsmk" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/214497" width="48"></a>
+    <div id="gistcomment-1191341" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="874c6888104606d7dbb25eb1cbed05aa">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/pyrsmk" class="author">pyrsmk</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1191341" class="timestamp">
+      <time datetime="2014-03-15T11:27:21Z" is="relative-time" title="15 mrt. 2014 12:27 CET">on 15 Mar 2014</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Currently, I found these :</p>
+
+<ul>
+<li><a href="https://gist.github.com/mrdoob/838785#comment-792994">https://gist.github.com/mrdoob/838785#comment-792994</a></li>
+<li><a href="https://gist.github.com/timhall/4078614">https://gist.github.com/timhall/4078614</a></li>
+<li><a href="https://github.com/kof/animation-frame">https://github.com/kof/animation-frame</a></li>
+</ul>
+
+<p>I can't tell which code is included in another one or not, and which is better... Maybe <a href="https://github.com/kof" class="user-mention">@kof</a> has the answer ^^</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/kof"><img alt="@kof" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/52824" width="48"></a>
+    <div id="gistcomment-1191346" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="2ed04d52af9696250e35bdfe4e678b13">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/kof" class="author">kof</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1191346" class="timestamp">
+      <time datetime="2014-03-15T11:42:53Z" is="relative-time" title="15 mrt. 2014 12:42 CET">on 15 Mar 2014</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I have created my library after reading all of this shims/polyfills. It includes all improvements and some additional features, like custom frame rate, feature detected raf (required in cases where raf is implemented but just doesn't work), using raf from the iframe, increased performance for multiple parallel animations when using non native version by grouping callback calls and using just one timer ... </p>
+
+<p><a href="https://github.com/kof/animation-frame">https://github.com/kof/animation-frame</a></p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/pyrsmk"><img alt="@pyrsmk" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/214497" width="48"></a>
+    <div id="gistcomment-1191347" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="65d7030d759050fddf8956f00658e07e">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/pyrsmk" class="author">pyrsmk</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1191347" class="timestamp">
+      <time datetime="2014-03-15T11:50:52Z" is="relative-time" title="15 mrt. 2014 12:50 CET">on 15 Mar 2014</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Thanks a lot for your quick answer, now I can move forward in my project with serenity ;)</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/Bnaya"><img alt="@Bnaya" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/1304862" width="48"></a>
+    <div id="gistcomment-1216133" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="9b0b722d93fbb70e385bf68121ee5795">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/Bnaya" class="author">Bnaya</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1216133" class="timestamp">
+      <time datetime="2014-04-23T12:41:23Z" is="relative-time" title="23 apr. 2014 14:41 CEST">on 23 Apr 2014</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I think that the approach of using new timer for each callback can cause unexpected behaviour.<br>
+Say you have several elements you want to hide,<br>
+if each hide() will be on its own timer callback, they might get hidden not on the same frame</p>
+
+<p>You can overcome this using callback queue and single timer.<br>
+(its not the full polyfill, just the way of work)</p>
+
+<div class="highlight highlight-js"><pre>(<span class="pl-k">function</span> (<span class="pl-smi">global</span>) {
+    <span class="pl-k">var</span> callbacksQueue <span class="pl-k">=</span> [];
+
+    <span class="pl-c1">global</span>.<span class="pl-c1">setInterval</span>(<span class="pl-k">function</span> () {
+        <span class="pl-k">for</span> (<span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> callbacksQueue.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {
+            <span class="pl-k">if</span> (callbacksQueue[i] <span class="pl-k">!==</span> <span class="pl-c1">false</span>) {
+                callbacksQueue[i].<span class="pl-c1">call</span>(<span class="pl-c1">null</span>);
+            }
+        }
+
+        callbacksQueue <span class="pl-k">=</span> [];
+    }, <span class="pl-c1">1000</span> / <span class="pl-c1">60</span>);
+
+    <span class="pl-c1">global</span>.<span class="pl-en">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">callback</span>) {
+        <span class="pl-k">return</span> callbacksQueue.<span class="pl-c1">push</span>(callback) <span class="pl-k">-</span> <span class="pl-c1">1</span>;
+    }
+
+    <span class="pl-c1">global</span>.<span class="pl-en">cancelAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">id</span>) {
+        callbacksQueue[id] <span class="pl-k">=</span> <span class="pl-c1">false</span>;
+    }
+}(<span class="pl-c1">window</span>));</pre></div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/CMTegner"><img alt="@CMTegner" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/820552" width="48"></a>
+    <div id="gistcomment-1229025" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="84e940f3cb5f11b90569bcda571a618f">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/CMTegner" class="author">CMTegner</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1229025" class="timestamp">
+      <time datetime="2014-05-15T07:38:41Z" is="relative-time" title="15 mei 2014 09:38 CEST">on 15 May 2014</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/chrisdickinson/raf">raf</a> (<a href="https://www.npmjs.org/package/raf">npm</a>) v1.0 was released a few hours ago. It's a CommonJS module (i.e. use it in node or in the browser via browserify) that is loosely based on this gist, but with a polyfill which follows the spec as close as possible.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/Catnemesis"><img alt="@Catnemesis" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/5288649" width="48"></a>
+    <div id="gistcomment-1415694" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="07725a41875a9ce64793468f70dade60">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/Catnemesis" class="author">Catnemesis</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1415694" class="timestamp">
+      <time datetime="2015-03-18T20:46:21Z" is="relative-time" title="18 mrt. 2015 21:46 CET">on 18 Mar</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>If you use JSLint:</p>
+
+<pre><code>/*global window*/
+/*jslint maxlen: 100, plusplus: true, unparam: true */
+
+(function () {
+    "use strict";
+
+    var lastTime = 0,
+        vendors = ['ms', 'moz', 'webkit', 'o'],
+        x;
+
+    for (x = 0; x &lt; vendors.length &amp;&amp; !window.requestAnimationFrame; ++x) {
+        window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
+        window.cancelAnimationFrame  = window[vendors[x] + 'CancelAnimationFrame']
+                                   || window[vendors[x] + 'CancelRequestAnimationFrame'];
+    }
+
+    if (!window.requestAnimationFrame) {
+        window.requestAnimationFrame = function (callback, element) {
+            var currTime = new Date().getTime(),
+                timeToCall = Math.max(0, 16 - (currTime - lastTime)),
+                id = window.setTimeout(function () {
+                    callback(currTime + timeToCall);
+                }, timeToCall);
+            lastTime = currTime + timeToCall;
+            return id;
+        };
+    }
+
+    if (!window.cancelAnimationFrame) {
+        window.cancelAnimationFrame = function (id) {
+            window.clearTimeout(id);
+        };
+    }
+}());
+</code></pre>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/davidchambers"><img alt="@davidchambers" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/210406" width="48"></a>
+    <div id="gistcomment-1433264" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="e994fca89c90a445dd8a183d17b36877">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/davidchambers" class="author">davidchambers</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1433264" class="timestamp">
+      <time datetime="2015-04-14T17:01:36Z" is="relative-time" title="14 apr. 2015 19:01 CEST">on 14 Apr</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>What is the <code>element</code> parameter?</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c1">window</span>.<span class="pl-en">requestAnimationFrame</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">callback</span>, <span class="pl-smi">element</span>) {</pre></div>
+
+<p>It's unused, and according to <a href="https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame#Syntax">MDN</a> the function takes just one argument.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/techniq"><img alt="@techniq" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/177476" width="48"></a>
+    <div id="gistcomment-1465370" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="d8831497b85f93d20f6b7c33a97d5e59">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/techniq" class="author">techniq</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1465370" class="timestamp">
+      <time datetime="2015-06-02T13:44:30Z" is="relative-time" title="2 jun. 2015 15:44 CEST">on 2 Jun</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>To better match the timestamp passed to the <code>requestAnimationFrame</code> callback (ie. <code>window.performance.now()</code>), <code>currTime</code> should be adjusted for the <code>navigationStart</code></p>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">var</span> currTime <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Date</span>().<span class="pl-c1">getTime</span>() <span class="pl-k">-</span> <span class="pl-c1">window</span>.<span class="pl-c1">performance</span>.<span class="pl-c1">timing</span>.<span class="pl-c1">navigationStart</span>;</pre></div>
+
+<p>Without this change my animations on IE9 were not correctly calculating compared to the browsers with native <code>requestAnimationFrame</code> support.</p>
+
+<p>Note: <code>window.performance.timing</code> is only available on IE9+ (which really only applies to IE9 since <code>requestAnimationFrame</code> is already available on IE10+</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/techniq"><img alt="@techniq" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/177476" width="48"></a>
+    <div id="gistcomment-1466885" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="42eec6abb1c4d9268ff336ae365c9425">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/techniq" class="author">techniq</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1466885" class="timestamp">
+      <time datetime="2015-06-04T13:53:07Z" is="relative-time" title="4 jun. 2015 15:53 CEST">on 4 Jun</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/davidchambers" class="user-mention">@davidchambers</a> - It was removed from the spec - <a href="https://bugs.webkit.org/show_bug.cgi?id=74232">https://bugs.webkit.org/show_bug.cgi?id=74232</a></p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/glued"><img alt="@glued" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/1124158" width="48"></a>
+    <div id="gistcomment-1486051" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="e2874152b3584c60153a91dd1ecda24d">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/glued" class="author">glued</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1486051" class="timestamp">
+      <time datetime="2015-07-04T06:12:21Z" is="relative-time" title="4 jul. 2015 08:12 CEST">on 4 Jul</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>ES2015 flavored</p>
+
+<pre><code>(function() {
+    let vendors = ['ms', 'moz', 'webkit', 'o'];
+    let lastTime = 0;
+
+    for(let x = 0; x &lt; vendors.length &amp;&amp; !window.requestAnimationFrame; ++x) {
+        let vendor = vendors[x];
+        window.requestAnimationFrame  = window[`${vendor}RequestAnimationFrame`];
+        window.cancelAnimationFrame   = window[`${vendor}CancelAnimationFrame`] || window[`${vendor}CancelRequestAnimationFrame`];
+    }
+
+    if(!window.requestAnimationFrame){
+      window.requestAnimationFrame = (callback) =&gt; {
+          let currTime    = new Date().getTime();
+          let timeToCall  = Math.max(0, 16 - (currTime - lastTime));
+          let id          = window.setTimeout(() =&gt; callback(currTime + timeToCall), timeToCall);
+
+          lastTime = currTime + timeToCall;
+          return id;
+      };
+    }
+
+    if(!window.cancelAnimationFrame)
+      window.cancelAnimationFrame = (id) =&gt; clearTimeout(id);
+
+}());
+</code></pre>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/imthenachoman"><img alt="@imthenachoman" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/83817" width="48"></a>
+    <div id="gistcomment-1490545" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="1cd4b3a388d25f0c18dc8d94d108536b">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/imthenachoman" class="author">imthenachoman</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1490545" class="timestamp">
+      <time datetime="2015-07-10T22:39:03Z" is="relative-time" title="11 jul. 2015 00:39 CEST">on 11 Jul</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>This was very helpful for me. Thanks! I'm using it in a generic animation library I wrote. I hope this is okay. <a href="https://github.com/imthenachoman/nAnimation">https://github.com/imthenachoman/nAnimation</a></p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/190n"><img alt="@190n" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/7763597" width="48"></a>
+    <div id="gistcomment-1499003" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="e26c2eb532c9a14d6b0f414cce54ee5b">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/190n" class="author">190n</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1499003" class="timestamp">
+      <time datetime="2015-07-23T03:08:59Z" is="relative-time" title="23 jul. 2015 05:08 CEST">24 days ago</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/imthenachoman" class="user-mention">@imthenachoman</a> Same issue as you, what's the license for this? I'm planning to use this in a game engine I'm writing.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/190n"><img alt="@190n" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/7763597" width="48"></a>
+    <div id="gistcomment-1499004" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="0a008ad079cc81e78202554f1b6e3b5d">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/190n" class="author">190n</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1499004" class="timestamp">
+      <time datetime="2015-07-23T03:14:09Z" is="relative-time" title="23 jul. 2015 05:14 CEST">24 days ago</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/imthenachoman" class="user-mention">@imthenachoman</a> It says it's MIT license; you can probably do whatever you want.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/julienetie"><img alt="@julienetie" class="timeline-comment-avatar" height="48" src="./requestAnimationFrame polyfill · GitHub_files/7676299" width="48"></a>
+    <div id="gistcomment-1546380" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="9b9c22d344ad88fc06f8e2b03aecba9b">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/julienetie" class="author">julienetie</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/paulirish/1579671#gistcomment-1546380" class="timestamp">
+      <time datetime="2015-08-08T00:55:03Z" is="relative-time" title="8 aug. 2015 02:55 CEST">9 days ago</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p><a href="https://github.com/julienetie/request-frame"><img src="./requestAnimationFrame polyfill · GitHub_files/687474703a2f2f6936322e74696e797069632e636f6d2f32756938786d702e6a7067" alt="img" style="max-width:100%;"></a><br>
+Here's <a href="https://github.com/julienetie/request-frame">request-frame</a> for anyone looking for a comprehensive solution that should just works on everything.</p>
+
+<ul>
+<li>npm / bower <strong>request-frame</strong>
+</li>
+<li>iOS6 fix without user-agent sniffing</li>
+<li>Normalizes firefox 4 - 10 for cancellation &amp; predictability </li>
+<li>Polyfill native functions or keep intact via variables  (To prevent conflicts with other API usage)</li>
+<li>IE 5.5+ (tested)</li>
+<li>AMD support</li>
+</ul>
+
+<p>I believe it's best to use as few requestAnimationFrame instances as possible. I avoided frame rates and delays as they're better utilized outside of the polyfill, (vai the timestamp). Thanks to <a href="https://github.com/darius" class="user-mention">@darius</a> for the timing tweaks, as well as everyone else on here.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+
+
+
+<!-- Rendered timeline since 2015-08-15 08:09:42 -->
+<div id="partial-timeline-marker" class="js-timeline-marker js-socket-channel js-updatable-content" data-channel="paulirish/1579671:gist:1579671" data-url="/paulirish/1579671/show_partial?partial=gist%2Ftimeline_marker&amp;since=1439651382" data-last-modified="Sat, 15 Aug 2015 15:09:42 GMT">
+</div>
+
+
+      <div class="discussion-timeline-actions">
+          <div class="signed-out-comment">
+	<a href="https://gist.github.com/join" class="btn btn-primary" rel="nofollow">Sign up for free</a>
+	<strong>to join this conversation on GitHub</strong>.
+	Already have an account?
+	<a href="https://gist.github.com/login?return_to=https%3A%2F%2Fgist.github.com%2Fpaulirish%2F1579671" rel="nofollow">Sign in to comment</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+  </div><!-- /.repo-container -->
+  <div class="modal-backdrop"></div>
+</div><!-- /.container -->
+
+    </div><!-- /.gist-pjax-container -->
+  </div><!-- /.site -->
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+      <li><a href="https://developer.github.com/" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="https://training.github.com/" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="https://shop.github.com/" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+        <li><a href="https://help.github.com/" data-ga-click="Footer, go to help, text:help">Help</a></li>
+
+    </ul>
+
+    <a href="https://github.com/" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+</a>
+    <ul class="site-footer-links">
+      <li>© 2015 <span title="0.24903s from github-fe127-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents" placeholder="" aria-label=""></textarea>
+      <div class="suggester-container">
+        <div class="suggester fullscreen-suggester js-suggester js-navigation-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="https://gist.github.com/paulirish/1579671#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="https://gist.github.com/paulirish/1579671#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w" aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    
+    
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="https://gist.github.com/paulirish/1579671#" class="octicon octicon-x flash-close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="./requestAnimationFrame polyfill · GitHub_files/frameworks-55bdb89972afd4b256fc7c3ed42001976a03fb3eaba96e625d5806c659bc19c6.js"></script>
+      <script async="async" crossorigin="anonymous" src="./requestAnimationFrame polyfill · GitHub_files/index-fe2e1fa6704baa94c97c39847254262f674803845a2b1addd89d4f9eca3fa297.js"></script>
+      
+      
+    <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner hidden">
+      <span class="octicon octicon-alert"></span>
+      <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+      <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    </div>
+  
+
+
+</body></html>

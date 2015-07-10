@@ -1,0 +1,8 @@
+/**/ typeof getIpData === 'function' && getIpData({
+  "ip": "78.21.147.128",
+  "hostname": "78-21-147-128.access.telenet.be",
+  "city": null,
+  "country": "BE",
+  "loc": "50.8500,4.3500",
+  "org": "AS6848 Telenet N.V."
+});

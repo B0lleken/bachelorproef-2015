@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)https://gist.github.com/KrofDrakula/5318048 -->
+<html lang="en" class=" is-copy-enabled" pmbx_context="0B01527C-B0AE-4765-8A0A-85941FE76ABE"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Language" content="en">
+    <meta name="viewport" content="width=1020">
+    <meta content="origin-when-crossorigin" name="referrer">
+    
+    <title>Due to a bug in the native `requestAnimationFrame` function running inside `&lt;iframe&gt;` elements on iOS 6, I've decided to write up a custom function that implements a blacklist.
+
+Use this snippet and use `nextFrame` and `cancelFrame` on the `window` object to use this workaround with the same method signature as the spec. I've avoided overriding the native functions in case you have other code that detects them.
+
+Adapted from http://paulirish.com/2011/requestanimationframe-for-smart-animating/ · GitHub</title>
+    <link rel="search" type="application/opensearchdescription+xml" href="https://gist.github.com/opensearch.xml" title="GitHub">
+    <link rel="fluid-icon" href="https://gist.github.com/fluidicon.png" title="GitHub">
+    <link rel="apple-touch-icon" sizes="57x57" href="https://gist.github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://gist.github.com/apple-touch-icon-114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://gist.github.com/apple-touch-icon-144.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://gist.github.com/apple-touch-icon-144.png">
+    <meta property="fb:app_id" content="1401488693436528">
+
+      <meta content="@github" name="twitter:site"><meta content="summary" name="twitter:card"><meta content="Due to a bug in the native `requestAnimationFrame` function running inside `&lt;iframe&gt;` elements on iOS 6, I&#39;ve decided to write up a custom function that implements a blacklist.
+
+Use this snippet and use `nextFrame` and `cancelFrame` on the `window` object to use this workaround with the same method signature as the spec. I&#39;ve avoided overriding the native functions in case you have other code that detects them.
+
+Adapted from http://paulirish.com/2011/requestanimationframe-for-smart-animating/" name="twitter:title"><meta content="Due to a bug in the native `requestAnimationFrame` function running inside `&lt;iframe&gt;` elements on iOS 6, I&#39;ve decided to write up a custom function that implements a blacklist.
+
+Use this snippet ..." name="twitter:description"><meta content="https://avatars3.githubusercontent.com/u/112161?v=3&amp;s=400" name="twitter:image:src">
+      <meta content="Gist" property="og:site_name"><meta content="object" property="og:type"><meta content="https://avatars3.githubusercontent.com/u/112161?v=3&amp;s=400" property="og:image"><meta content="Due to a bug in the native `requestAnimationFrame` function running inside `&lt;iframe&gt;` elements on iOS 6, I&#39;ve decided to write up a custom function that implements a blacklist.
+
+Use this snippet and use `nextFrame` and `cancelFrame` on the `window` object to use this workaround with the same method signature as the spec. I&#39;ve avoided overriding the native functions in case you have other code that detects them.
+
+Adapted from http://paulirish.com/2011/requestanimationframe-for-smart-animating/" property="og:title"><meta content="https://gist.github.com/KrofDrakula/5318048" property="og:url"><meta content="Due to a bug in the native `requestAnimationFrame` function running inside `&lt;iframe&gt;` elements on iOS 6, I&#39;ve decided to write up a custom function that implements a blacklist.
+
+Use this snippet ..." property="og:description">
+      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
+    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
+    <link rel="assets" href="https://assets-cdn.github.com/">
+    
+    <meta name="pjax-timeout" content="1000">
+    
+
+    <meta name="msapplication-TileImage" content="/windows-tile.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="selected-link" value="gist_code" data-pjax-transient="">
+
+        <meta name="google-analytics" content="UA-3769691-4">
+
+    <meta content="collector.githubapp.com" name="octolytics-host"><meta content="collector-cdn.github.com" name="octolytics-script-host"><meta content="gist" name="octolytics-app-id"><meta content="4E159380:1CB7:89E8B67:55D081BB" name="octolytics-dimension-request_id">
+    
+    <meta content="Rails, view, gists/gists#show" data-pjax-transient="true" name="analytics-event">
+    <meta class="js-ga-set" name="dimension1" content="Logged Out">
+      <meta class="js-ga-set" name="dimension4" content="Current repo nav">
+    <meta name="is-dotcom" content="true">
+        <meta name="hostname" content="gist.github.com">
+    <meta name="user-login" content="">
+
+      <link rel="icon" sizes="any" mask="" href="https://assets-cdn.github.com/pinned-octocat.svg">
+      <meta name="theme-color" content="#4078c0">
+      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
+
+    <!-- </textarea> --><!-- '"` --><meta content="authenticity_token" name="csrf-param">
+<meta content="RNjxSEwjq31GuB9caTaXAyNGaAV6uYJ+5HGA3j0msXx4nrazoUxyYx+J9s/LRmINQKAdv6Ir7egJWhKXAbZ7nA==" name="csrf-token">
+    
+
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github/index-78350b39bf13714f4b06a2153e5374de01bc939bfa60ec9bdb34dbb2032dda4b.css" media="all" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github2/index-fe5622bab39e70fefc28ebe1ea2e8fa620c0c026df4a6b089aac3bf495d3463e.css" media="all" rel="stylesheet">
+    
+    
+
+
+    <meta http-equiv="x-pjax-version" content="a26d7fe411f453e1f88034a366ff5217">
+
+        <link href="https://gist.github.com/KrofDrakula.atom" rel="alternate" title="atom" type="application/atom+xml">
+  <meta content="true" name="octolytics-dimension-public"><meta content="5318048" name="octolytics-dimension-gist_id"><meta content="5318048" name="octolytics-dimension-gist_name"><meta content="false" name="octolytics-dimension-anonymous"><meta content="112161" name="octolytics-dimension-owner_id"><meta content="KrofDrakula" name="octolytics-dimension-owner_login"><meta content="false" name="octolytics-dimension-forked">
+  <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/gist/index-f40eeef4241c4c1a57149ae79f55891fe4acf366d6140c9890506ea6c5f72c1e.css" media="all" rel="stylesheet">
+
+  <script type="text/javascript" async="" src="https://collector-cdn.github.com/assets/api.js"></script></head>
+
+
+  <body class="logged_out  env-production windows">
+    <a href="https://gist.github.com/KrofDrakula/5318048#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+    <div class="wrapper">
+      
+      
+      
+
+
+
+          <div class="header gist-header header-logged-out" role="banner">
+  <div class="container clearfix">
+
+    <a href="https://gist.github.com/" aria-label="Gist Homepage" class="header-logo-wordmark" data-hotkey="g d">
+      <span class="mega-octicon octicon-logo-github"></span>
+      <span class="mega-octicon octicon-gist-logo"></span>
+</a>
+    <div class="site-search js-site-search" role="search">
+        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="https://gist.github.com/search" method="get" pmbx_context="6BFD857A-5E03-400A-B689-2C19E84A4521"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" pmbx_context="64888B83-F478-44B1-9004-EBCBCC08E3FF"></div>
+  <label class="js-chromeless-input-container form-control">
+    <input type="text" class="js-site-search-focus chromeless-input" data-hotkey="s" name="q" placeholder="Search…" tabindex="1" autocorrect="off" autocomplete="off" autocapitalize="off" pmbx_context="C8655CE3-A0B6-4A2D-9B87-0729BF959475">
+  </label>
+
+</form>
+    </div>
+    <ul class="header-nav left" role="navigation">
+      <li class="header-nav-item">
+        <a href="https://gist.github.com/discover" class="header-nav-link" data-ga-click="Header, go to all gists, text:all gists">All gists</a>
+      </li>
+
+      <li class="header-nav-item">
+        <a href="https://github.com/" class="header-nav-link" data-ga-click="Header, go to GitHub, text:GitHub">GitHub</a>
+      </li>
+    </ul>
+
+      <ul class="header-nav user-nav right" id="user-links">
+        <li class="header-nav-item">
+          <a href="https://github.com/join?return_to=gist" class="btn btn-primary">Sign up for a GitHub account</a>
+        </li>
+
+        <li class="header-nav-item">
+          <a href="https://gist.github.com/auth/github?return_to=gist" class="btn">Sign in</a>
+        </li>
+      </ul>
+
+  </div>
+</div>
+
+
+
+
+      <div id="start-of-content" class="accessibility-aid"></div>
+          <div class="site" itemscope="" itemtype="http://schema.org/WebPage">
+    <div id="js-flash-container">
+      
+    </div>
+
+    <div id="gist-pjax-container" class="gist-content-wrapper" data-pjax-container="">
+        <div class="gisthead pagehead repohead instapaper_ignore readability-menu">
+    <div class="container">
+        
+<h1 itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+  <img alt="@KrofDrakula" class="gist-avatar" height="26" src="https://avatars2.githubusercontent.com/u/112161?v=3&s=52" width="26">
+  <span class="author"><a href="https://gist.github.com/KrofDrakula" class="url fn" itemprop="url" rel="author"><span itemprop="title">KrofDrakula</span></a></span><!--
+       --><span class="path-divider">/</span><!--
+       --><strong><a href="./Due to a bug in the native `requestAnimationFrame` function running inside `_iframe_` elements on iOS 6, I've decided to write up a custom function that implements a blacklist. Use this snippet and use `nextFrame` and `ca_files/Due to a bug in the native `requestAnimationFrame` function running inside `_iframe_` elements on iOS 6, I've decided to write up a custom function that implements a blacklist. Use this snippet and use `nextFrame` and `ca.html">raf.js</a></strong>
+
+  <span class="page-context-loader">
+    <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16">
+  </span>
+
+  <div class="gist-timestamp">Last active <time datetime="2013-11-16T01:43:56Z" is="time-ago" title="16 nov. 2013 02:43 CET">2 years ago</time></div>
+</h1>
+
+<ul class="pagehead-actions">
+</ul>
+
+
+    </div><!-- /.container -->
+  </div><!-- /.repohead -->
+
+<div class="container">
+  <div class="repository-with-sidebar repo-container new-discussion-timeline with-full-navigation ">
+    <div class="repository-sidebar clearfix">
+          <div class="sunken-menu repo-nav js-repo-nav js-sidenav-container-pjax js-octicon-loaders" data-pjax="#gist-pjax-container">
+  <ul class="sunken-menu-group">
+    <li class="tooltipped tooltipped-w" aria-label="Code">
+      <a href="./Due to a bug in the native `requestAnimationFrame` function running inside `_iframe_` elements on iOS 6, I've decided to write up a custom function that implements a blacklist. Use this snippet and use `nextFrame` and `ca_files/Due to a bug in the native `requestAnimationFrame` function running inside `_iframe_` elements on iOS 6, I've decided to write up a custom function that implements a blacklist. Use this snippet and use `nextFrame` and `ca.html" aria-label="Code" aria-selected="true" class="js-selected-navigation-item selected sunken-menu-item" data-hotkey="g c" data-pjax="true" data-selected-links="gist_code /KrofDrakula/5318048">
+        <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
+        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16">
+</a>    </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Revisions">
+        <a href="https://gist.github.com/KrofDrakula/5318048/revisions" aria-label="Revisions" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g r" data-pjax="true" data-selected-links="gist_revisions /KrofDrakula/5318048/revisions">
+          <span class="octicon octicon-git-commit"></span> <span class="full-word">Revisions</span>
+          <span class="counter">4</span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+      <li class="tooltipped tooltipped-w" aria-label="Stars">
+        <a href="https://gist.github.com/KrofDrakula/5318048/stargazers" aria-label="Stars" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g s" data-pjax="true" data-selected-links="gist_stars /KrofDrakula/5318048/stargazers">
+          <span class="octicon octicon-star"></span> <span class="full-word">Stars</span>
+          <span class="counter">9</span>
+          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16">
+</a>      </li>
+
+  </ul>
+</div>
+
+
+    <div class="only-with-full-nav">
+      <div class="embed-url open">
+  <h3><span class="text-emphasized">Embed</span> URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="&lt;script src=&quot;https://gist.github.com/KrofDrakula/5318048.js&quot;&gt;&lt;/script&gt;" readonly="readonly" aria-label="Gist Embed URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+        
+<div class="js-clone-url clone-url open" data-protocol-type="http">
+  <h3><span class="text-emphasized">HTTPS</span> clone URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="https://gist.github.com/5318048.git" readonly="readonly" aria-label="HTTPS clone URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+  
+<div class="js-clone-url clone-url " data-protocol-type="subversion">
+  <h3><span class="text-emphasized">Subversion</span> checkout URL</h3>
+  <div class="input-group js-zeroclipboard-container">
+    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target" value="https://github.com/5318048" readonly="readonly" aria-label="Subversion checkout URL">
+    <span class="input-group-button">
+      <button aria-label="Copy to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
+    </span>
+  </div>
+</div>
+
+
+
+  <div class="clone-options">You can clone with
+    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="https://gist.github.com/users/set_protocol?protocol_selector=http&protocol_type=clone" class="inline-form js-clone-selector-form " data-form-nonce="ed28f57cc492eb77aa1f1566b678a9f8eb65f3d0" data-remote="true" method="post" pmbx_context="48F7A29A-9F85-4066-9056-E626B70259C3"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" pmbx_context="83C9B2A3-6FA6-4095-AF89-E2B0D8175ED3"><input name="authenticity_token" type="hidden" value="QNNvxdtDkIjR7fUPPkRwyOmjMRoAjZuVONubPP2Tv6d3WBMxrLIYQY4weWFzdTzoVLk9N0Ih4NrvuKl/O/swvQ==" pmbx_context="FA3E8B2B-F23F-4589-8A5A-59BC46D7C9F0"></div><button class="btn-link js-clone-selector" data-protocol="http" type="submit">HTTPS</button></form> or <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="https://gist.github.com/users/set_protocol?protocol_selector=subversion&protocol_type=clone" class="inline-form js-clone-selector-form " data-form-nonce="ed28f57cc492eb77aa1f1566b678a9f8eb65f3d0" data-remote="true" method="post" pmbx_context="FD090E2B-44B9-4B6A-BFA0-2E331A43F578"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓" pmbx_context="EDC4D74C-81A4-4C44-8841-9416A4BDD0C0"><input name="authenticity_token" type="hidden" value="kcbUAPYMuBAnvj1SMqJecwWU1muo+hHca7V7rBIV3JyVFxlQM4YoC5t42oZlx1KDa5aiWMLvRVlpAQgbrh7mIg==" pmbx_context="0B794260-0587-40BB-83CC-CCF0EF8FC2FB"></div><button class="btn-link js-clone-selector" data-protocol="subversion" type="submit">Subversion</button></form>.
+    <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
+      <span class="octicon octicon-question"></span>
+    </a>
+  </div>
+    <a href="https://windows.github.com/" class="btn btn-sm sidebar-button" title="Save KrofDrakula/5318048 to your computer and use it in GitHub Desktop." aria-label="Save KrofDrakula/5318048 to your computer and use it in GitHub Desktop.">
+      <span class="octicon octicon-desktop-download"></span>
+      Clone in Desktop
+    </a>
+
+
+        <a href="https://gist.github.com/KrofDrakula/5318048/archive/caf31c277274cab0da00e24600c9786840323f26.zip" class="btn btn-block" aria-label="Download the contents of KrofDrakula/5318048 as a zip file" title="Download the contents of KrofDrakula/5318048 as a zip file" rel="nofollow">
+          <span class="octicon octicon-cloud-download"></span>
+          Download ZIP
+        </a>
+    </div>
+
+
+    </div><!-- /.repository-sidebar -->
+
+    <div class="repository-content gist-content context-loader-container">
+      
+
+
+
+<span id="js-show-full-navigation"></span>
+
+<div>
+  <div class="repository-meta js-details-container">
+  <div class="repository-description">
+    Due to a bug in the native `requestAnimationFrame` function running inside `&lt;iframe&gt;` elements on iOS 6, I've decided to write up a custom function that implements a blacklist. Use this snippet and use `nextFrame` and `cancelFrame` on the `window` object to use this workaround with the same method signature as the spec. I've avoided overriding t…
+  </div>
+</div>
+
+      <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-raf-js" class="file">
+      <div class="file-header">
+        <div class="file-actions">
+
+          <a href="https://gist.github.com/KrofDrakula/5318048/raw/caf31c277274cab0da00e24600c9786840323f26/raf.js" class="btn btn-sm ">Raw</a>
+        </div>
+        <div class="file-info">
+          <span class="icon">
+            <b class="octicon octicon-gist"></b>
+          </span>
+          <a class="tooltipped tooltipped-s" aria-label="Permalink" href="https://gist.github.com/KrofDrakula/5318048#file-raf-js">
+            <strong class="js-selectable-text">
+              raf.js
+            </strong>
+          </a>
+        </div>
+      </div>
+    
+
+  <div class="blob-wrapper data type-javascript">
+      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
+      <tbody><tr>
+        <td id="file-raf-js-L1" class="blob-num js-line-number" data-line-number="1"></td>
+        <td id="file-raf-js-LC1" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// requestAnimationFrame implementation as a custom function to allow blacklisting</span></td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L2" class="blob-num js-line-number" data-line-number="2"></td>
+        <td id="file-raf-js-LC2" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// devices with broken implementation. Currently needs timer-based fallbacks for iOS 6.x for</span></td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L3" class="blob-num js-line-number" data-line-number="3"></td>
+        <td id="file-raf-js-LC3" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// code running inside &lt;iframe&gt; elements.</span></td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L4" class="blob-num js-line-number" data-line-number="4"></td>
+        <td id="file-raf-js-LC4" class="blob-code blob-code-inner js-file-line"><span class="pl-c">// Uses polyfills based on http://paulirish.com/2011/requestanimationframe-for-smart-animating/</span></td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L5" class="blob-num js-line-number" data-line-number="5"></td>
+        <td id="file-raf-js-LC5" class="blob-code blob-code-inner js-file-line">(<span class="pl-k">function</span>() {</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L6" class="blob-num js-line-number" data-line-number="6"></td>
+        <td id="file-raf-js-LC6" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L7" class="blob-num js-line-number" data-line-number="7"></td>
+        <td id="file-raf-js-LC7" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> blacklisted   <span class="pl-k">=</span><span class="pl-sr"> <span class="pl-pds">/</span>iP(ad<span class="pl-k">|</span>hone<span class="pl-k">|</span>od)<span class="pl-c1">.</span><span class="pl-k">*</span>OS 6<span class="pl-pds">/</span></span>.<span class="pl-c1">test</span>(<span class="pl-c1">window</span>.<span class="pl-c1">navigator</span>.<span class="pl-c1">userAgent</span>),</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L8" class="blob-num js-line-number" data-line-number="8"></td>
+        <td id="file-raf-js-LC8" class="blob-code blob-code-inner js-file-line">        lastTime      <span class="pl-k">=</span> <span class="pl-c1">0</span>,</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L9" class="blob-num js-line-number" data-line-number="9"></td>
+        <td id="file-raf-js-LC9" class="blob-code blob-code-inner js-file-line">        nativeRequest <span class="pl-k">=</span> <span class="pl-c1">window</span>.<span class="pl-c1">requestAnimationFrame</span> <span class="pl-k">||</span> <span class="pl-c1">null</span>,</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L10" class="blob-num js-line-number" data-line-number="10"></td>
+        <td id="file-raf-js-LC10" class="blob-code blob-code-inner js-file-line">        nativeCancel  <span class="pl-k">=</span> <span class="pl-c1">window</span>.<span class="pl-c1">cancelAnimationFrame</span>  <span class="pl-k">||</span> <span class="pl-c1">null</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L11" class="blob-num js-line-number" data-line-number="11"></td>
+        <td id="file-raf-js-LC11" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L12" class="blob-num js-line-number" data-line-number="12"></td>
+        <td id="file-raf-js-LC12" class="blob-code blob-code-inner js-file-line">    [<span class="pl-s"><span class="pl-pds">'</span>webkit<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>moz<span class="pl-pds">'</span></span>].<span class="pl-c1">forEach</span>(<span class="pl-k">function</span>(<span class="pl-smi">prefix</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L13" class="blob-num js-line-number" data-line-number="13"></td>
+        <td id="file-raf-js-LC13" class="blob-code blob-code-inner js-file-line">        nativeRequest <span class="pl-k">=</span> nativeRequest <span class="pl-k">||</span> <span class="pl-c1">window</span>[prefix<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>RequestAnimationFrame<span class="pl-pds">'</span></span>] <span class="pl-k">||</span> <span class="pl-c1">null</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L14" class="blob-num js-line-number" data-line-number="14"></td>
+        <td id="file-raf-js-LC14" class="blob-code blob-code-inner js-file-line">        nativeCancel  <span class="pl-k">=</span> nativeCancel  <span class="pl-k">||</span> <span class="pl-c1">window</span>[prefix<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>CancelAnimationFrame<span class="pl-pds">'</span></span>]  <span class="pl-k">||</span> <span class="pl-c1">window</span>[prefix<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>CancelRequestAnimationFrame<span class="pl-pds">'</span></span>] <span class="pl-k">||</span> <span class="pl-c1">null</span>;</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L15" class="blob-num js-line-number" data-line-number="15"></td>
+        <td id="file-raf-js-LC15" class="blob-code blob-code-inner js-file-line">    });</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L16" class="blob-num js-line-number" data-line-number="16"></td>
+        <td id="file-raf-js-LC16" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L17" class="blob-num js-line-number" data-line-number="17"></td>
+        <td id="file-raf-js-LC17" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">function</span> <span class="pl-en">polyfillRequest</span>(<span class="pl-smi">callback</span>, <span class="pl-smi">element</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L18" class="blob-num js-line-number" data-line-number="18"></td>
+        <td id="file-raf-js-LC18" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> currTime <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Date</span>().<span class="pl-c1">getTime</span>();</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L19" class="blob-num js-line-number" data-line-number="19"></td>
+        <td id="file-raf-js-LC19" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> timeToCall <span class="pl-k">=</span> <span class="pl-c1">Math</span>.<span class="pl-c1">max</span>(<span class="pl-c1">0</span>, <span class="pl-c1">16</span> <span class="pl-k">-</span> (currTime <span class="pl-k">-</span> lastTime));</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L20" class="blob-num js-line-number" data-line-number="20"></td>
+        <td id="file-raf-js-LC20" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> id <span class="pl-k">=</span> <span class="pl-c1">window</span>.<span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span>() { <span class="pl-c1">callback</span>(currTime <span class="pl-k">+</span> timeToCall); }, timeToCall);</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L21" class="blob-num js-line-number" data-line-number="21"></td>
+        <td id="file-raf-js-LC21" class="blob-code blob-code-inner js-file-line">        lastTime <span class="pl-k">=</span> currTime <span class="pl-k">+</span> timeToCall;</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L22" class="blob-num js-line-number" data-line-number="22"></td>
+        <td id="file-raf-js-LC22" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> id;</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L23" class="blob-num js-line-number" data-line-number="23"></td>
+        <td id="file-raf-js-LC23" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L24" class="blob-num js-line-number" data-line-number="24"></td>
+        <td id="file-raf-js-LC24" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L25" class="blob-num js-line-number" data-line-number="25"></td>
+        <td id="file-raf-js-LC25" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">function</span> <span class="pl-en">polyfillCancel</span>(<span class="pl-smi">id</span>) {</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L26" class="blob-num js-line-number" data-line-number="26"></td>
+        <td id="file-raf-js-LC26" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">clearTimeout</span>(id);</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L27" class="blob-num js-line-number" data-line-number="27"></td>
+        <td id="file-raf-js-LC27" class="blob-code blob-code-inner js-file-line">    }</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L28" class="blob-num js-line-number" data-line-number="28"></td>
+        <td id="file-raf-js-LC28" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L29" class="blob-num js-line-number" data-line-number="29"></td>
+        <td id="file-raf-js-LC29" class="blob-code blob-code-inner js-file-line">    <span class="pl-v">this</span>.<span class="pl-c1">nextFrame</span>   <span class="pl-k">=</span> (<span class="pl-k">!</span>blacklisted <span class="pl-k">&amp;&amp;</span> nativeRequest <span class="pl-k">!=</span> <span class="pl-c1">null</span>) <span class="pl-k">?</span> nativeRequest <span class="pl-k">:</span> polyfillRequest;</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L30" class="blob-num js-line-number" data-line-number="30"></td>
+        <td id="file-raf-js-LC30" class="blob-code blob-code-inner js-file-line">    <span class="pl-v">this</span>.<span class="pl-c1">cancelFrame</span> <span class="pl-k">=</span> (<span class="pl-k">!</span>blacklisted <span class="pl-k">&amp;&amp;</span> nativeCancel  <span class="pl-k">!=</span> <span class="pl-c1">null</span>) <span class="pl-k">?</span> nativeCancel  <span class="pl-k">:</span> polyfillCancel;</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L31" class="blob-num js-line-number" data-line-number="31"></td>
+        <td id="file-raf-js-LC31" class="blob-code blob-code-inner js-file-line">
+</td>
+      </tr>
+      <tr>
+        <td id="file-raf-js-L32" class="blob-num js-line-number" data-line-number="32"></td>
+        <td id="file-raf-js-LC32" class="blob-code blob-code-inner js-file-line">})();</td>
+      </tr>
+</tbody></table>
+
+  </div>
+
+  </div>
+  
+</div>
+
+
+  <a name="comments"></a>
+  <div class="discussion-timeline gist-discussion-timeline js-quote-selection-container">
+    <div class="js-discussion js-socket-channel" data-channel="KrofDrakula/5318048:marked-as-read:5318048">
+      
+
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/danb-cws"><img alt="@danb-cws" class="timeline-comment-avatar" height="48" src="https://avatars0.githubusercontent.com/u/2528249?v=3&s=96" width="48"></a>
+    <div id="gistcomment-830039" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="4fc0b5c6c7887ebf551549fb0a52dbe2">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/danb-cws" class="author">danb-cws</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/KrofDrakula/5318048#gistcomment-830039" class="timestamp">
+      <time datetime="2013-05-14T09:39:11Z" is="relative-time" title="14 mei 2013 11:39 CEST">on 14 May 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I can confirm this fixed a bug on ios6 where raf would not run on subsequent pages after being invoked on one page. (no iframe, just simple page to page navigation) Same symptoms with the address bar as you have described (click on url bar then back to page and raf runs ok). I was surprised how little info came up on this. Thanks for the code.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/ynk"><img alt="@ynk" class="timeline-comment-avatar" height="48" src="https://avatars1.githubusercontent.com/u/411625?v=3&s=96" width="48"></a>
+    <div id="gistcomment-881489" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="8a10fd7e21bdcf014b5eccec83e69a79">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/ynk" class="author">ynk</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/KrofDrakula/5318048#gistcomment-881489" class="timestamp">
+      <time datetime="2013-08-06T19:21:26Z" is="relative-time" title="6 aug. 2013 21:21 CEST">on 6 Aug 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Thank you so much.<br>
+It's fixed a bug i was trying to find for 48h straight.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/kof"><img alt="@kof" class="timeline-comment-avatar" height="48" src="https://avatars1.githubusercontent.com/u/52824?v=3&s=96" width="48"></a>
+    <div id="gistcomment-911173" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="efc47241141714fed7ce0d0fd2191b1a">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/kof" class="author">kof</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/KrofDrakula/5318048#gistcomment-911173" class="timestamp">
+      <time datetime="2013-09-19T13:30:42Z" is="relative-time" title="19 sep. 2013 15:30 CEST">on 19 Sep 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>Can't you feature test it instead of version sniff?  f.e. request once, if called back - then it works?</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/kof"><img alt="@kof" class="timeline-comment-avatar" height="48" src="https://avatars1.githubusercontent.com/u/52824?v=3&s=96" width="48"></a>
+    <div id="gistcomment-912461" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="ab220d39d7a112a967e6566ebcd162e2">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/kof" class="author">kof</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/KrofDrakula/5318048#gistcomment-912461" class="timestamp">
+      <time datetime="2013-09-21T20:35:17Z" is="relative-time" title="21 sep. 2013 22:35 CEST">on 21 Sep 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>I have found a workaround: using top.requestAnimationFrame. Does it works for you guys? I mean within an iframe.</p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+  <div class="timeline-comment-wrapper js-comment-container">
+    <a href="https://gist.github.com/kof"><img alt="@kof" class="timeline-comment-avatar" height="48" src="https://avatars1.githubusercontent.com/u/52824?v=3&s=96" width="48"></a>
+    <div id="gistcomment-912560" class="comment previewable-edit timeline-comment js-comment js-task-list-container " data-body-version="81fddc47272bbe2b19c6dd1b498aa46d">
+
+  <div class="timeline-comment-header ">
+
+
+
+
+  <div class="timeline-comment-header-text">
+
+    <strong>
+      <a href="https://gist.github.com/kof" class="author">kof</a>
+    </strong>
+
+    commented
+
+    <a href="https://gist.github.com/KrofDrakula/5318048#gistcomment-912560" class="timestamp">
+      <time datetime="2013-09-22T02:00:03Z" is="relative-time" title="22 sep. 2013 04:00 CEST">on 22 Sep 2013</time>
+    </a>
+  </div>
+</div>
+
+
+  <div class="comment-content">
+
+    <div class="edit-comment-hide">
+      <div class="comment-body markdown-body markdown-format js-comment-body">
+          <p>A better ios fix <a href="https://github.com/kof/animationFrame">https://github.com/kof/animationFrame</a></p>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+  </div>
+
+
+
+<!-- Rendered timeline since 2013-11-15 17:43:56 -->
+<div id="partial-timeline-marker" class="js-timeline-marker js-socket-channel js-updatable-content" data-channel="KrofDrakula/5318048:gist:5318048" data-url="/KrofDrakula/5318048/show_partial?partial=gist%2Ftimeline_marker&amp;since=1384566236" data-last-modified="Sat, 16 Nov 2013 01:43:56 GMT">
+</div>
+
+
+      <div class="discussion-timeline-actions">
+          <div class="signed-out-comment">
+	<a href="https://gist.github.com/join" class="btn btn-primary" rel="nofollow">Sign up for free</a>
+	<strong>to join this conversation on GitHub</strong>.
+	Already have an account?
+	<a href="https://gist.github.com/login?return_to=https%3A%2F%2Fgist.github.com%2FKrofDrakula%2F5318048" rel="nofollow">Sign in to comment</a>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+
+  </div><!-- /.repo-container -->
+  <div class="modal-backdrop"></div>
+</div><!-- /.container -->
+
+    </div><!-- /.gist-pjax-container -->
+  </div><!-- /.site -->
+
+    </div><!-- /.wrapper -->
+
+      <div class="container">
+  <div class="site-footer" role="contentinfo">
+    <ul class="site-footer-links right">
+        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
+      <li><a href="https://developer.github.com/" data-ga-click="Footer, go to api, text:api">API</a></li>
+      <li><a href="https://training.github.com/" data-ga-click="Footer, go to training, text:training">Training</a></li>
+      <li><a href="https://shop.github.com/" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
+        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
+        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
+        <li><a href="https://help.github.com/" data-ga-click="Footer, go to help, text:help">Help</a></li>
+
+    </ul>
+
+    <a href="https://github.com/" aria-label="Homepage">
+      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+</a>
+    <ul class="site-footer-links">
+      <li>© 2015 <span title="0.08427s from github-fe141-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
+        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
+        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
+        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
+        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
+
+    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
+  <div class="fullscreen-container js-suggester-container">
+    <div class="textarea-wrap">
+      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents" placeholder="" aria-label=""></textarea>
+      <div class="suggester-container">
+        <div class="suggester fullscreen-suggester js-suggester js-navigation-container"></div>
+      </div>
+    </div>
+  </div>
+  <div class="fullscreen-sidebar">
+    <a href="https://gist.github.com/KrofDrakula/5318048#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
+      <span class="mega-octicon octicon-screen-normal"></span>
+    </a>
+    <a href="https://gist.github.com/KrofDrakula/5318048#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w" aria-label="Switch themes">
+      <span class="octicon octicon-color-mode"></span>
+    </a>
+  </div>
+</div>
+
+
+
+    
+    
+
+    <div id="ajax-error-message" class="flash flash-error">
+      <span class="octicon octicon-alert"></span>
+      <a href="https://gist.github.com/KrofDrakula/5318048#" class="octicon octicon-x flash-close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
+      Something went wrong with that request. Please try again.
+    </div>
+
+
+      <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-55bdb89972afd4b256fc7c3ed42001976a03fb3eaba96e625d5806c659bc19c6.js"></script>
+      <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github/index-fe2e1fa6704baa94c97c39847254262f674803845a2b1addd89d4f9eca3fa297.js"></script>
+      
+      
+    <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner hidden">
+      <span class="octicon octicon-alert"></span>
+      <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
+      <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
+    </div>
+  
+
+
+</body></html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source -->
+<html lang="en-US" pmbx_context="07023653-30DD-4C42-8A70-0985088A9591"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<title>Javascript Accelerometer Demo and Source | Javascript blog</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./Javascript Accelerometer Demo and Source _ Javascript blog_files/style.css">
+<link rel="pingback" href="http://www.albertosarullo.com/blog/xmlrpc.php">
+<link rel="alternate" type="application/rss+xml" title="Javascript blog » Feed" href="http://www.albertosarullo.com/blog/feed">
+<link rel="alternate" type="application/rss+xml" title="Javascript blog » Comments Feed" href="http://www.albertosarullo.com/blog/comments/feed">
+<link rel="alternate" type="application/rss+xml" title="Javascript blog » Javascript Accelerometer Demo and Source Comments Feed" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source/feed">
+		<script type="text/javascript" async="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/ga.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.albertosarullo.com\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.4"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/wp-emoji-release.min.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.albertosarullo.com/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.albertosarullo.com/blog/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="ActionScript: IE8 navigateToURL bug and workaround" href="http://www.albertosarullo.com/blog/actionscript-ie8-navigatetourl-bug-and-workaround">
+<link rel="next" title="Facebook Flash Apps and Firefox: bug and workaround" href="http://www.albertosarullo.com/blog/facebook-flash-apps-and-firefox-bug-and-workaround">
+<meta name="generator" content="WordPress 4.2.4">
+<link rel="canonical" href="./Javascript Accelerometer Demo and Source _ Javascript blog_files/Javascript Accelerometer Demo and Source _ Javascript blog.html">
+<link rel="shortlink" href="http://www.albertosarullo.com/blog/?p=1">
+	<link href="./Javascript Accelerometer Demo and Source _ Javascript blog_files/SyntaxHighlighter.css" type="text/css" rel="stylesheet">
+	</head>
+
+<body class="single single-post postid-1 single-format-standard">
+<div id="wrapper" class="hfeed">
+	<div id="header">
+		<div id="masthead">
+			<div id="branding" role="banner">
+								<div id="site-title">
+					<span>
+						<a href="http://www.albertosarullo.com/blog/" title="Javascript blog" rel="home">Javascript blog</a>
+					</span>
+				</div>
+				<div id="site-description">Scripting and coding experiments</div>
+
+							</div><!-- #branding -->
+
+			<div id="access" role="navigation">
+			  				<div class="skip-link screen-reader-text"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#content" title="Skip to content">Skip to content</a></div>
+								<div class="menu"><ul><li><a href="http://www.albertosarullo.com/blog/">Home</a></li><li class="page_item page-item-2"><a href="http://www.albertosarullo.com/blog/about">About</a></li></ul></div>
+			</div><!-- #access -->
+		</div><!-- #masthead -->
+	</div><!-- #header -->
+
+	<div id="main">
+
+		<div id="container">
+			<div id="content" role="main">
+
+			
+
+				<div id="nav-above" class="navigation">
+					<div class="nav-previous"><a href="http://www.albertosarullo.com/blog/actionscript-ie8-navigatetourl-bug-and-workaround" rel="prev"><span class="meta-nav">←</span> ActionScript: IE8 navigateToURL bug and workaround</a></div>
+					<div class="nav-next"><a href="http://www.albertosarullo.com/blog/facebook-flash-apps-and-firefox-bug-and-workaround" rel="next">Facebook Flash Apps and Firefox: bug and workaround <span class="meta-nav">→</span></a></div>
+				</div><!-- #nav-above -->
+
+				<div id="post-1" class="post-1 post type-post status-publish format-standard hentry category-ipad category-iphone category-javascript tag-accelerometer tag-gyro tag-javascript-2 tag-mobile tag-safari">
+					<h1 class="entry-title">Javascript Accelerometer Demo and Source</h1>
+
+					<div class="entry-meta">
+						<span class="meta-prep meta-prep-author">Posted on</span> <a href="./Javascript Accelerometer Demo and Source _ Javascript blog_files/Javascript Accelerometer Demo and Source _ Javascript blog.html" title="4:55 pm" rel="bookmark"><span class="entry-date">November 25, 2010</span></a> <span class="meta-sep">by</span> <span class="author vcard"><a class="url fn n" href="http://www.albertosarullo.com/blog/author/alberto" title="View all posts by Alberto">Alberto</a></span>					</div><!-- .entry-meta -->
+
+					<div class="entry-content">
+						<p>IOS 4.2 (with new Safari Mobile) has the possibility to read sensor data like accelerometer and gyroscope directly from Javascript.<br>
+<span id="more-1"></span></p>
+<h2>New Javascript objects and event handler</h2>
+<p>From javascript point of view, we have:</p>
+<ul>
+<li>new handler <strong>window.ondevicemotion</strong></li>
+<li>new event object:
+<ul>
+<li><strong>event.accelerationGravity</strong>, with x, y, z attributes</li>
+<li><strong>event.accelerationIncludingGravity</strong>, with x, y, z attributes</li>
+<li><strong>event.rotationRate</strong>, with alpha, beta, gamma attributes</li>
+</ul>
+</li>
+</ul>
+<h2>Code Snip</h2>
+<div class="dp-highlighter"><div class="bar"><div class="tools"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#" onclick="dp.sh.Toolbar.Command(&#39;ViewSource&#39;,this);return false;">view plain</a><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#" onclick="dp.sh.Toolbar.Command(&#39;CopyToClipboard&#39;,this);return false;">copy to clipboard</a><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#" onclick="dp.sh.Toolbar.Command(&#39;PrintSource&#39;,this);return false;">print</a><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#" onclick="dp.sh.Toolbar.Command(&#39;About&#39;,this);return false;">?</a></div></div><ol start="1" class="dp-c"><li class="alt"><span><span>window.ondevicemotion&nbsp;=&nbsp;</span><span class="keyword">function</span><span>(event)&nbsp;{&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span><span>&nbsp;accelerationX&nbsp;=&nbsp;event.accelerationIncludingGravity.x;&nbsp;&nbsp;</span></span></li><li class="alt"><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span><span>&nbsp;accelerationY&nbsp;=&nbsp;event.accelerationIncludingGravity.y;&nbsp;&nbsp;</span></span></li><li class=""><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">var</span><span>&nbsp;accelerationZ&nbsp;=&nbsp;event.accelerationIncludingGravity.z;&nbsp;&nbsp;</span></span></li><li class="alt"><span>}&nbsp;&nbsp;</span></li></ol></div><pre name="code" class="javascript" style="display: none;">window.ondevicemotion = function(event) {
+	var accelerationX = event.accelerationIncludingGravity.x;
+	var accelerationY = event.accelerationIncludingGravity.y;
+	var accelerationZ = event.accelerationIncludingGravity.z;
+}</pre>
+<h2>Demo</h2>
+<p><a href="http://www.albertosarullo.com/demos/accelerometer/">Online Demo (require Safari Mobile)</a></p>
+<h2>API</h2>
+<p><a href="https://developer.apple.com/library/safari/#documentation/SafariDOMAdditions/Reference/DeviceMotionEventClassRef/DeviceMotionEvent/DeviceMotionEvent.html">DeviceMotionEvent Class</a><br>
+<a href="https://developer.apple.com/library/safari/#documentation/SafariDOMAdditions/Reference/DeviceOrientationEventClassRef/DeviceOrientationEvent/DeviceOrientationEvent.html">DeviceOrientationEvent Class</a></p>
+											</div><!-- .entry-content -->
+
+
+					<div class="entry-utility">
+						This entry was posted in <a href="http://www.albertosarullo.com/blog/category/ipad" rel="category tag">Ipad</a>, <a href="http://www.albertosarullo.com/blog/category/iphone" rel="category tag">Iphone</a>, <a href="http://www.albertosarullo.com/blog/category/javascript" rel="category tag">Javascript</a> and tagged <a href="http://www.albertosarullo.com/blog/tag/accelerometer" rel="tag">accelerometer</a>, <a href="http://www.albertosarullo.com/blog/tag/gyro" rel="tag">gyro</a>, <a href="http://www.albertosarullo.com/blog/tag/javascript-2" rel="tag">javascript</a>, <a href="http://www.albertosarullo.com/blog/tag/mobile" rel="tag">mobile</a>, <a href="http://www.albertosarullo.com/blog/tag/safari" rel="tag">safari</a>. Bookmark the <a href="./Javascript Accelerometer Demo and Source _ Javascript blog_files/Javascript Accelerometer Demo and Source _ Javascript blog.html" title="Permalink to Javascript Accelerometer Demo and Source" rel="bookmark">permalink</a>.											</div><!-- .entry-utility -->
+				</div><!-- #post-## -->
+
+				<div id="nav-below" class="navigation">
+					<div class="nav-previous"><a href="http://www.albertosarullo.com/blog/actionscript-ie8-navigatetourl-bug-and-workaround" rel="prev"><span class="meta-nav">←</span> ActionScript: IE8 navigateToURL bug and workaround</a></div>
+					<div class="nav-next"><a href="http://www.albertosarullo.com/blog/facebook-flash-apps-and-firefox-bug-and-workaround" rel="next">Facebook Flash Apps and Firefox: bug and workaround <span class="meta-nav">→</span></a></div>
+				</div><!-- #nav-below -->
+
+				
+			<div id="comments">
+
+
+			<h3 id="comments-title">15 Responses to <em>Javascript Accelerometer Demo and Source</em></h3>
+
+
+			<ol class="commentlist">
+					<li class="comment even thread-even depth-1" id="li-comment-32">
+		<div id="comment-32">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/21a6b78289eb094093e5dd51badf77b9" srcset="http://2.gravatar.com/avatar/21a6b78289eb094093e5dd51badf77b9?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">social workers</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-32">
+			December 30, 2010 at 12:00 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>this post is very usefull thx!</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=32#respond" onclick="return addComment.moveForm( &quot;comment-32&quot;, &quot;32&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to social workers">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-75">
+		<div id="comment-75">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/61830def05231205c376829fea3a894e" srcset="http://0.gravatar.com/avatar/61830def05231205c376829fea3a894e?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="http://bfred.it/" rel="external nofollow" class="url">Federico / Bfred.it</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-75">
+			July 14, 2011 at 1:10 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Excellent. I’m using this in my upcoming website: <a href="http://www.progettystudio.com/" rel="nofollow">http://www.progettystudio.com</a></p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=75#respond" onclick="return addComment.moveForm( &quot;comment-75&quot;, &quot;75&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to Federico / Bfred.it">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-89">
+		<div id="comment-89">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/ea24d5f3b58bd652b70cc5cd36db8392" srcset="http://2.gravatar.com/avatar/ea24d5f3b58bd652b70cc5cd36db8392?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="http://www.humsurfer.com/xbox-kinect-compatible-games" rel="external nofollow" class="url">how much to buy the kinect</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-89">
+			January 5, 2012 at 7:32 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>That is very fascinating, You’re a very professional blogger. I’ve joined your feed and look forward to looking for extra of your excellent post. Also, I’ve shared your website in my social networks</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=89#respond" onclick="return addComment.moveForm( &quot;comment-89&quot;, &quot;89&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to how much to buy the kinect">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-185">
+		<div id="comment-185">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/c8bd0229f87e2cdbdf1edbd53d4cb4ab" srcset="http://0.gravatar.com/avatar/c8bd0229f87e2cdbdf1edbd53d4cb4ab?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="http://iangilman.com/" rel="external nofollow" class="url">Ian Gilman</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-185">
+			June 28, 2012 at 5:13 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Great info! I believe it should be event.acceleration rather than event.accelerationGravity, though.</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=185#respond" onclick="return addComment.moveForm( &quot;comment-185&quot;, &quot;185&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to Ian Gilman">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-186">
+		<div id="comment-186">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/c50ddfa5bda957a157e986b4a0e95c23" srcset="http://0.gravatar.com/avatar/c50ddfa5bda957a157e986b4a0e95c23?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Pete Smith</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-186">
+			July 3, 2012 at 8:48 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hi,</p>
+<p>This is great… but have you experienced reverse gravity if you have the iPad rotated a certain way on load?</p>
+<p>The address bar is at the top but the gravity is reversed. </p>
+<p>Is there a way of detecting this / reversing the calculations?</p>
+<p>Cheers</p>
+<p>Pete</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=186#respond" onclick="return addComment.moveForm( &quot;comment-186&quot;, &quot;186&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to Pete Smith">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-alberto bypostauthor odd alt thread-odd thread-alt depth-1" id="li-comment-187">
+		<div id="comment-187">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/cec823fc95d5ccd5c49724a9e38fb35d" srcset="http://0.gravatar.com/avatar/cec823fc95d5ccd5c49724a9e38fb35d?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Alberto</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-187">
+			July 3, 2012 at 11:14 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Hi Pete,<br>
+to check che orientation of the iPad (ex: portrait upside-down) you can use the window.orientation property.<br>
+You can also use the orientationchange event to trigger some action when orientation change:</p>
+<p>window.addEventListener(‘orientationchange’, updateOrientation, false);<br>
+function updateOrientation() {<br>
+    var orientation = window.orientation;<br>
+     switch (orientation) {<br>
+         // case …<br>
+     }<br>
+}</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=187#respond" onclick="return addComment.moveForm( &quot;comment-187&quot;, &quot;187&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to Alberto">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-336">
+		<div id="comment-336">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/035d929f6fbc57b49721c32b71ee3a60" srcset="http://0.gravatar.com/avatar/035d929f6fbc57b49721c32b71ee3a60?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="http://kmphotography.eu/forum" rel="external nofollow" class="url">Michael</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-336">
+			March 4, 2013 at 3:02 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Why am i sooo noob… I would like to have a script that will scroll my website in mobile style using the accelerometer.</p>
+<p>It seems that i don’t have the knowledge to write it myself. Could somebody help me to do it?</p>
+<p>Thank you in advance</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=336#respond" onclick="return addComment.moveForm( &quot;comment-336&quot;, &quot;336&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to Michael">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-378">
+		<div id="comment-378">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/97954d1f64baba7c1b5c9ed04a8de604" srcset="http://0.gravatar.com/avatar/97954d1f64baba7c1b5c9ed04a8de604?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">raslanove</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-378">
+			March 14, 2013 at 5:14 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Thank you very much, this is very helpful <img src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/simple-smile.png" alt=":)" class="wp-smiley" style="height: 1em; max-height: 1em;"></p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=378#respond" onclick="return addComment.moveForm( &quot;comment-378&quot;, &quot;378&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to raslanove">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://www.blue-bears.com/blog/?p=1468" rel="external nofollow" class="url">Free Fall | Blue-Bears</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3707">
+		<div id="comment-3707">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/6b6411b581b1e351ad642b03a533421d" srcset="http://0.gravatar.com/avatar/6b6411b581b1e351ad642b03a533421d?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">ei</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-3707">
+			June 28, 2013 at 3:39 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>hi thz for ur post…i didn’t how to write this one before i haven’t  seen ur post. if u have another example related to Accelerometer ,pls share me.<br>
+cheers</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=3707#respond" onclick="return addComment.moveForm( &quot;comment-3707&quot;, &quot;3707&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to ei">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3785">
+		<div id="comment-3785">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/a5fb7874166ff2c7540467148b7a658d" srcset="http://1.gravatar.com/avatar/a5fb7874166ff2c7540467148b7a658d?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn">Basharat</cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-3785">
+			February 7, 2014 at 5:52 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>do we have to add some library  into our code for device motion events if yes than kindly can u give me some link from where i can get that library..<br>
+Thanks</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=3785#respond" onclick="return addComment.moveForm( &quot;comment-3785&quot;, &quot;3785&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to Basharat">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-3789">
+		<div id="comment-3789">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/fb5b823006a10d50a3b649061c660412" srcset="http://0.gravatar.com/avatar/fb5b823006a10d50a3b649061c660412?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="http://twitter.com/tamberg" rel="external nofollow" class="url">tamberg</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-3789">
+			February 12, 2014 at 10:50 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Works on my Mac OSX 10.9.1 in Chrome!</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=3789#respond" onclick="return addComment.moveForm( &quot;comment-3789&quot;, &quot;3789&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to tamberg">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-3962">
+		<div id="comment-3962">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/de04ac868607ac0802b74faea1970527" srcset="http://1.gravatar.com/avatar/de04ac868607ac0802b74faea1970527?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="http://www.base-t.com/" rel="external nofollow" class="url">Roland</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-3962">
+			March 14, 2014 at 9:52 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Great Suggestion!</p>
+<p>This also works on Android 4.2 with Chrome, Android Browser too. The G-direction is just negative in comparison to IOS.</p>
+<p>THX.</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=3962#respond" onclick="return addComment.moveForm( &quot;comment-3962&quot;, &quot;3962&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to Roland">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-4067">
+		<div id="comment-4067">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/b08b75be8ba0fbd6aef2befa7753c653" srcset="http://2.gravatar.com/avatar/b08b75be8ba0fbd6aef2befa7753c653?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="http://carpaper.net/" rel="external nofollow" class="url">Bastian</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-4067">
+			March 21, 2014 at 5:51 pm</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>There is definately a lot to know about this issue. I love all the points you have made.</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=4067#respond" onclick="return addComment.moveForm( &quot;comment-4067&quot;, &quot;4067&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to Bastian">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-7916">
+		<div id="comment-7916">
+		<div class="comment-author vcard">
+			<img alt="" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/bde8d9170e21fb7cc33bdb8bd43e8b10" srcset="http://2.gravatar.com/avatar/bde8d9170e21fb7cc33bdb8bd43e8b10?s=80&amp;d=mm&amp;r=g 2x" class="avatar avatar-40 photo" height="40" width="40">			<cite class="fn"><a href="http://crowdenergy.org/kickstarter-ocean-energy-turbine/" rel="external nofollow" class="url">energy</a></cite> <span class="says">says:</span>		</div><!-- .comment-author .vcard -->
+		
+		<div class="comment-meta commentmetadata"><a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-7916">
+			May 18, 2014 at 2:02 am</a>		</div><!-- .comment-meta .commentmetadata -->
+
+		<div class="comment-body"><p>Generally I wouldn’t go through report about blogs, however wish to declare that this kind of write-up extremely required me to carry out and so! Your way of writing continues to be surprised me personally. Thank you, extremely wonderful article.</p>
+</div>
+
+		<div class="reply">
+			<a class="comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source?replytocom=7916#respond" onclick="return addComment.moveForm( &quot;comment-7916&quot;, &quot;7916&quot;, &quot;respond&quot;, &quot;1&quot; )" aria-label="Reply to energy">Reply</a>		</div><!-- .reply -->
+	</div><!-- #comment-##  -->
+
+	</li><!-- #comment-## -->
+			</ol>
+
+
+
+						<div id="respond" class="comment-respond">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://www.albertosarullo.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form" pmbx_context="8ADF021D-F52B-45DD-8F19-0C33A9CB7F52">
+																			<p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span></p>							<p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" aria-required="true" required="required" pmbx_context="96833C62-C064-4961-81F0-FEB3337FB2CF"></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" aria-describedby="email-notes" aria-required="true" required="required" pmbx_context="C99D2948-FB0D-493B-8F72-D70E0D381104"></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" pmbx_context="CD3BD7A9-381E-4311-9373-38765172E907"></p>
+												<p class="comment-form-comment"><label for="comment">Comment</label> <textarea id="comment" name="comment" cols="45" rows="8" aria-describedby="form-allowed-tags" aria-required="true" required="required"></textarea></p>						<p class="form-allowed-tags" id="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes:  <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;s&gt; &lt;strike&gt; &lt;strong&gt; </code></p>
+						<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" pmbx_context="ACB1E3DC-3DA8-4E5D-BFE4-BF5913BAFCBF"> <input type="hidden" name="comment_post_ID" value="1" id="comment_post_ID" pmbx_context="C1DFD1CF-2880-4909-8200-8E0927F57DFC">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0" pmbx_context="C2DC9A5F-8139-422B-8437-2A750BB87319">
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="728c79346e" pmbx_context="DFDA7559-6CDC-48BE-8C9E-07FD4E4AF3D7"></p><p style="display: none;"></p>					<input type="hidden" id="ak_js" name="ak_js" value="1439726729793" pmbx_context="0F4C34E1-2345-4925-9DEC-7A7D745A183F"></form>
+							</div><!-- #respond -->
+			
+</div><!-- #comments -->
+
+
+			</div><!-- #content -->
+		</div><!-- #container -->
+
+
+		<div id="primary" class="widget-area" role="complementary">
+			<ul class="xoxo">
+
+<li id="search-2" class="widget-container widget_search"><form role="search" method="get" id="searchform" class="searchform" action="http://www.albertosarullo.com/blog/" pmbx_context="529D21D4-EE12-48D0-9342-AC77C55103C9">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input type="text" value="" name="s" id="s" pmbx_context="725D2AAD-5027-46B7-853E-C7B96FECCF59">
+					<input type="submit" id="searchsubmit" value="Search" pmbx_context="E3E083E9-D964-4806-A460-7E986061241D">
+				</div>
+			</form></li>		<li id="recent-posts-2" class="widget-container widget_recent_entries">		<h3 class="widget-title">Recent Posts</h3>		<ul>
+					<li>
+				<a href="http://www.albertosarullo.com/blog/lego-plays-ruzzle">Lego plays Ruzzle: nxt &amp; nodejs powered robot</a>
+						</li>
+					<li>
+				<a href="http://www.albertosarullo.com/blog/ruzzle-lego-solver-preview">Ruzzle Lego Solver: first photo</a>
+						</li>
+					<li>
+				<a href="http://www.albertosarullo.com/blog/ruzzle-lego-mindstorm-nodejs-solver">Ruzzle Lego Mindstorm NodeJS Solver</a>
+						</li>
+					<li>
+				<a href="http://www.albertosarullo.com/blog/facebook-flash-apps-and-firefox-bug-and-workaround">Facebook Flash Apps and Firefox: bug and workaround</a>
+						</li>
+					<li>
+				<a href="./Javascript Accelerometer Demo and Source _ Javascript blog_files/Javascript Accelerometer Demo and Source _ Javascript blog.html">Javascript Accelerometer Demo and Source</a>
+						</li>
+				</ul>
+		</li><li id="recent-comments-2" class="widget-container widget_recent_comments"><h3 class="widget-title">Recent Comments</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link"><a href="http://stick-war-hacked.pixub.com/" rel="external nofollow" class="url">Jasper Carattini</a></span> on <a href="http://www.albertosarullo.com/blog/lego-plays-ruzzle#comment-12512">Lego plays Ruzzle: nxt &amp; nodejs powered robot</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://www.test.net/" rel="external nofollow" class="url">google plus app for blackberry</a></span> on <a href="http://www.albertosarullo.com/blog/lego-plays-ruzzle#comment-9547">Lego plays Ruzzle: nxt &amp; nodejs powered robot</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://jaypharoah.com/principal-frye-snl" rel="external nofollow" class="url">Ezekiel Whalen</a></span> on <a href="http://www.albertosarullo.com/blog/html5-canvas-display-list#comment-9275">Html5 Canvas Display List</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://crowdenergy.org/kickstarter-ocean-energy-turbine/" rel="external nofollow" class="url">energy</a></span> on <a href="http://www.albertosarullo.com/blog/javascript-accelerometer-demo-source#comment-7916">Javascript Accelerometer Demo and Source</a></li><li class="recentcomments"><span class="comment-author-link"><a href="http://virii.tk/" rel="external nofollow" class="url">Annalee Mirante</a></span> on <a href="http://www.albertosarullo.com/blog/html5-canvas-display-list#comment-4344">Html5 Canvas Display List</a></li></ul></li><li id="archives-2" class="widget-container widget_archive"><h3 class="widget-title">Archives</h3>		<ul>
+	<li><a href="http://www.albertosarullo.com/blog/2013/02">February 2013</a></li>
+	<li><a href="http://www.albertosarullo.com/blog/2013/01">January 2013</a></li>
+	<li><a href="http://www.albertosarullo.com/blog/2010/11">November 2010</a></li>
+		</ul>
+</li><li id="categories-2" class="widget-container widget_categories"><h3 class="widget-title">Categories</h3>		<ul>
+	<li class="cat-item cat-item-18"><a href="http://www.albertosarullo.com/blog/category/actionscript">Actionscript</a>
+</li>
+	<li class="cat-item cat-item-44"><a href="http://www.albertosarullo.com/blog/category/android">Android</a>
+</li>
+	<li class="cat-item cat-item-10"><a href="http://www.albertosarullo.com/blog/category/canvas">Canvas</a>
+</li>
+	<li class="cat-item cat-item-19"><a href="http://www.albertosarullo.com/blog/category/facebook">Facebook</a>
+</li>
+	<li class="cat-item cat-item-20"><a href="http://www.albertosarullo.com/blog/category/flash">Flash</a>
+</li>
+	<li class="cat-item cat-item-13"><a href="http://www.albertosarullo.com/blog/category/google-map">Google Map</a>
+</li>
+	<li class="cat-item cat-item-9"><a href="http://www.albertosarullo.com/blog/category/html5">Html5</a>
+</li>
+	<li class="cat-item cat-item-17"><a href="http://www.albertosarullo.com/blog/category/ipad">Ipad</a>
+</li>
+	<li class="cat-item cat-item-16"><a href="http://www.albertosarullo.com/blog/category/iphone">Iphone</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.albertosarullo.com/blog/category/javascript">Javascript</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.albertosarullo.com/blog/category/uncategorized">Uncategorized</a>
+</li>
+		</ul>
+</li>			</ul>
+		</div><!-- #primary .widget-area -->
+
+	</div><!-- #main -->
+
+	<div id="footer" role="contentinfo">
+		<div id="colophon">
+
+
+
+			<div id="site-info">
+				<a href="http://www.albertosarullo.com/blog/" title="Javascript blog" rel="home">
+					Javascript blog				</a>
+			</div><!-- #site-info -->
+
+			<div id="site-generator">
+								<a href="http://wordpress.org/" title="Semantic Personal Publishing Platform" rel="generator">Proudly powered by WordPress.</a>
+			</div><!-- #site-generator -->
+
+		</div><!-- #colophon -->
+	</div><!-- #footer -->
+
+</div><!-- #wrapper -->
+
+<script type="text/javascript">var _gaq=_gaq||[];_gaq.push(['_setAccount','UA-201822-2']);_gaq.push(['_trackPageview']);(function(){var ga=document.createElement('script');ga.type='text/javascript';ga.async=true;ga.src=('https:'==document.location.protocol?'https://ssl':'http://www')+'.google-analytics.com/ga.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(ga,s);})();</script>
+
+
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shCore.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushCSharp.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushPhp.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushJScript.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushJava.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushVb.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushSql.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushXml.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushDelphi.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushPython.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushRuby.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushCss.js"></script>
+<script class="javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/shBrushCpp.js"></script>
+<script class="javascript">
+dp.SyntaxHighlighter.ClipboardSwf = 'http://www.albertosarullo.com/blog/wp-content/plugins/google-syntax-highlighter/Scripts/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+</script>
+<script type="text/javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/form.js"></script>
+<script type="text/javascript" src="./Javascript Accelerometer Demo and Source _ Javascript blog_files/comment-reply.min.js"></script>
+
+
+<!-- WP Super Cache is installed but broken. The constant WPCACHEHOME must be set in the file wp-config.php and point at the WP Super Cache plugin directory. --></body></html>

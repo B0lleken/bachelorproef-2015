@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<!-- saved from url=(0101)http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript -->
+<html itemscope="" itemtype="http://schema.org/QAPage" pmbx_context="57B291F6-200C-4214-8A65-F14612CBF46E"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>How to access accelerometer/gyroscope data from Javascript? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=6cd6089ee7f6">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=ea71a5211a91&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="How to access accelerometer/gyroscope data from Javascript?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I have recently come across a few websites that seems to access the accelerometer or gyroscope on my laptop, detecting changes in orientation or movement.
+
+How is this done? Must I subscribe to som...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript">
+    <link rel="canonical" href="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow.html">
+
+    
+    
+    <script type="text/javascript" async="" src="http://engine.adzerk.net/ados?t=1439726755964&request={%22Placements%22:[{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk620740031%22,%22AT%22:4,%22Z%22:43},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk1202483811%22,%22AT%22:4,%22Z%22:44},{%22A%22:22,%22S%22:8277,%22D%22:%22adzerk1236505314%22,%22ATA%22:[17,2221],%22Z%22:45}],%22Keywords%22:%22javascript%2Caccelerometer%2Cgyroscope%22,%22Referrer%22:%22%22,%22IsAsync%22:true}"></script><script async="" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/quant.js"></script><script async="" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/beacon.js"></script><script async="" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/ados.js"></script><script src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/jquery.min.js"></script>
+    <script src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;How to access accelerometer/gyroscope data from Javascript?&#39;" href="http://stackoverflow.com/feeds/question/4378435">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:4378435});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '4378435');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1439726833,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"globalAuthDisabled":true,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"403718e72b6d93875ed9accb0f62e58c","isAnonymous":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"1646078196a7","js/moderator.en.js":"a57372474b82","js/full-anon.en.js":"6356745df037","js/full.en.js":"6f02f50c46c8","js/wmd.en.js":"c364802ec4cf","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"ea3cc7f5740d","js/help.en.js":"cf0985095088","js/tageditor.en.js":"90e66a3b94b6","js/tageditornew.en.js":"0b218a8c4d1f","js/inline-tag-editing.en.js":"de80429b1816","js/revisions.en.js":"e51ed9061328","js/review.en.js":"5fb8427fa0e5","js/tagsuggestions.en.js":"6d2382075da0","js/post-validation.en.js":"5c9cee3a8f05","js/explore-qlist.en.js":"09aaffd40eb0","js/events.en.js":"218fba0d83e2","js/keyboard-shortcuts.en.js":"dc106d39a263","js/external-editor.en.js":"c4b8fb636061","js/external-editor.en.js":"c4b8fb636061","js/snippet-javascript.en.js":"a39adff9cc0c","js/snippet-javascript-codemirror.en.js":"be021d157634"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script async="" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/full-anon.en.js"></script><script async="" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/snippet-javascript.en.js"></script><script async="" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/post-validation.en.js"></script><script async="" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/prettify-full.en.js"></script><script async="" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/external-editor.en.js"></script><script type="text/javascript" src="http://static.adzerk.net/Extensions/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"><link type="text/css" rel="stylesheet" href="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/jobs.min.css"></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f4378435%2fhow-to-access-accelerometer-gyroscope-data-from-javascript" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f4378435%2fhow-to-access-accelerometer-gyroscope-data-from-javascript" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 149 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f4378435%2fhow-to-access-accelerometer-gyroscope-data-from-javascript" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f4378435%2fhow-to-access-accelerometer-gyroscope-data-from-javascript" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off" pmbx_context="FF542661-A0C2-428E-A7D4-D80BB7AD048E">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240" pmbx_context="34844D7C-67E4-4886-851B-B629768A13DD">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=41f6e13ade69">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://stackoverflow.com/tour" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for professional and enthusiast programmers. It's 100% free.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/", expires: 365 });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+                <h1 itemprop="name"><a href="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow.html" class="question-hyperlink">How to access accelerometer/gyroscope data from Javascript?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="4378435" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk620740031",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk620740031">
+            <iframe id="ados_frame_adzerk620740031_621688" frameborder="0" scrolling="no" height="90" width="728"></iframe><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6MTQyNywiYXQiOjQsImJ0IjowLCJjbSI6MjYxNDg5LCJjaCI6MTE3OCwiY2siOnt9LCJjciI6OTA1MDU1LCJkaSI6IjNkZTA1NGYyZDg4NTQ0YzBiYTI1MmRmYTY5NzY5OWMwIiwiZG0iOjEsImZjIjo5NDk2MjIsImZsIjo2MjE2ODgsImlwIjoiNzguMjEuMTQ3LjEyOCIsImt3IjoiamF2YXNjcmlwdCxhY2NlbGVyb21ldGVyLGd5cm9zY29wZSIsIm1rIjoiamF2YXNjcmlwdCIsIm53IjoyMiwicGMiOjUuNSwicHIiOjc2NSwicnQiOjIsInN0Ijo4Mjc3LCJ1ayI6InVlMS02Mzg5MTdmMWJhY2U0YjIzYTBiNTcxMTc4NDRkMzgzNiIsInpuIjo0MywidHMiOjE0Mzk3MjY4MzQzNDcsImJmIjp0cnVlLCJwbiI6ImFkemVyazYyMDc0MDAzMSJ9&s=Yify5OnoHJGuAECAEJnAlCrdsvI"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="4378435">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">79</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>51</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I have recently come across a few websites that seems to access the accelerometer or gyroscope on my laptop, detecting changes in orientation or movement.</p>
+
+<p>How is this done? Must I subscribe to some kind of event on the <code>window</code> object?</p>
+
+<p>On which devices (laptops, mobile phones, tablets) is this known to work?</p>
+
+<hr>
+
+<p><sup><strong>NB</strong>: I actually already know (part of) the answer to this question, and I am going to post it right away. The reason that I am posting the question here, is to let everyone else know that accelerometer data <em>is</em> available in Javascript (on certain devices) and to challenge the community to post new findings on the subject. Currently, there seems to be almost no documentation of these features.</sup></p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag js-gps-track" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a> <a href="http://stackoverflow.com/questions/tagged/accelerometer" class="post-tag js-gps-track" title="show questions tagged &#39;accelerometer&#39;" rel="tag">accelerometer</a> <a href="http://stackoverflow.com/questions/tagged/gyroscope" class="post-tag js-gps-track" title="show questions tagged &#39;gyroscope&#39;" rel="tag">gyroscope</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/4378435" title="short permalink to this question" class="short-link" id="link-post-4378435">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/4378435/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/4378435/revisions" title="show all edits to this post">edited <span title="2014-10-28 17:10:05Z" class="relativetime">Oct 28 '14 at 17:10</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2010-12-07 15:37:42Z" class="relativetime">Dec 7 '10 at 15:37</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/121364/j%c3%b8rn-schou-rode"><div class="gravatar-wrapper-32"><img src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/967f06926c0286ce01564d0e772d71c2" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/121364/j%c3%b8rn-schou-rode">Jørn Schou-Rode</a><br>
+        <span class="reputation-score" title="reputation score 22607" dir="ltr">22.6k</span><span title="9 gold badges"><span class="badge1"></span><span class="badgecount">9</span></span><span title="55 silver badges"><span class="badge2"></span><span class="badgecount">55</span></span><span title="102 bronze badges"><span class="badge3"></span><span class="badgecount">102</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-4378435" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-31908903" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Great effort, thanks a lot. Do you think that 3 years later the answer needs any updates?</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/752976/bartek-banachewicz" title="17020 reputation" class="comment-user">Bartek Banachewicz</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#comment31908903_4378435"><span title="2014-01-17 17:12:13Z" class="relativetime-clean">Jan 17 '14 at 17:12</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-32250067" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@BartekBanachewicz Thanks for calling me out on this one. I will transfer the answer to "community wiki", hoping that someone with more up-to-date knowledge will update it to reflect the current state of the art.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/121364/j%c3%b8rn-schou-rode" title="22607 reputation" class="comment-user owner">Jørn Schou-Rode</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#comment32250067_4378435"><span title="2014-01-27 14:43:08Z" class="relativetime-clean">Jan 27 '14 at 14:43</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-4378435" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								2 Answers
+                                <span style="display:none;" itemprop="answerCount">2</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active">active</a>
+        <a href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="4378439"></a>
+<div id="answer-4378439" class="answer accepted-answer" data-answerid="4378439" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="4378439">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">106</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>There are currently three distinct events which may or may not be triggered when the client devices moves. Two of them are focused around <em>orientation</em> and the last on <em>motion</em>:</p>
+
+<ul>
+<li><p><code>ondeviceorientation</code> is known to work on the desktop version of Chrome, and most Apple laptops seems to have the hardware required for this to work. It also works on Mobile Safari on the iPhone 4 with iOS 4.2. In the event handler function, you can access <code>alpha</code>, <code>beta</code>, <code>gamma</code> values on the event data supplied as the only argument to the function.</p></li>
+<li><p><a href="https://developer.mozilla.org/en/DOM/window.onmozorientation"><code>onmozorientation</code></a> is supported on Firefox 3.6 and newer. Again, this is known to work on most Apple laptops, but might work on Windows or Linux machines with accelerometer as well. In the event handler function, look for <code>x</code>, <code>y</code>, <code>z</code> fields on the event data supplied as first argument.</p></li>
+<li><p><code>ondevicemotion</code> is known to work on iPhone 3GS + 4 and iPad (both with iOS 4.2), and provides data related to the current acceleration of the client device. The event data passed to the handler function has <code>acceleration</code> and <code>accelerationIncludingGravity</code>, which both have three fields for each axis: <code>x</code>, <code>y</code>, <code>z</code></p></li>
+</ul>
+
+<p>The "earthquake detecting" sample website uses a series of <code>if</code> statements to figure out which event to attach to (in a somewhat prioritized order) and passes the data received to  a common <code>tilt</code> function:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">DeviceOrientationEvent</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"deviceorientation"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        tilt</span><span class="pun">([</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">beta</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">gamma</span><span class="pun">]);</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">DeviceMotionEvent</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">'devicemotion'</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        tilt</span><span class="pun">([</span><span class="kwd">event</span><span class="pun">.</span><span class="pln">acceleration</span><span class="pun">.</span><span class="pln">x </span><span class="pun">*</span><span class="pln"> </span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">acceleration</span><span class="pun">.</span><span class="pln">y </span><span class="pun">*</span><span class="pln"> </span><span class="lit">2</span><span class="pun">]);</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="pln"> </span><span class="kwd">else</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"MozOrientation"</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">function</span><span class="pln"> </span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        tilt</span><span class="pun">([</span><span class="pln">orientation</span><span class="pun">.</span><span class="pln">x </span><span class="pun">*</span><span class="pln"> </span><span class="lit">50</span><span class="pun">,</span><span class="pln"> orientation</span><span class="pun">.</span><span class="pln">y </span><span class="pun">*</span><span class="pln"> </span><span class="lit">50</span><span class="pun">]);</span><span class="pln">
+    </span><span class="pun">},</span><span class="pln"> </span><span class="kwd">true</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>The constant factors 2 and 50 are used to "align" the readings from  the two latter events with those from the first, but these are <em>by no means</em> precise representations. For this simple "toy" project it works just fine, but if you need to use the data for something slightly more serious, you will have to get familiar with the units of the values provided in the different events and treat them with respect :)</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/4378439" title="short permalink to this answer" class="short-link" id="link-post-4378439">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/4378439/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/4378439/revisions" title="show all edits to this post">edited <span title="2010-12-07 15:46:46Z" class="relativetime">Dec 7 '10 at 15:46</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature owner">   
+       
+
+    <div class="user-info">
+    <div class="user-details">
+        <span class="community-wiki" title="This post is community owned as of Jan 27 &#39;14 at 14:42. Votes do not generate reputation, and it can be edited by users with 100 rep">
+            community wiki
+        </span>
+    </div><br>
+    <div class="user-details">
+        <a id="history-4378439" href="http://stackoverflow.com/posts/4378439/revisions" title="show revision history for this post">
+        2 revs<br></a><a href="http://stackoverflow.com/users/121364">Jørn Schou-Rode</a>
+        
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-4378439" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-8909580" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">4</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">sometimes an answer just nails it !</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/11397/scott-evernden" title="19620 reputation" class="comment-user">Scott Evernden</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#comment8909580_4378439"><span title="2011-09-11 16:58:18Z" class="relativetime-clean">Sep 11 '11 at 16:58</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-10427240" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">In case anybody wonders - ondevicemotion works for Firefox 8.0 but is scaled wrongly (0-9), but this seems to be fixed in later versions (10.0). None of them works on Opera Mobile and all standard ones work fine on default Nokia N9 browser.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/333296/nux" title="1349 reputation" class="comment-user">Nux</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#comment10427240_4378439"><span title="2011-12-08 20:40:27Z" class="relativetime-clean">Dec 8 '11 at 20:40</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-15832492" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The MozOrientation event was removed as obsolete in Firefox 6. So now they're all using the standardised API.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/497043/chris-morgan" title="35241 reputation" class="comment-user">Chris Morgan</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#comment15832492_4378439"><span title="2012-08-10 04:05:35Z" class="relativetime-clean">Aug 10 '12 at 4:05</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-34372142" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This doesn't seem to work in Firefox 30, as shown in <a href="http://jsfiddle.net/Tb5f8/5/" rel="nofollow">this fiddle</a>.  :(</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/735/bwinton" title="1060 reputation" class="comment-user">bwinton</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#comment34372142_4378439"><span title="2014-03-22 15:28:46Z" class="relativetime-clean">Mar 22 '14 at 15:28</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-40890063" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">sidenote: <a href="http://cameronmcefee.com/plax/" rel="nofollow">Plax.js</a>, which is used in github's 404 and 500 pages, <a href="https://github.com/cameronmcefee/plax/blob/master/js/plax.js#L334" rel="nofollow">uses ondeviceorientation</a>.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/3026489/yosh" title="799 reputation" class="comment-user">Yosh</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#comment40890063_4378439"><span title="2014-09-29 06:47:55Z" class="relativetime-clean">Sep 29 '14 at 6:47</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-4378439" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1202483811",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1202483811"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo3MjQyOTUsImRpIjoiYTZlOTIwYjU0OGRkNGMwOGJkNDVlZGMwMmMyZTdkM2EiLCJkbSI6MSwiZmMiOjc1NDA4OSwiZmwiOjQxMDE4MywiaXAiOiI3OC4yMS4xNDcuMTI4Iiwia3ciOiJqYXZhc2NyaXB0LGFjY2VsZXJvbWV0ZXIsZ3lyb3Njb3BlIiwibnciOjIyLCJwYyI6MCwicHIiOjE1NjgsInJ0IjoxLCJzdCI6ODI3NywidWsiOiJ1ZTEtNjM4OTE3ZjFiYWNlNGIyM2EwYjU3MTE3ODQ0ZDM4MzYiLCJ6biI6NDQsInRzIjoxNDM5NzI2ODM0MzQ5LCJiZiI6dHJ1ZSwicG4iOiJhZHplcmsxMjAyNDgzODExIiwidXIiOiJodHRwOi8vY2FyZWVycy5zdGFja292ZXJmbG93LmNvbS9jdi9nZXQtb25lP3V0bV9zb3VyY2U9c3RhY2tvdmVyZmxvdy5jb20mdXRtX21lZGl1bT1hZCZ1dG1fY2FtcGFpZ249Y2FuZGlkYXRlcy1hZGQtY3YmdXRtX2NvbnRlbnQ9bGItY2FyZWVycy1saW5rZWRpbiJ9&s=b_NDzlVI4xCArNMTnnxbuQ2pLoQ" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/cfa6d7112df94e14b466de3f85f0bcac.png" title="" alt="" border="0" width="728" height="90" style="display: none !important;"></a><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo3MjQyOTUsImRpIjoiYTZlOTIwYjU0OGRkNGMwOGJkNDVlZGMwMmMyZTdkM2EiLCJkbSI6MSwiZmMiOjc1NDA4OSwiZmwiOjQxMDE4MywiaXAiOiI3OC4yMS4xNDcuMTI4Iiwia3ciOiJqYXZhc2NyaXB0LGFjY2VsZXJvbWV0ZXIsZ3lyb3Njb3BlIiwibnciOjIyLCJwYyI6MCwicHIiOjE1NjgsInJ0IjoxLCJzdCI6ODI3NywidWsiOiJ1ZTEtNjM4OTE3ZjFiYWNlNGIyM2EwYjU3MTE3ODQ0ZDM4MzYiLCJ6biI6NDQsInRzIjoxNDM5NzI2ODM0MzUwLCJiZiI6dHJ1ZSwicG4iOiJhZHplcmsxMjAyNDgzODExIn0&s=qjd1dxOi1umiv2M4ngRD5FnKkgY"></div>
+  
+<a name="26216960"></a>
+<div id="answer-26216960" class="answer" data-answerid="26216960" itemscope="" itemtype="http://schema.org/Answer">
+
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="26216960">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Can't add a comment to the excellent explanation in the other post but wanted to mention that a great documentation source can be found <a href="http://www.w3.org/TR/orientation-event/" rel="nofollow">here</a>.</p>
+
+<p>It is enough to register an event function for accelerometer like so:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">if</span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">DeviceMotionEvent</span><span class="pun">){</span><span class="pln">
+  window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"devicemotion"</span><span class="pun">,</span><span class="pln"> motion</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="kwd">else</span><span class="pun">{</span><span class="pln">
+  console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"DeviceMotionEvent is not supported"</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>with the handler:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">function</span><span class="pln"> motion</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">){</span><span class="pln">
+  console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Accelerometer: "</span><span class="pln">
+    </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">accelerationIncludingGravity</span><span class="pun">.</span><span class="pln">x </span><span class="pun">+</span><span class="pln"> </span><span class="str">", "</span><span class="pln">
+    </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">accelerationIncludingGravity</span><span class="pun">.</span><span class="pln">y </span><span class="pun">+</span><span class="pln"> </span><span class="str">", "</span><span class="pln">
+    </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">accelerationIncludingGravity</span><span class="pun">.</span><span class="pln">z
+  </span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>And for magnetometer a following event handler has to be registered:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">if</span><span class="pun">(</span><span class="pln">window</span><span class="pun">.</span><span class="typ">DeviceOrientationEvent</span><span class="pun">){</span><span class="pln">
+  window</span><span class="pun">.</span><span class="pln">addEventListener</span><span class="pun">(</span><span class="str">"deviceorientation"</span><span class="pun">,</span><span class="pln"> orientation</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">false</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span><span class="kwd">else</span><span class="pun">{</span><span class="pln">
+  console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"DeviceOrientationEvent is not supported"</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>with a handler:</p>
+
+<pre class="default prettyprint prettyprinted"><code><span class="kwd">function</span><span class="pln"> orientation</span><span class="pun">(</span><span class="kwd">event</span><span class="pun">){</span><span class="pln">
+  console</span><span class="pun">.</span><span class="pln">log</span><span class="pun">(</span><span class="str">"Magnetometer: "</span><span class="pln">
+    </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">alpha </span><span class="pun">+</span><span class="pln"> </span><span class="str">", "</span><span class="pln">
+    </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">beta </span><span class="pun">+</span><span class="pln"> </span><span class="str">", "</span><span class="pln">
+    </span><span class="pun">+</span><span class="pln"> </span><span class="kwd">event</span><span class="pun">.</span><span class="pln">gamma
+  </span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+
+<p>There are also fields specified in the motion event for a gyroscope but that does not seem to be universally supported (e.g. it didn't work on a Samsung Galaxy Note).</p>
+
+<p>I also have a simple working code on <a href="https://github.com/infinite-internship/Learning-Sensor-Access-in-JS" rel="nofollow">GitHub</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/26216960" title="short permalink to this answer" class="short-link" id="link-post-26216960">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/26216960/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/26216960/revisions" title="show all edits to this post">edited <span title="2015-01-07 08:26:05Z" class="relativetime">Jan 7 at 8:26</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-10-06 13:10:51Z" class="relativetime">Oct 6 '14 at 13:10</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/3993358/infinite-internship"><div class="gravatar-wrapper-32"><img src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/921a667cbe35ed27685f8b21df5a24cf" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/3993358/infinite-internship">Infinite Internship</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">43</span><span title="3 bronze badges"><span class="badge3"></span><span class="badgecount">3</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-26216960" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-26216960" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/4378435/answer/submit" method="post" class="post-form" pmbx_context="5DB43B65-32BC-4EA9-AB8A-291FA393929F">
+						    <input type="hidden" id="post-id" value="4378435" pmbx_context="6E2F4443-BFB5-491D-8B79-7F0BBD023CA8">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" pmbx_context="5FD2224A-14D1-4C35-818C-F669AF721DDB">
+                            <input type="hidden" name="referrer" value="" pmbx_context="D79C60CD-16EE-4F7F-91FC-E042ECDCAF05">
+							<h2 class="space">Your Answer</h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.options.snippets.enabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            prepareEditor({
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                ,immediatelyShowMarkdownHelp:true
+                });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="403718e72b6d93875ed9accb0f62e58c" pmbx_context="0595B345-F5A7-4E94-8059-CD35CF1FBD5A">
+        <input id="author" name="author" type="text" pmbx_context="8A287030-40FB-4042-9211-F650B8A5D7EF">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f4378435%2fhow-to-access-accelerometer-gyroscope-data-from-javascript%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid" pmbx_context="41D45FEF-C8EB-4E8E-85F5-76FB865D27A2">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false" pmbx_context="DC0AE09A-1E59-4F3D-81E2-FF18C9F9274A">
+                    <input type="hidden" name="use-google" class="use-google" value="false" pmbx_context="4C1845C2-6E87-4A9F-925B-42AFAAA83EC8">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none" pmbx_context="0DF6978D-2356-4D2D-8545-9F2E573E45E3">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105" pmbx_context="1F53C2AD-214E-42DA-81C0-81B615324448">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" pmbx_context="8C7A8405-2B75-42AE-8B30-E307223509DA">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f4378435%2fhow-to-access-accelerometer-gyroscope-data-from-javascript%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110" pmbx_context="CC5C8F8E-7A8C-4275-949B-F30E5C9A6EF0">
+									<a href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1" pmbx_context="2A443252-26DE-4023-9BFF-EC90D0F37C09">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/javascript" class="post-tag" title="show questions tagged &#39;javascript&#39;" rel="tag">javascript</a> <a href="http://stackoverflow.com/questions/tagged/accelerometer" class="post-tag" title="show questions tagged &#39;accelerometer&#39;" rel="tag">accelerometer</a> <a href="http://stackoverflow.com/questions/tagged/gyroscope" class="post-tag" title="show questions tagged &#39;gyroscope&#39;" rel="tag">gyroscope</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2010-12-07 15:37:42Z"><b>4 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>36705 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/4378435/how-to-access-accelerometer-gyroscope-data-from-javascript?lastactivity" class="lastactivity-link" title="2015-01-07 08:26:05Z">7 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1236505314",[17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow" id="adzerk1236505314"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDM3LCJhdCI6MTcsImJ0IjowLCJjbSI6Mjg1MzkwLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTA1MzEwMiwiZGkiOiIzZGZiODc0MGM2MmY0ZWM1YjM5ODc1ZjlhMjM2NjRmMCIsImRtIjoxLCJmYyI6MTEwNjQ4NSwiZmwiOjc0NzUxMiwiaXAiOiI3OC4yMS4xNDcuMTI4Iiwia3ciOiJqYXZhc2NyaXB0LGFjY2VsZXJvbWV0ZXIsZ3lyb3Njb3BlIiwibWsiOiJqYXZhc2NyaXB0IiwibnciOjIyLCJwYyI6NS41LCJwciI6NzY1LCJydCI6Miwic3QiOjgyNzcsInVrIjoidWUxLTYzODkxN2YxYmFjZTRiMjNhMGI1NzExNzg0NGQzODM2Iiwiem4iOjQ1LCJ0cyI6MTQzOTcyNjgzNDM1MiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTIzNjUwNTMxNCIsInVyIjoiaHR0cDovL3d3dy5taWNyb3NvZnQuY29tL2NsaWNrL3NlcnZpY2VzL1JlZGlyZWN0Mi5hc2h4P0NSX0NDPTIwMDY2NTAzNiJ9&s=PtRlI5_BxVnuQAil_O4VtqPg3K4" rel="nofollow" target="_blank" title=""><img src="http://static.adzerk.net/Advertisers/0938f879c1294e25bd43c8ff233a5398.png" title="" alt="" border="0" width="220" height="250" style="display: none !important;"></a><img height="0px" width="0px" border="0" style="position: absolute; display: none !important;" src="http://engine.adzerk.net/i.gif?e=eyJhdiI6NDM3LCJhdCI6MTcsImJ0IjowLCJjbSI6Mjg1MzkwLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTA1MzEwMiwiZGkiOiIzZGZiODc0MGM2MmY0ZWM1YjM5ODc1ZjlhMjM2NjRmMCIsImRtIjoxLCJmYyI6MTEwNjQ4NSwiZmwiOjc0NzUxMiwiaXAiOiI3OC4yMS4xNDcuMTI4Iiwia3ciOiJqYXZhc2NyaXB0LGFjY2VsZXJvbWV0ZXIsZ3lyb3Njb3BlIiwibWsiOiJqYXZhc2NyaXB0IiwibnciOjIyLCJwYyI6NS41LCJwciI6NzY1LCJydCI6Miwic3QiOjgyNzcsInVrIjoidWUxLTYzODkxN2YxYmFjZTRiMjNhMGI1NzExNzg0NGQzODM2Iiwiem4iOjQ1LCJ0cyI6MTQzOTcyNjgzNDM1MywiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTIzNjUwNTMxNCJ9&s=Muxuy6H_OduyKUdZJGHLeNrlOiY"></div>
+        <div id="hireme" class=" orange looking tagged"><a href="http://careers.stackoverflow.com/jobs" target="_blank" data-hf="h" class="top"> <span>Looking for a job?</span></a><ul class="jobs"><li><a data-cid="180923" href="http://careers.stackoverflow.com/jobs/94940/software-engineer-frontend-web-developer-take-eat-easy" target="_blank" title="Software Engineer - Frontend Web Developer - Brussels, Belgium at Take Eat Easy. Click to learn more.">Software Engineer - Frontend Web Developer - Brussels, Belgium<br><div class="company">Take Eat Easy</div><div class="location" title="Zaventem, Belgium">Zaventem, Belgium</div><span class="post-tag">css</span><span class="post-tag">javascript</span></a></li><li><a data-cid="181262" href="http://careers.stackoverflow.com/jobs/95282/senior-ux-designer-coolblue" target="_blank" title="Senior UX Designer at Coolblue. Click to learn more.">Senior UX Designer<br><div class="company">Coolblue</div><div class="location" title="Rotterdam, Nederland / relocation">Rotterdam, Nederland / relocation</div><span class="post-tag">user-experience</span><span class="post-tag">user-interface</span></a></li></ul><img class="impression" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/i" style="display:none;"></div>
+			<div class="module" id="chat-feature">
+    
+
+    
+<h4><a href="http://chat.stackoverflow.com/" id="h-chat-link" title="24 users active in 18 rooms the last 60 minutes">24 People Chatting</a></h4>
+
+<div class="related" id="ad502-rooms"><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="Lounge&lt;C++&gt;"><a href="http://chat.stackoverflow.com/rooms/10">Lounge&lt;C++&gt;</a></span></h3><span title="2015-08-16 08:43:40Z" class="ad502-last-message">3 hours ago - <a href="http://chat.stackoverflow.com/users/174614">Tony The Lion</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/174614"><img height="23" width="23" title="Tony The Lion: 3 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/ca9a84fecd3f2fea333e8a1ef16edf98"></a><a href="http://chat.stackoverflow.com/users/3647361"><img height="23" width="23" title="Columbo: 3 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/gfvdl.jpg"></a><a href="http://chat.stackoverflow.com/users/500104"><img height="23" width="23" title="Xeo: 3 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/eb538603c2b80ea703e92abf5b45c791"></a><a href="http://chat.stackoverflow.com/users/341065"><img height="23" width="23" title="wilx: 3 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/8e57fe4b0f7381288a8e1e4c6cd77a8e"></a><a href="http://chat.stackoverflow.com/users/3459110"><img height="23" width="23" title="Awal Garg: 4 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/595ae5c7ef8e8c620bd4d3506be53172"></a><a href="http://chat.stackoverflow.com/users/300797"><img height="23" width="23" title="thecoshman: 4 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/328e4d651b4e1c7a97bd86f3d7c84073"></a><a href="http://chat.stackoverflow.com/users/155407"><img height="23" width="23" title="Scott W: 5 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/309643e44224fbf01c6bf10c025e6c07"></a></div></div><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="PHP"><a href="http://chat.stackoverflow.com/rooms/11">PHP</a></span></h3><span title="2015-08-16 08:51:48Z" class="ad502-last-message">3 hours ago - <a href="http://chat.stackoverflow.com/users/4251625">Abe</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/4251625"><img height="23" width="23" title="Abe: 3 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/XUshi.jpg"></a><a href="http://chat.stackoverflow.com/users/2805376"><img height="23" width="23" title="Sajad: 4 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/ROWF7.jpg"></a><a href="http://chat.stackoverflow.com/users/2373138"><img height="23" width="23" title="kelunik: 5 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/4e6b4a3f09d0d8c0fb07cbe755f8a230"></a><a href="http://chat.stackoverflow.com/users/2364629"><img height="23" width="23" title="Orangepill: 5 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/de4a0d66e90ed755f6dc96e201a784d5"></a><a href="http://chat.stackoverflow.com/users/3605516"><img height="23" width="23" title="Anmol Raghuvanshi: 7 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/82d1c082db3ac11bc00d1c020f99eb22"></a><a href="http://chat.stackoverflow.com/users/1723893"><img height="23" width="23" title="NullPoiиteя: 7 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/HSGnq.jpg"></a><a href="http://chat.stackoverflow.com/users/895378"><img height="23" width="23" title="rdlowrey: 16 hours ago" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/9528c56f504c757154aea93a457ff74c"></a></div></div></div>
+<script>
+// <!--
+    StackExchange.ready(
+    function () {
+        var options = {
+            chatUrl: 'http://chat.stackoverflow.com',
+            reloadUrl: '/api/recent-chat',
+            preloadData: {"activeUsers":24,"activeRooms":18,"rooms":[{"name":"Lounge\u003cC++\u003e","id":10,"lastPost":1439714620,"posts":3934753,"users":[{"name":"Tony The Lion","id":174614,"emailhash":"ca9a84fecd3f2fea333e8a1ef16edf98","lastPost":1439714620},{"name":"Columbo","id":3647361,"emailhash":"!http://i.stack.imgur.com/gfvdl.jpg?s=128\u0026g=1","lastPost":1439714265},{"name":"Xeo","id":500104,"emailhash":"eb538603c2b80ea703e92abf5b45c791","lastPost":1439714259},{"name":"wilx","id":341065,"emailhash":"8e57fe4b0f7381288a8e1e4c6cd77a8e","lastPost":1439713951},{"name":"Awal Garg","id":3459110,"emailhash":"595ae5c7ef8e8c620bd4d3506be53172","lastPost":1439710197},{"name":"thecoshman","id":300797,"emailhash":"328e4d651b4e1c7a97bd86f3d7c84073","lastPost":1439709280},{"name":"Scott W","id":155407,"emailhash":"309643e44224fbf01c6bf10c025e6c07","lastPost":1439705943}],"messages":[{"date":1439714620,"user":"Tony The Lion","userid":174614}],"singleImage":false,"tags":["c++","c++11","c++14","c++-faq"]},{"name":"PHP","id":11,"lastPost":1439715108,"posts":2028198,"users":[{"name":"Abe","id":4251625,"emailhash":"!http://i.stack.imgur.com/XUshi.jpg?s=128\u0026g=1","lastPost":1439715108},{"name":"Sajad","id":2805376,"emailhash":"!http://i.stack.imgur.com/ROWF7.jpg?s=128\u0026g=1","lastPost":1439708979},{"name":"kelunik","id":2373138,"emailhash":"4e6b4a3f09d0d8c0fb07cbe755f8a230","lastPost":1439707829},{"name":"Orangepill","id":2364629,"emailhash":"de4a0d66e90ed755f6dc96e201a784d5","lastPost":1439706248},{"name":"Anmol Raghuvanshi","id":3605516,"emailhash":"82d1c082db3ac11bc00d1c020f99eb22","lastPost":1439701248},{"name":"NullPoiиteя","id":1723893,"emailhash":"!http://i.stack.imgur.com/HSGnq.jpg?s=128\u0026g=1","lastPost":1439700206},{"name":"rdlowrey","id":895378,"emailhash":"9528c56f504c757154aea93a457ff74c","lastPost":1439666606}],"messages":[{"date":1439715108,"user":"Abe","userid":4251625}],"singleImage":false,"tags":["php"]}]} 
+        };
+
+        StackExchange.chatAd.init(options);
+    });
+// -->
+</script>
+
+</div>  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/26164554?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/26164554/access-angle-phone-being-held-at-through-javascript?lq=1" class="question-hyperlink">Access angle phone being held at through Javascript?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/1273964?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">13</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/1273964/is-there-access-to-the-iphone-accelerometer-using-javascript?lq=1" class="question-hyperlink">Is there access to the iPhone accelerometer using Javascript?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/8434340?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">5</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/8434340/what-cant-you-do-with-an-html5-javascript-mobile-app-that-you-can-do-with-a-nat?lq=1" class="question-hyperlink">What can't you do with an HTML5/Javascript mobile app that you can do with a native mobile app?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/3994277?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/3994277/is-it-possible-to-receive-tilt-events-in-javascript-on-mobile-webkit-for-ios-or?lq=1" class="question-hyperlink">Is it possible to receive tilt events in JavaScript on mobile Webkit for iOS or Android phones?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/14695191?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/14695191/how-to-get-acceleration-at-devicemotionevent?lq=1" class="question-hyperlink">how to get acceleration at DeviceMotionEvent</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/31994611?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/31994611/javascript-jquery-detect-motion-and-direction?lq=1" class="question-hyperlink">Javascript/jQuery: detect motion and direction</a>
+</div>			</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/111102?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted extra-large">4275
+    </div>
+</a><a href="http://stackoverflow.com/questions/111102/how-do-javascript-closures-work?rq=1" class="question-hyperlink">How do JavaScript closures work?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/5083272?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/5083272/question-about-the-capabilities-of-the-iphone-accelerometer-and-gyroscope-and-wh?rq=1" class="question-hyperlink">Question about the capabilities of the iPhone accelerometer and gyroscope and which is ideal to use for this implementation</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/8052171?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">5
+    </div>
+</a><a href="http://stackoverflow.com/questions/8052171/combine-gyroscope-with-accelerometer-to-get-heading?rq=1" class="question-hyperlink">Combine Gyroscope with accelerometer to get heading</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/9304160?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/9304160/ios-android-device-orientation-pitch-yaw-roll-is-it-better-with-acceleromet?rq=1" class="question-hyperlink">iOS/Android Device orientation (pitch, yaw, roll). Is it better with accelerometer or gyroscope?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/10214388?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/10214388/android-filtered-accelerometergyroscope-display-information?rq=1" class="question-hyperlink">Android Filtered Accelerometer+Gyroscope display information</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/11089967?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/11089967/how-to-obtain-only-linear-acceleration-from-accelerometer-using-gyroscope?rq=1" class="question-hyperlink">How to obtain only linear acceleration from accelerometer using gyroscope?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/13679568?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">14
+    </div>
+</a><a href="http://stackoverflow.com/questions/13679568/using-android-gyroscope-instead-of-accelerometer-i-find-lots-of-bits-and-pieces?rq=1" class="question-hyperlink">Using Android gyroscope instead of accelerometer. I find lots of bits and pieces, but no complete code</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/15490990?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">6
+    </div>
+</a><a href="http://stackoverflow.com/questions/15490990/obtaining-orientation-using-gyroscope-and-accelerometer?rq=1" class="question-hyperlink">Obtaining orientation using gyroscope and accelerometer</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/26794727?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/26794727/sensor-fusion-of-accelerometer-and-gyroscope-in-unity-3d?rq=1" class="question-hyperlink">Sensor Fusion of Accelerometer and Gyroscope in Unity 3D</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/29900787?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">3
+    </div>
+</a><a href="http://stackoverflow.com/questions/29900787/correct-way-to-use-only-gyroscope-and-accelerometer-to-get-the-reliable-current?rq=1" class="question-hyperlink">Correct way to use ONLY Gyroscope and Accelerometer to get the reliable current angle in any axis on ANDROID</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/54464/two-makes-all-the-difference-cops" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Two Makes All The Difference - Cops
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-webmasters" title="Webmasters Stack Exchange"></div><a href="http://webmasters.stackexchange.com/questions/84078/does-google-show-phpmyadmin-url-of-site-in-search-result" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:45 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does Google Show Phpmyadmin URL of site in search result
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-diy" title="Home Improvement Stack Exchange"></div><a href="http://diy.stackexchange.com/questions/71585/how-to-prevent-heavy-rainwater-from-jumping-the-gutter" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:73 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to prevent heavy rainwater from jumping the gutter?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/99342/in-star-trek-what-is-space-normal-speed" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    In Star Trek what is space normal speed?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/267011/what-rhetorical-gain-is-expected-by-saying-do-they-really-not-understand-why" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What rhetorical gain is expected by saying “Do they really not understand why?” instead of “Don’t they really understand why?”
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1399005/why-dont-we-start-studying-calculus-via-series-instead-of-the-calculus-on-finit" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why don't we start studying calculus via series instead of the calculus on finite expressions?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-vi" title="Vi and Vim Stack Exchange"></div><a href="http://vi.stackexchange.com/questions/4356/how-can-i-yank-multiple-two-matches-of-regex-group-into-two-different-registers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:599 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I yank multiple two matches of regex group into two different registers?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codereview" title="Code Review Stack Exchange"></div><a href="http://codereview.stackexchange.com/questions/101017/get-string-truncated-to-max-length" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Get string truncated to max length
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-crypto" title="Cryptography Stack Exchange"></div><a href="http://crypto.stackexchange.com/questions/27515/why-must-we-generate-the-signature-before-any-compression-being-done-at-pgp" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:281 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why must we generate the signature before any compression being done at PGP?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/214829/prime-divisors-of-values-of-a-polynomial-on-an-infinite-set" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Prime divisors of values of a polynomial on an infinite set
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-lifehacks" title="Lifehacks Stack Exchange"></div><a href="http://lifehacks.stackexchange.com/questions/7919/quick-and-dirty-substitute-for-cream-in-coffee" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:593 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Quick and dirty substitute for cream in coffee?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/54604/print-all-2-letter-scrabble-words" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Print all 2 letter Scrabble Words
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1399075/real-analysis-question" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    real analysis question
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/54643/obfuscating-text-by-cycling-ternary-digits" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Obfuscating text by cycling ternary digits
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/10655/why-have-there-been-no-new-new-horizons-images-in-the-last-few-weeks" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why have there been no new New Horizons images in the last few weeks?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1399008/right-hand-riemann-sum" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Right-hand Riemann sum
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-earthscience" title="Earth Science Stack Exchange"></div><a href="http://earthscience.stackexchange.com/questions/5380/are-clouds-a-gas-liquid-and-or-solid" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:553 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are clouds a gas, liquid, and/or solid?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-aviation" title="Aviation Stack Exchange"></div><a href="http://aviation.stackexchange.com/questions/18940/why-magnetized-material-is-dangerous-goods" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:528 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why magnetized material is Dangerous Goods?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-anime" title="Anime &amp; Manga Stack Exchange"></div><a href="http://anime.stackexchange.com/questions/24124/anime-about-a-girl-who-escapes-torture" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:477 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Anime about a girl who escapes torture?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/54466/two-makes-all-the-difference-robbers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Two Makes All The Difference - Robbers
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-music" title="Music: Practice &amp; Theory Stack Exchange"></div><a href="http://music.stackexchange.com/questions/35917/how-are-note-durations-named" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:240 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How are note durations named?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/213266/mathematical-software-wish-list" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Mathematical software wish list
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1399088/evaluation-of-gaussian-integrals" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Evaluation of Gaussian integrals.
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/51541/what-consequences-are-there-if-having-already-graduated-and-received-my-degree" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What consequences are there if, having already graduated and received my degree, I do not pay up my tuition fees?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/4378435" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/4378435/ivc/e393');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/4378435/ivc/e393" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">default</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 Stack Exchange Inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.8.14.689
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('javascript,accelerometer,gyroscope');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        
+        ga('set', 'dimension2', '|javascript|accelerometer|gyroscope|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>            
+    
+<script type="text/javascript" src="./How to access accelerometer_gyroscope data from Javascript_ - Stack Overflow_files/p"></script></body></html>

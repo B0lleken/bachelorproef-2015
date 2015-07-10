@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0072)http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5 -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" pmbx_context="E3DEA0C0-38A0-49D6-B543-0F6D0E6E346A"><head profile="http://gmpg.org/xfn/11"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/css" rel="stylesheet" type="text/css">
+
+<title>Safari on iPhone &amp; iPad 4.2: Accelerometer, WebSockets &amp; better HTML5 support | Breaking the Mobile Web</title>
+
+<script src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/cb=gapi.loaded_2" async=""></script><script src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/cb=gapi.loaded_1" async=""></script><script type="text/javascript" async="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/page.js"></script><script type="text/javascript" async="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/ga.js"></script><script src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/fusion.js"></script>
+
+<link rel="stylesheet" href="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/style.css" type="text/css" media="screen">
+
+<link rel="icon" href="http://www.mobilexweb.com/favicon.png">
+<link rel="shortcut icon" href="http://www.mobilexweb.com/favicon.ico">
+
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="http://www.mobilexweb.com/wp-content/themes/fusion/ie6.css"" type="text/css" media="screen" />
+<![endif]-->
+
+<!--[if IE 7]>
+<link rel="stylesheet" href="http://www.mobilexweb.com/wp-content/themes/fusion/ie7.css"" type="text/css" media="screen" />
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="Breaking the Mobile Web RSS Feed" href="http://www.mobilexweb.com/feed">
+<link rel="alternate" type="application/atom+xml" title="Breaking the Mobile Web Atom Feed" href="http://www.mobilexweb.com/feed/atom">
+<link rel="pingback" href="http://www.mobilexweb.com/xmlrpc.php">
+
+
+
+<link rel="alternate" type="application/rss+xml" title="Breaking the Mobile Web » Safari on iPhone &amp; iPad 4.2: Accelerometer, WebSockets &amp; better HTML5 support Comments Feed" href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5/feed">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"http:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"http:\/\/www.mobilexweb.com\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.2.4"}};
+			!function(a,b,c){function d(a){var c=b.createElement("canvas"),d=c.getContext&&c.getContext("2d");return d&&d.fillText?(d.textBaseline="top",d.font="600 32px Arial","flag"===a?(d.fillText(String.fromCharCode(55356,56812,55356,56807),0,0),c.toDataURL().length>3e3):(d.fillText(String.fromCharCode(55357,56835),0,0),0!==d.getImageData(16,16,1,1).data[0])):!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g;c.supports={simple:d("simple"),flag:d("flag")},c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.simple&&c.supports.flag||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/wp-emoji-release.min.js" type="text/javascript"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="A2A_SHARE_SAVE-css" href="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/addtoany.min.css" type="text/css" media="all">
+<script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/plusone.js" gapi_processed="true"></script><script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/jquery.js"></script>
+<script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/jquery-migrate.min.js"></script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.mobilexweb.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.mobilexweb.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="How to create click-to-call links for mobile browsers" href="http://www.mobilexweb.com/blog/click-to-call-links-mobile-browsers">
+<link rel="next" title="Programming the Mobile Web &amp; more 60% off coupon" href="http://www.mobilexweb.com/blog/programming-mobile-web-discount-coupon">
+<meta name="generator" content="WordPress 4.2.4">
+<link rel="shortlink" href="http://www.mobilexweb.com/?p=38">
+
+<script type="text/javascript"><!--
+var a2a_config=a2a_config||{},wpa2a={done:false,html_done:false,script_ready:false,script_load:function(){var a=document.createElement('script'),s=document.getElementsByTagName('script')[0];a.type='text/javascript';a.async=true;a.src='http://static.addtoany.com/menu/page.js';s.parentNode.insertBefore(a,s);wpa2a.script_load=function(){};},script_onready:function(){if(a2a.type=='page'){wpa2a.script_ready=true;if(wpa2a.html_done)wpa2a.init();}},init:function(){for(var i=0,el,target,targets=wpa2a.targets,length=targets.length;i<length;i++){el=document.getElementById('wpa2a_'+(i+1));target=targets[i];a2a_config.linkname=target.title;a2a_config.linkurl=target.url;if(el){a2a.init('page',{target:el});el.id='';}wpa2a.done=true;}wpa2a.targets=[];}};a2a_config.tracking_callback=['ready',wpa2a.script_onready];
+//--></script>
+
+<!-- All in One SEO Pack 2.2.3.1 by Michael Torbert of Semper Fi Web Design[414,539] -->
+<link rel="canonical" href="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web.html">
+<!-- /all in one seo pack -->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-100317-15']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script type="text/javascript" async="" src="http://s3.buysellads.com/ac/bsa.js"></script><link id="COINWIDGETCOM_STYLESHEET" rel="stylesheet" type="text/css" href="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/coin.css"><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f8;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3a5795;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #2f477a;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f8;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://fbstatic-a.akamaihd.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><style type="text/css">.a2a_menu,.a2a_menu * {-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;float:none;margin:0;padding:0;position: static;height:auto;width:auto;}.a2a_menu {border-radius: 6px;display:none;direction:ltr;background:#FFF;font: 16px sans-serif-light, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, Helvetica, "Liberation Sans", sans-serif;color:#000;line-height:12px;border: 1px solid #CCC;vertical-align:baseline;outline: 0; overflow:hidden;}.a2a_mini {min-width:200px;position:absolute;width: 300px;z-index:9999997;}.a2a_overlay {display: none;background: #CCC; _height: expression( ((e=document.documentElement.clientHeight)?e:document.body.clientHeight)+"px" ); _width: expression( ((e=document.documentElement.clientWidth)?e:document.body.clientWidth)+"px" ); filter: alpha(opacity=50); opacity: .7;position: fixed;_position: absolute; top: 0;right: 0;left: 0;bottom: 0;z-index: 9999998;-webkit-animation: a2aFadeInOverlay .14s ease-out;animation: a2aFadeInOverlay .14s ease-out;}.a2a_full {background: #FFF;height: auto;height: calc(320px);top: 15%;_top: expression(40+((e=document.documentElement.scrollTop)?e:document.body.scrollTop)+"px"); left: 50%;margin-left: -320px; position: fixed;_position: absolute; text-align: center;width: 640px;z-index: 9999999; -webkit-animation: a2aFadeIn .14s ease-in;    animation: a2aFadeIn .14s ease-in;}.a2a_full_header,.a2a_full_services,.a2a_full_footer {border: 0;margin: 0;padding: 12px;box-sizing: border-box;}.a2a_full_header {padding-bottom: 8px;}.a2a_full_services {height: 280px; overflow-y: scroll;padding: 0 12px;-webkit-overflow-scrolling: touch;}.a2a_full_services .a2a_i {display: inline-block;float: none;width: 181px;width: calc(33.334% - 18px);}div.a2a_full_footer {font-size: 12px;text-align: center;padding: 8px 14px;}div.a2a_full_footer a,div.a2a_full_footer a:visited {display: inline;font-size: 12px;line-height:14px;padding: 8px 14px; }div.a2a_full_footer a:hover,div.a2a_full_footer a:focus {background: none;border: 0;color: #0166FF;}div.a2a_full_footer a span.a2a_s_a2a,div.a2a_full_footer a span.a2a_w_a2a {background-size: 14px;border-radius: 3px;display: inline-block;height:14px;line-height:14px;margin: 0 3px 0 0;vertical-align: top;*vertical-align: middle; width:14px;}@media print {.a2a_menu,.a2a_overlay {visibility: hidden;}}@-webkit-keyframes a2aFadeIn {from { opacity: 0; }  to { opacity: 1; }}@keyframes a2aFadeIn {from { opacity: 0; }  to { opacity: 1; }}@-webkit-keyframes a2aFadeInOverlay {from { opacity: 0; }  to { opacity: .7; }}@keyframes a2aFadeInOverlay {from { opacity: 0; }  to { opacity: .7; }}@media (max-width: 639px) {.a2a_full {top: 15%;left: 0;margin-left: auto;width: 100%;}}@media (min-width: 318px) and (max-width: 437px) {.a2a_full .a2a_full_services .a2a_i {width: calc(50% - 18px);}}@media (max-width: 317px) {.a2a_full .a2a_full_services .a2a_i {width: calc(100% - 18px);}}@media (max-height: 436px) {.a2a_full {bottom: 40px;height: auto;top: 40px;}}.a2a_menu a {color:#0166FF;text-decoration:none;font: 16px sans-serif-light, "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Arial, Helvetica, "Liberation Sans", sans-serif;line-height:14px;height:auto;width:auto;outline:none;-moz-outline:none;}.a2a_menu a:visited{color:#0166FF}.a2a_menu a:hover,.a2a_menu a:active,.a2a_menu a:focus{color:#2A2A2A;border:1px solid #EEE;background-color:#EEE;text-decoration:none}.a2a_menu span.a2a_s_find {background-size: 24px;height:24px;left: 8px;position:absolute;top: 7px;width:24px;}.a2a_menu span.a2a_s_find svg {background-color: #FFF;}.a2a_menu span.a2a_s_find svg path {fill: #CCC;}#a2a_menu_container{display:inline-block} #a2a_menu_container{_display:inline} .a2a_menu_title_container {padding: 6px 8px;}.a2a_menu_find_container {border: 1px solid #CCC;border-radius: 6px;padding: 2px 24px 2px 0;position: relative;text-align: left;}.a2a_cols_container .a2a_col1{overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch}.a2a_menu input, .a2a_menu input[type="text"]{display:block;background-image:none;box-shadow:none;line-height:100%;margin:0;overflow:hidden;padding:0;-moz-box-shadow:none;-webkit-box-shadow:none;-webkit-appearance:none} .a2a_menu_title_container input.a2a_menu_title {background-color: #FFF;border: 0;color: #2A2A2A;font: inherit;margin: 0;padding: 0;width: 99%;}.a2a_menu_find_container input.a2a_menu_find {background-color: transparent;_background-color: #FFF;border: 0;color: #2A2A2A;font: inherit;font-size: 16px;height: 28px;line-height: 20px;left: 38px;outline: 0;padding: 2px 0;position: relative;width: 99%;}.a2a_clear{clear:both} .a2a_img {background:url(http://static.addtoany.com/menu/icons.32.png);border:0;line-height:16px}.a2a_img,.a2a_svg {background-repeat:no-repeat;display:block;overflow:hidden;}.a2a_img{height:16px;line-height:16px;width:16px;}.a2a_svg{height:32px;line-height:32px;width:32px;}a.a2a_i,i.a2a_i{display:block;float:left;border:1px solid #FFF;line-height:24px;padding:6px 8px;text-align:left;white-space:nowrap;overflow: hidden;text-overflow: ellipsis;width:132px;}a.a2a_i span,a.a2a_more span {display: inline-block;overflow: hidden;vertical-align: top;*vertical-align: middle; }a.a2a_i .a2a_img,a.a2a_i .a2a_svg {margin: 0 6px 0 0;}a.a2a_i .a2a_svg,a.a2a_more .a2a_svg {background-size: 24px;height:24px;line-height:24px;width:24px;}a.a2a_sss:hover {border-left: 1px solid #CCC;}a.a2a_menu_show_more_less{border-bottom:1px solid #FFF;border-left:0;border-right:0;line-height:24px;margin:6px 0 0;padding:6px}a.a2a_menu_show_more_less span{display:inline-block;height:24px;margin:0 6px 0 0;} .a2a_kit .a2a_svg { background-repeat: repeat; }.a2a_default_style a{float:left;line-height:16px;padding:0 2px}.a2a_default_style a:hover .a2a_img,.a2a_default_style a:hover .a2a_svg,.a2a_floating_style a:hover .a2a_img,.a2a_floating_style a:hover .a2a_svg {opacity: .7;}.a2a_default_style .a2a_count,.a2a_default_style .a2a_svg,.a2a_floating_style .a2a_svg,.a2a_vertical_style .a2a_count,.a2a_menu .a2a_svg {border-radius:4px ;}.a2a_default_style .a2a_img, .a2a_default_style .a2a_dd, .a2a_default_style .a2a_svg { float:left;}.a2a_default_style .a2a_img_text{margin-right:4px}.a2a_default_style .a2a_divider{border-left:1px solid #000;display:inline;float:left;height:16px;line-height:16px;margin:0 5px}.a2a_kit a{cursor:pointer}.a2a_floating_style { background-color: #fff; border-radius: 6px; padding: 4px; position: fixed; z-index: 9999995;}.a2a_vertical_style a { clear: left;display: block; padding: 4px;overflow: hidden;}.a2a_floating_style.a2a_default_style { bottom: 0; }.a2a_floating_style.a2a_default_style a { padding: 4px; }.a2a_count {background-color: #fff;border: 1px solid #ccc;box-sizing: border-box;color: #2a2a2a;display: block;float: left;font: 12px Arial,Helvetica,sans-serif;height: 16px;margin-left: 4px;position: relative;text-align: center;width: 50px;}.a2a_count:before,.a2a_count:after {border: solid transparent;border-width: 4px 4px 4px 0;content: "";height: 0;left: 0;line-height: 0;margin: -4px 0 0 -4px;position: absolute;top: 50%;width: 0;}.a2a_count:before {border-right-color: #ccc;}.a2a_count:after {border-right-color: #fff;margin-left: -3px;}.a2a_count span {-webkit-animation: a2aFadeIn .14s ease-in;    animation: a2aFadeIn .14s ease-in;}.a2a_vertical_style .a2a_count {margin-left: 0;margin-top: 6px; }.a2a_vertical_style .a2a_count:before,.a2a_vertical_style .a2a_count:after {border: solid transparent;border-width: 0 4px 4px 4px;content: "";height: 0;left: 50%;line-height: 0;margin: -4px 0 0 -4px;position: absolute;top: 0;width: 0;}.a2a_vertical_style .a2a_count:before {border-bottom-color: #ccc;}.a2a_vertical_style .a2a_count:after {border-bottom-color: #fff;margin-top: -3px;}.a2a_nowrap{white-space:nowrap}.a2a_note{margin:0 auto;padding:9px;font-size:12px;text-align:center}.a2a_note .a2a_note_note{margin:0;color:#2A2A2A}.a2a_wide a{display:block;margin-top:3px;border-top:1px solid #EEE;text-align:center}iframe.a2a_shim {background-color: transparent;border: 0;bottom: 0;filter: alpha(opacity=0); height: 100%;left: 0;right: 0;top: 0;position: absolute;width: 100%;z-index: 9999996;_height: expression( ((e=document.documentElement.clientHeight)?e:document.body.clientHeight)+"px" ); _width: expression( ((e=document.documentElement.clientWidth)?e:document.body.clientWidth)+"px" ); }.a2a_dd img {border:0;-ms-touch-action:manipulation;}iframe[id^="PIN_"][id$="_nag"] {display: none !important;}.a2a_i_a2a{background-position:0 0!important}.a2a_i_a2a_sm{background-position:0 -17px!important}.a2a_i_agregator{background-position:0 -34px!important}.a2a_i_aim{background-position:0 -51px!important}.a2a_i_amazon{background-position:0 -68px!important}.a2a_i_aol{background-position:0 -85px!important}.a2a_i_app_net{background-position:0 -102px!important}.a2a_i_baidu{background-position:0 -119px!important}.a2a_i_balatarin{background-position:0 -136px!important}.a2a_i_behance{background-position:0 -153px!important}.a2a_i_bibsonomy{background-position:0 -170px!important}.a2a_i_bitty{background-position:0 -187px!important}.a2a_i_blinklist{background-position:0 -204px!important}.a2a_i_blogger{background-position:0 -221px!important}.a2a_i_blogmarks{background-position:0 -238px!important}.a2a_i_bookmark{background-position:0 -255px!important}.a2a_i_bookmarks_fr{background-position:0 -272px!important}.a2a_i_box{background-position:0 -289px!important}.a2a_i_buddymarks{background-position:0 -306px!important}.a2a_i_buffer{background-position:0 -323px!important}.a2a_i_care2{background-position:0 -340px!important}.a2a_i_chrome{background-position:0 -357px!important}.a2a_i_citeulike{background-position:0 -374px!important}.a2a_i_dailyrotation{background-position:0 -391px!important}.a2a_i_default{background-position:0 -408px!important}.a2a_i_delicious{background-position:0 -425px!important}.a2a_i_designfloat{background-position:0 -442px!important}.a2a_i_diary_ru{background-position:0 -459px!important}.a2a_i_diaspora{background-position:0 -476px!important}.a2a_i_digg{background-position:0 -493px!important}.a2a_i_dihitt{background-position:0 -510px!important}.a2a_i_diigo{background-position:0 -527px!important}.a2a_i_dzone{background-position:0 -544px!important}.a2a_i_email{background-position:0 -561px!important}.a2a_i_evernote{background-position:0 -578px!important}.a2a_i_facebook{background-position:0 -595px!important}.a2a_i_fark{background-position:0 -612px!important}.a2a_i_feed{background-position:0 -629px!important}.a2a_i_feedblitz{background-position:0 -646px!important}.a2a_i_feedbucket{background-position:0 -663px!important}.a2a_i_feedly{background-position:0 -680px!important}.a2a_i_feedmailer{background-position:0 -697px!important}.a2a_i_find{background-position:0 -714px!important}.a2a_i_firefox{background-position:0 -731px!important}.a2a_i_flickr{background-position:0 -748px!important}.a2a_i_flipboard{background-position:0 -765px!important}.a2a_i_folkd{background-position:0 -782px!important}.a2a_i_foursquare{background-position:0 -799px!important}.a2a_i_gmail{background-position:0 -816px!important}.a2a_i_google{background-position:0 -833px!important}.a2a_i_google_plus{background-position:0 -850px!important}.a2a_i_hatena{background-position:0 -867px!important}.a2a_i_instagram{background-position:0 -884px!important}.a2a_i_instapaper{background-position:0 -901px!important}.a2a_i_itunes{background-position:0 -918px!important}.a2a_i_jamespot{background-position:0 -935px!important}.a2a_i_kakao{background-position:0 -952px!important}.a2a_i_kindle{background-position:0 -969px!important}.a2a_i_klipfolio{background-position:0 -986px!important}.a2a_i_line{background-position:0 -1003px!important}.a2a_i_linkedin{background-position:0 -1020px!important}.a2a_i_livejournal{background-position:0 -1037px!important}.a2a_i_mail_ru{background-position:0 -1054px!important}.a2a_i_mendeley{background-position:0 -1071px!important}.a2a_i_meneame{background-position:0 -1088px!important}.a2a_i_miro{background-position:0 -1105px!important}.a2a_i_mixi{background-position:0 -1122px!important}.a2a_i_myspace{background-position:0 -1139px!important}.a2a_i_netlog{background-position:0 -1156px!important}.a2a_i_netvibes{background-position:0 -1173px!important}.a2a_i_netvouz{background-position:0 -1190px!important}.a2a_i_newsalloy{background-position:0 -1207px!important}.a2a_i_newsisfree{background-position:0 -1224px!important}.a2a_i_newstrust{background-position:0 -1241px!important}.a2a_i_newsvine{background-position:0 -1258px!important}.a2a_i_nujij{background-position:0 -1275px!important}.a2a_i_odnoklassniki{background-position:0 -1292px!important}.a2a_i_oknotizie{background-position:0 -1309px!important}.a2a_i_oldreader{background-position:0 -1326px!important}.a2a_i_outlook_com{background-position:0 -1343px!important}.a2a_i_pinboard{background-position:0 -1360px!important}.a2a_i_pinterest{background-position:0 -1377px!important}.a2a_i_plurk{background-position:0 -1394px!important}.a2a_i_pocket{background-position:0 -1411px!important}.a2a_i_podnova{background-position:0 -1428px!important}.a2a_i_print{background-position:0 -1445px!important}.a2a_i_printfriendly{background-position:0 -1462px!important}.a2a_i_protopage{background-position:0 -1479px!important}.a2a_i_pusha{background-position:0 -1496px!important}.a2a_i_qzone{background-position:0 -1513px!important}.a2a_i_reddit{background-position:0 -1530px!important}.a2a_i_rediff{background-position:0 -1547px!important}.a2a_i_renren{background-position:0 -1564px!important}.a2a_i_segnalo{background-position:0 -1581px!important}.a2a_i_share{background-position:0 -1598px!important}.a2a_i_sina_weibo{background-position:0 -1615px!important}.a2a_i_sitejot{background-position:0 -1632px!important}.a2a_i_slashdot{background-position:0 -1649px!important}.a2a_i_stumbleupon{background-position:0 -1666px!important}.a2a_i_stumpedia{background-position:0 -1683px!important}.a2a_i_svejo{background-position:0 -1700px!important}.a2a_i_symbaloo{background-position:0 -1717px!important}.a2a_i_thefreedictionary{background-position:0 -1734px!important}.a2a_i_thefreelibrary{background-position:0 -1751px!important}.a2a_i_tuenti{background-position:0 -1768px!important}.a2a_i_tumblr{background-position:0 -1785px!important}.a2a_i_twiddla{background-position:0 -1802px!important}.a2a_i_twitter{background-position:0 -1819px!important}.a2a_i_typepad{background-position:0 -1836px!important}.a2a_i_viadeo{background-position:0 -1853px!important}.a2a_i_vimeo{background-position:0 -1870px!important}.a2a_i_vk{background-position:0 -1887px!important}.a2a_i_wanelo{background-position:0 -1904px!important}.a2a_i_webnews{background-position:0 -1921px!important}.a2a_i_whatsapp{background-position:0 -1938px!important}.a2a_i_winksite{background-position:0 -1955px!important}.a2a_i_wordpress{background-position:0 -1972px!important}.a2a_i_wykop{background-position:0 -1989px!important}.a2a_i_xing{background-position:0 -2006px!important}.a2a_i_y18{background-position:0 -2023px!important}.a2a_i_yahoo{background-position:0 -2040px!important}.a2a_i_yim{background-position:0 -2057px!important}.a2a_i_yoolink{background-position:0 -2074px!important}.a2a_i_youmob{background-position:0 -2091px!important}.a2a_i_youtube{background-position:0 -2108px!important}.a2a_i_yummly{background-position:0 -2125px!important}</style><link rel="stylesheet" href="http://static.addtoany.com/menu/svg/icons.13.svg.css"></head>
+<body>
+  <!-- page wrappers (100% width) -->
+  <div id="page-wrap1">
+    <div id="page-wrap2">
+      <!-- page (actual site content, custom width) -->
+      <div id="page">
+
+        <!-- main wrapper (big left column) -->
+        <div id="main-wrap">
+          <!-- main (container) -->
+          <div id="main" class="with-sidebar">
+            <!-- header -->
+            <div id="header">
+
+              <div id="topnav" class="description"> Techniques and best practices for delivering the best experience for each mobile device using HTML5</div>
+              <h1 id="title"><a href="http://www.mobilexweb.com/">Breaking the Mobile Web</a></h1>
+
+
+              <!-- top tab navigation -->
+              <div id="tabs">
+              <ul>
+              <li class=""><a href="http://www.mobilexweb.com/"><span><span>Blog</span></span></a></li>
+              <li class="page_item page-item-49"><a href="http://www.mobilexweb.com/emulators"><span><span>Mobile Emulators</span></span></a></li>
+<li class="page_item page-item-120"><a href="http://www.mobilexweb.com/mobile-html5"><span><span>Mobile HTML5</span></span></a></li>
+<li class="page_item page-item-3"><a href="http://www.mobilexweb.com/book"><span><span>My Books</span></span></a></li>
+<li class="page_item page-item-41"><a href="http://www.mobilexweb.com/contact-me"><span><span>Contact me</span></span></a></li>
+               </ul>
+              </div>
+              <!-- /top tabs -->
+
+            </div><!-- /header -->
+
+<style media="only screen and (max-device-width: 480px)">
+ 
+   #sidebar {
+       xdisplay: none;
+       position: relative;
+   }
+
+</style>
+
+<style media="only screen and (max-device-width: 768px)">
+ 
+   #sidebar {
+       xdisplay: none;
+       position: relative;
+   }
+
+</style>
+
+<!-- main content -->
+<div id="main-content">
+
+	
+		<div class="navigation">
+			<div class="alignleft">« <a href="http://www.mobilexweb.com/blog/click-to-call-links-mobile-browsers" rel="prev">How to create click-to-call links for mobile browsers</a></div>
+			<div class="alignright"><a href="http://www.mobilexweb.com/blog/programming-mobile-web-discount-coupon" rel="next">Programming the Mobile Web &amp; more 60% off coupon</a> »</div>
+            <br clear="all">
+		</div>
+
+		<div class="post-38 post type-post status-publish format-standard hentry category-general" id="post-38">
+			<h2>Safari on iPhone &amp; iPad 4.2: Accelerometer, WebSockets &amp; better HTML5 support</h2>
+
+			<div class="entry">
+				
+	<div style="float: right; margin: 10px">
+		<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/tweet_button.bd0320cab493e168513c7173184c1d5c.en.html" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="position: static; visibility: visible; width: 96px; height: 20px;"></iframe>
+	</div>
+	<script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/widgets.js"></script><div class="wdgpo wdgpo_standard_count"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 106px; height: 24px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 106px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" tabindex="0" vspace="0" width="100%" id="I0_1439726799627" name="I0_1439726799627" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div></div> <iframe src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/like.html" id="fbLikeIframe" name="fbLikeIframe" scrolling="no" frameborder="0" allowtransparency="true" class="fbLikeContainer" style="border:none; overflow:hidden; width:450px; height:25px; display:inline;"></iframe><p>iOS 4.2 is a free update for every iPhone, iPod or iPad device available now. This new release provides some major changes on HTML5 and W3C future standards support, like <strong>WebSockets</strong> and&nbsp;<strong>Accelerometer support</strong>, print support, new JavaScript data-types and better SVG support.<span id="more-38"></span></p>
+<hr>
+<p>Apple didn’t update yet Safari documentation to reflect these new APIs.&nbsp;This information is based on JavaScript research and testing over Safari itself I’ve been doing. The list of new features I’ve detected are:</p>
+<ul>
+<li><strong>Accelerometer</strong> &amp; Gyroscope support through the DeviceOrientation API</li>
+<li><strong>WebSockets</strong> API from HTML5</li>
+<li>Updated <strong>HTML5 Form</strong> Support</li>
+<li>Partial <strong>XHR-2</strong> Support</li>
+<li>Print Support</li>
+<li>New JavaScript data types</li>
+<li>New DOM events</li>
+<li>Enhanced <strong>SVG</strong> and <strong>Canvas</strong> support</li>
+</ul>
+<h3>Accelerometer &amp; Gyroscope support</h3>
+<p>As you may know, all iOS devices have accelerometer sensors (plusmagnetometer and gyroscope on some devices). However, as web developers, we didn’t have access to such sensors until now. Safari now supports the <strong><a href="http://dev.w3.org/geo/api/spec-source-orientation.html" target="_blank">DeviceOrientation API</a></strong> (W3C draft). Looking at the available objects, it seems that all the API is fully supported (including ondeviceorientation and ondevicemotion events); I could only get <strong>accelerometer</strong> data with success.</p>
+<p>UPDATE: Apple has just released the API documentation: accelerometer and gyroscope supported. See <a href="https://developer.apple.com/library/safari/#documentation/SafariDOMAdditions/Reference/DeviceMotionEventClassRef/DeviceMotionEvent/DeviceMotionEvent.html" target="_blank">DeviceMotionEvent Class Reference</a> and <a href="https://developer.apple.com/library/safari/#documentation/SafariDOMAdditions/Reference/DeviceOrientationEventClassRef/DeviceOrientationEvent/DeviceOrientationEvent.html" target="_blank">DeviceOrientation Class Reference</a>.</p>
+<p>If you have an iOS 4.2 device, go to <strong><a href="http://ad.ag/wjmtgt" target="_blank">ad.ag/wjmtgt</a> </strong>from Safari browser. I’ve coded a sample in 15 minutes using JavaScript and some CSS3: it’s the typical ball moving on the screen regarding the iOS device’s position. The next video shows this sample in action:</p>
+<p><object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" width="425" height="344" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,40,0"><param name="allowFullScreen" value="true"><param name="allowscriptaccess" value="always"><param name="src" value="http://www.youtube.com/v/0-e_UWhY5aY?hl=es&amp;fs=1"><param name="allowfullscreen" value="true"><embed type="application/x-shockwave-flash" width="425" height="344" src="http://www.youtube.com/v/0-e_UWhY5aY?hl=es&amp;fs=1" allowscriptaccess="always" allowfullscreen="true"></object></p>
+<p>The API detects and delivers accelerometer data 50 times per second. To get them you need to capture <strong>ondevicemotion</strong> event on the window global object (or using <strong>addEventListener</strong> with <strong>devicemotion</strong> as the event name) and then use the <strong>accelerationIncludingGravity</strong> property on the <strong>DeviceOrientationEvent</strong> parameter. It has three values, <strong>x</strong>, <strong>y</strong> &amp; <strong>z</strong>, representing the acceleration in m/s<sup>2</sup> for each axis. You should use typical accelerometer math for games, effects or CSS transformations.</p>
+<p>UPDATE: If the device has gyroscope (iPhone 4 or iPod Touch 4G) then you can use <strong>acceleration</strong> instead of <strong>accelerationIncludingGravity</strong>.</p>
+<p><code>window.ondevicemotion = function(event)  {<br>
+//&nbsp;event.accelerationIncludingGravity.x<br>
+// event.accelerationIncludingGravity.y<br>
+// event.accelerationIncludingGravity.z<br>
+}</code></p>
+<p>UPDATE: For <strong>gyroscope</strong>, you need to capture <strong>ondeviceorientation</strong> and read <strong>alpha</strong>, <strong>beta</strong> and <strong>gamma</strong> properties from the event parameter, giving us angles (between 0 and 360) for detecting rotation changes. &nbsp;Remember that not all iOS devices supports gyroscope, so you will not receive this kind of events on iPod before 4G, iPad or iPhone 3GS or older.</p>
+<p><code>window.ondeviceorientation = function(event) {<br>
+//&nbsp;event.alpha<br>
+// event.beta<br>
+// event.gamma<br>
+}<br>
+</code></p>
+<h3>WebSockets</h3>
+<p>The other big new update is WebSockets support. <a href="http://dev.w3.org/html5/websockets/" target="_blank">WebSockets</a> is a W3C HTML5 API currently in draft that allows JavaScript to use an open, bi-directional full-duplex connection to a server using TCP sockets. This is a great news for chat and real-time applications that will reduce AJAX periodic calls.</p>
+<p>You will need a web server understanding the new WS protocol through an HTTP handshake. You should always rely on a fallback mechanism if WS is not supported on the server, or because of a proxy/gateway.</p>
+<h3>HTML5 Form Support</h3>
+<p>Besides the HTML5 Form support I’ve already discussed on <a href="http://www.mobilexweb.com/blog/book" target="_blank">the book</a>, now we have support for the&nbsp;<strong>required</strong> boolean attribute and the new <strong>:invalid</strong> CSS pseudoclass. Therefore, the following code will show a green input text when completed and a yellow one when incomplete:</p>
+<p><code> &lt;style&gt;<br>
+input {<br>
+background-color: green;<br>
+color: white;<br>
+}<br>
+input:invalid {<br>
+background-color: yellow;<br>
+}<br>
+&lt;/style&gt;<br>
+&lt;input type="text" required&gt;<br>
+</code></p>
+<h3>AJAX 2</h3>
+<p>The W3C draft called <a href="http://dev.w3.org/2006/webapi/XMLHttpRequest-2/Overview.html" target="_blank">XMLHttpRequest Level 2</a> (aka AJAX 2) adds new features to the XHR object and functionality. From that specification, now Safari supports the <a href="https://developer.mozilla.org/en/XMLHttpRequest/FormData" target="_blank">FormData</a> object that allow us to send form data via AJAX easily.</p>
+<h3>Print Support</h3>
+<p>iOS 4.2 includes AirPrint, a wireless printing solution. Therefore, we can use now <strong>window.print()</strong> to invoke the printing dialog on Safari.</p>
+<h3>New JavaScript Data-types</h3>
+<p>Safari now supports the Blob class and many integer-type collections, like Float32Array, Int8Array, Uint8Array, Int16Array Uint16Aray, Int32Array and UInt32Array defined on <a href="https://cvs.khronos.org/svn/repos/registry/trunk/public/webgl/doc/spec/TypedArray-spec.html" target="_blank">Typed Arrays</a> specification. More information on <a href="https://developer.mozilla.org/en/JavaScript_typed_arrays" target="_blank">Firefox website</a>.</p>
+<h3>New DOM events</h3>
+<p>Besides the new motion events, now we can use the HTML5 new <strong>onhashchange</strong> event that detects changes on the URL after the hash (#) for AJAX-like webapps; the <strong>invalid, onbeforeload and onpopstate</strong> events from HTML5 draft specification.</p>
+<p>UPDATE: It appears that <a href="http://dev.w3.org/html5/eventsource/" target="_blank">Event Source API</a> (W3C draft) is also implemented through the available <strong>EventSource</strong> class to receive server-side events.</p>
+<p>UPDATE: I’ve receive some comments about onhashchange being supported from 4.0 or 4.1 versions.</p>
+<p>Now, we can also use <strong>window.captureEvents</strong> and <strong>window.releaseEvents</strong> to capture events in a global way.</p>
+<h3>Enhanced SVG and Canvas support</h3>
+<p>iOS supports SVG as a separate document and also inline SVG (using the <strong>svg</strong> tag). And now we can also create SVG documents on the fly using a list of more than 20 classes SVG____, like <strong>SVGDocument</strong>, <strong>SVGImage</strong> directly from our code.<br>
+From HTML5 Canvas, there is now support for <a href="http://nooshu.com/using-image-data-inside-the-html5-canvas-element/" target="_blank">ImageData</a> data-type, a way to manipulate images pixel by pixel from JavaScript.</p>
+<h3>Other stuff</h3>
+<ul>
+<li>A <strong>styleMedia</strong> API that allow us to make CSS Media Queries from JavaScript. <a href="https://developer.apple.com/library/safari/#documentation/SafariDOMAdditions/Reference/StyleMedia/StyleMedia/StyleMedia.html" target="_blank">See API</a>.</li>
+<li>A <strong>WebGLRenderingContext</strong> class available, part of the 3D Drawing API (aka WebGL). However, I’m not seeing any real WebGL support.</li>
+<li>A global<strong> RGBColor</strong> constructor</li>
+</ul>
+<p>I will continue testing new HTML5 features and APIs available in this new release. Do you know any other new feature? Feel free to contact me by twitter (@firt) or commenting this post.</p>
+<div class="addtoany_share_save_container addtoany_content_bottom"><div class="a2a_kit a2a_kit_size_32 addtoany_list a2a_target" id="" style="line-height: 32px;"><a class="a2a_dd addtoany_share_save" href="https://www.addtoany.com/share_save#url=http%3A%2F%2Fwww.mobilexweb.com%2Fblog%2Fsafari-ios-accelerometer-websockets-html5&title=Safari%20on%20iPhone%20%26%20iPad%204.2%3A%20Accelerometer%2C%20WebSockets%20%26%20better%20HTML5%20support&description=" aria-label="Deel"><img src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/share_save_171_16.png" width="171" height="16" alt="Share"></a>
+<script type="text/javascript"><!--
+wpa2a.script_load();
+//--></script>
+</div></div>
+								
+				<p class="postmetadata alt">
+					<small>
+						This entry was written by <a href="http://www.mobilexweb.com/contact-me" rel="author">Max Firtman</a> and posted
+												on Tuesday, November 23rd, 2010 at 12:31 am						and is filed under <a href="http://www.mobilexweb.com/blog/category/general" rel="category tag">General</a>.
+						You can follow any responses to this entry through the <a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5/feed">RSS 2.0</a> feed.
+
+													You can <a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#respond">leave a response</a>, or <a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5/trackback" rel="trackback">trackback</a> from your own site.
+
+						
+					</small>
+				</p>
+
+			</div>
+		</div>
+
+	
+
+<!-- *******************************************************************************************************************-->
+<!-- Comments Evolved for Wordpress v1.5.6 ( http://wordpress.org/plugins/gplus-comments/ ) -->
+<!-- *******************************************************************************************************************-->
+
+<!-- comment-tabs -->
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+  window.comment_tab_width = $('#comment-tabs').innerWidth();
+});
+</script>
+<div id="comment-tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+<a name="comments"></a>
+    <ul class="controls inline clearfix ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
+    <li class="active ui-state-default ui-corner-top ui-tabs-active ui-state-active" id="gplus-control" role="tab" tabindex="0" aria-controls="gplus-tab" aria-labelledby="ui-id-1" aria-selected="true" aria-expanded="true"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#gplus-tab" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-1"><img id="gplus-icon" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/gplus.png"><span id="gplus-label"></span></a></li>
+<li id="facebook-control" class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="facebook-tab" aria-labelledby="ui-id-2" aria-selected="false" aria-expanded="false"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#facebook-tab" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-2"><img id="facebook-icon" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/facebook.png"><span id="facebook-label"></span></a></li>
+<li id="wordpress-control" class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="wordpress-tab" aria-labelledby="ui-id-3" aria-selected="false" aria-expanded="false"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#wordpress-tab" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-3"><img id="wordpress-icon" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/wordpress.png"><span id="wordpress-label"></span></a></li>
+  </ul>
+  <!-- gplus-tab -->
+<div id="gplus-tab" class="embed-container content-tab clearfix ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-1" role="tabpanel" aria-hidden="false"><div id="___comments_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 1370px; height: 600px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 1370px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 600px;" tabindex="0" vspace="0" width="100%" id="I0_1439726800629" name="I0_1439726800629" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/comments.html" data-gapiattached="true" title="Reactie plaatsen"></iframe></div></div>
+<!-- //gplus-tab -->
+<!-- facebook-tab -->
+<div id="facebook-tab" class="embed-container content-tab clearfix ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-2" role="tabpanel" aria-hidden="true" style="display: none;">
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/7tUlZKGPU61.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/7tUlZKGPU61(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+<div id="fb-comments"><div class="fb-comments fb_iframe_widget" data-width="1369" data-href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5" data-num-posts="20" data-colorscheme="light" data-mobile="auto" fb-xfbml-state="rendered"><span style="height: 277px; width: 0px;"><iframe id="f39f8840d4" name="f26e086ca8" scrolling="no" title="Facebook Social Plugin" class="fb_ltr" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/comments(1).html" style="border: none; overflow: hidden; height: 277px; width: 0px;"></iframe></span></div></div>
+<script type="text/javascript">
+  jQuery(document).ready(function($)
+  {
+    $('#fb-comments').html('<div class="fb-comments" data-width="'+window.comment_tab_width+'" data-href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5" data-num-posts="20" data-colorscheme="light" data-mobile="auto"></div>');
+  });
+</script>
+<script async="" type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/all.js">FB.init();</script>
+<noscript>Please enable JavaScript to view the &lt;a href="https://www.facebook.com/"&gt;comments powered by Facebook.&lt;/a&gt;</noscript>
+
+
+</div>
+<!-- //facebook-tab -->
+<!-- wordpress-tab -->
+<div id="wordpress-tab" class="embed-container content-tab clearfix ui-tabs-panel ui-widget-content ui-corner-bottom" aria-labelledby="ui-id-3" role="tabpanel" aria-hidden="true" style="display: none;">
+<script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/comment.js"></script>
+
+
+
+
+<div id="comments">
+
+<div id="commentlist">
+
+	<ol id="thecomments">
+		<li class="comment regularcomment" id="comment-1152">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/526432b392a67931ca8c7bc23d1de0a1" srcset="http://2.gravatar.com/avatar/526432b392a67931ca8c7bc23d1de0a1?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-1152">#1</a> written by
+
+           		   <a id="commentauthor-1152" href="http://sofanatics.com/"> Toni</a>
+		   December 2nd, 2010 at 11:36</span></p>
+               <div class="text">
+								<div id="commentbody-1152"> <p>We launched so called shout along feature based on the accelerometer on Monday. Check out the accelerometer in action on Sofanatics: <a href="http://bit.ly/shakealong" rel="nofollow">http://bit.ly/shakealong</a></p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-1152&#39;, &#39;comment-1152&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-1152&#39;, &#39;comment-1152&#39;, &#39;commentbody-1152&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-1158">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/fda8aad2c7e38579f064fe98fdadb97f" srcset="http://0.gravatar.com/avatar/fda8aad2c7e38579f064fe98fdadb97f?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-1158">#2</a> written by
+
+           		   <a id="commentauthor-1158" href="http://173.13.89.117/itest/b.htm"> Bob Moore</a>
+		   December 2nd, 2010 at 21:15</span></p>
+               <div class="text">
+								<div id="commentbody-1158"> <p>Repost from yesterday –&gt;</p>
+<p>Here’s another modified version of the accelerometer demo  with the moving ball. Based on the mods by @Andrea. I’ve optimized the JavaScript and added CSS3 xforms which are hardware accelerated on the iPhone/iPad.</p>
+<p><a href="http://bit.ly/ehQ0Ia" rel="nofollow">http://bit.ly/ehQ0Ia</a></p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-1158&#39;, &#39;comment-1158&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-1158&#39;, &#39;comment-1158&#39;, &#39;commentbody-1158&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-1306">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/76a258d7a4a518ae4001f0beb83012e6" srcset="http://1.gravatar.com/avatar/76a258d7a4a518ae4001f0beb83012e6?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-1306">#3</a> written by
+
+           		   <a id="commentauthor-1306" href="http://www.winktoolkit.org/"> Jerome</a>
+		   December 8th, 2010 at 14:44</span></p>
+               <div class="text">
+								<div id="commentbody-1306"> <p>The method webkitEnterFullScreen is now also available !!! Great for making a true HTML5 video player :)</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-1306&#39;, &#39;comment-1306&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-1306&#39;, &#39;comment-1306&#39;, &#39;commentbody-1306&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-1581">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/913d1ef1827710f0a04edf5d5367b474" srcset="http://0.gravatar.com/avatar/913d1ef1827710f0a04edf5d5367b474?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-1581">#4</a> written by
+
+           		   <a id="commentauthor-1581" href="http://gigantico.tv/"> Chris Grayson</a>
+		   December 13th, 2010 at 22:14</span></p>
+               <div class="text">
+								<div id="commentbody-1581"> <p>I’m curious if there is a way to access the accelerometer to override screen rotate. For instance: If you have a page designed to fit into the Safari browser window specifically in portrait view. And you don’t want the page to change orientation when the iPhone is rotated. I’m not talking about a user-initiated disabling. Something that can be done on a specific page. Seems like you could look at the accelerometer data and negate the rotation. Any thoughts?</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-1581&#39;, &#39;comment-1581&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-1581&#39;, &#39;comment-1581&#39;, &#39;commentbody-1581&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment admincomment" id="comment-1588">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/868aa64e3911e387b8703aea57c3b26d" srcset="http://2.gravatar.com/avatar/868aa64e3911e387b8703aea57c3b26d?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-1588">#5</a> written by
+
+           		   <a id="commentauthor-1588" href="http://www.firt.mobi/"> firt</a>
+		   December 13th, 2010 at 23:55</span></p>
+               <div class="text">
+								<div id="commentbody-1588"> <p>Chris,</p>
+<p>There is no way to do that (override screen rotate) up to now. It should be implemented with a Meta tag by browsers because the screen rotation happens on the native side. There are some hacks, like rotating the main content using CSS 3 transformations, but the Safari UI is rotated anyway and generates a lot of problems.</p>
+<p>You can always embed your webapp in a native app (hybrid) and force one orientation. Check Chapter 12 of Programming the Mobile Web for info about that or I can send you some ideas. If you need a discount code for the book, just ask me.</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-1588&#39;, &#39;comment-1588&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-1588&#39;, &#39;comment-1588&#39;, &#39;commentbody-1588&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-2116">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/59231860fa53e4e239630e3ad903ccad" srcset="http://2.gravatar.com/avatar/59231860fa53e4e239630e3ad903ccad?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-2116">#6</a> written by
+
+                        <b id="commentauthor-2116">numan</b>
+		   January 12th, 2011 at 08:54</span></p>
+               <div class="text">
+								<div id="commentbody-2116"> <p>Is access to camera or photo library on the horizon soon? This is one feature that keeps me switching from native to the web world.</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-2116&#39;, &#39;comment-2116&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-2116&#39;, &#39;comment-2116&#39;, &#39;commentbody-2116&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-3262">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/f295667cde611eead4d89906cfa06332" srcset="http://0.gravatar.com/avatar/f295667cde611eead4d89906cfa06332?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-3262">#7</a> written by
+
+                        <b id="commentauthor-3262">Kostikis</b>
+		   June 24th, 2011 at 17:05</span></p>
+               <div class="text">
+								<div id="commentbody-3262"> <p>I am having problems with ondevicemotion on rotationRate values. It’s giving me very odd values, far away from what I am getting from SensorData and the sampling rate on both platforms is 20Hz. Any ideas?</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-3262&#39;, &#39;comment-3262&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-3262&#39;, &#39;comment-3262&#39;, &#39;commentbody-3262&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-3279">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/f295667cde611eead4d89906cfa06332" srcset="http://0.gravatar.com/avatar/f295667cde611eead4d89906cfa06332?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-3279">#8</a> written by
+
+                        <b id="commentauthor-3279">Kostikis</b>
+		   June 26th, 2011 at 12:31</span></p>
+               <div class="text">
+								<div id="commentbody-3279"> <p>Now I noticed that you said the API (DeviceMotionEvent) detects and delivers accelerometer data 50 times per second. When I am trying to do that along with a timer I only get a 20Hz sampling rate. Am I doing something wrong or is the sampling rate user configurable?</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-3279&#39;, &#39;comment-3279&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-3279&#39;, &#39;comment-3279&#39;, &#39;commentbody-3279&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-3930">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/963f32f480cb463fc7f4466b99abd2ad" srcset="http://0.gravatar.com/avatar/963f32f480cb463fc7f4466b99abd2ad?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-3930">#9</a> written by
+
+                        <b id="commentauthor-3930">Galileo</b>
+		   October 6th, 2011 at 13:15</span></p>
+               <div class="text">
+								<div id="commentbody-3930"> <p>Is it possible to activate the camera on the iPad 2, and also take pictures with it using html5/java?</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-3930&#39;, &#39;comment-3930&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-3930&#39;, &#39;comment-3930&#39;, &#39;commentbody-3930&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment admincomment" id="comment-3936">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/868aa64e3911e387b8703aea57c3b26d" srcset="http://2.gravatar.com/avatar/868aa64e3911e387b8703aea57c3b26d?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-3936">#10</a> written by
+
+           		   <a id="commentauthor-3936" href="http://www.firt.mobi/"> firt</a>
+		   October 7th, 2011 at 01:31</span></p>
+               <div class="text">
+								<div id="commentbody-3936"> <p>Not yet unfortunately, you can do it on Android 3</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-3936&#39;, &#39;comment-3936&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-3936&#39;, &#39;comment-3936&#39;, &#39;commentbody-3936&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-7774">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/07709941e154d98c86be806bd69d7f2b" srcset="http://0.gravatar.com/avatar/07709941e154d98c86be806bd69d7f2b?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-7774">#11</a> written by
+
+                        <b id="commentauthor-7774">James Anderson</b>
+		   May 24th, 2012 at 20:48</span></p>
+               <div class="text">
+								<div id="commentbody-7774"> <p>Can you please tell me if there are any HTML 5 limitations for iPad Safari, or does it fully support it? </p>
+<p>I have just had someone say a site we wanted to build has too many affects for the iPad version of Safari</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-7774&#39;, &#39;comment-7774&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-7774&#39;, &#39;comment-7774&#39;, &#39;commentbody-7774&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment admincomment" id="comment-7775">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/868aa64e3911e387b8703aea57c3b26d" srcset="http://2.gravatar.com/avatar/868aa64e3911e387b8703aea57c3b26d?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-7775">#12</a> written by
+
+           		   <a id="commentauthor-7775" href="http://www.firt.mobi/"> firt</a>
+		   May 24th, 2012 at 23:51</span></p>
+               <div class="text">
+								<div id="commentbody-7775"> <p>James, your question has no answer, because there is no concept of “fully support HTML5″. HTML5 is a limitless concept so all the browser are somehow compatible by default. You need to list all the features you want to use on Safari for iPad and then you can answer is that current version of that browser supports or not what you need. Regards!</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-7775&#39;, &#39;comment-7775&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-7775&#39;, &#39;comment-7775&#39;, &#39;commentbody-7775&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	<li class="comment regularcomment" id="comment-7785">
+      <div class="wrap">
+       <div class="avatar">
+
+        <a class="gravatar">
+			<img alt="" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/07709941e154d98c86be806bd69d7f2b" srcset="http://0.gravatar.com/avatar/07709941e154d98c86be806bd69d7f2b?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64">        </a>
+
+       </div>
+       <div class="details">
+        <p class="head"><span class="info"><a href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#comment-7785">#13</a> written by
+
+                        <b id="commentauthor-7785">James Anderson</b>
+		   May 25th, 2012 at 08:48</span></p>
+               <div class="text">
+								<div id="commentbody-7785"> <p>Thank you for the reply,</p>
+ </div>
+               </div>
+       </div>
+   	   <div class="act">
+	     <span class="reply"><a title="Reply" class="" href="javascript:void(0);" onclick="MGJS_CMT.reply(&#39;commentauthor-7785&#39;, &#39;comment-7785&#39;, &#39;comment&#39;);">RE</a></span> <span class="quote"><a title="Quote" href="javascript:void(0);" onclick="MGJS_CMT.quote(&#39;commentauthor-7785&#39;, &#39;comment-7785&#39;, &#39;commentbody-7785&#39;, &#39;comment&#39;);">Q</a></span>
+         <span class="advedit"> </span>
+	   </div>
+
+      </div>
+	</li>
+<!-- #comment-## -->
+	</ol>
+  		<div id="commentnavi">
+			<span class="pages">Comment pages</span>
+			<div id="commentpager">
+				<a class="prev page-numbers" href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5/comment-page-1#comments">« Previous</a>
+<a class="page-numbers" href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5/comment-page-1#comments">1</a>
+<span class="page-numbers current">2</span>			</div>
+		</div>
+</div>
+</div>
+
+
+	<form action="http://www.mobilexweb.com/wp-comments-post.php" method="post" id="commentform" pmbx_context="2A3A7C4B-3A1D-463D-8922-5B0BCFA39ADB">
+	<div id="respond">
+
+					
+			<div id="author_info">
+				<div class="row">
+					<input type="text" name="author" id="author" class="textfield" value="" size="24" tabindex="1" pmbx_context="D7DC94A0-EF2A-4071-B668-3DB43A618491">
+					<label for="author" class="small">Name (required)</label>
+				</div>
+				<div class="row">
+					<input type="text" name="email" id="email" class="textfield" value="" size="24" tabindex="2" pmbx_context="C616E536-68D9-4EAE-BDCD-871A4FDDB336">
+					<label for="email" class="small">E-Mail (will not be published) (required)</label>
+				</div>
+				<div class="row">
+					<input type="text" name="url" id="url" class="textfield" value="" size="24" tabindex="3" pmbx_context="CDFAD66C-3BF8-4985-87C0-9B5884202BB4">
+					<label for="url" class="small">Website</label>
+				</div>
+			</div>
+
+			
+		
+		<!-- comment input -->
+		<div class="row">
+			<textarea name="comment" id="comment" tabindex="4" rows="8" cols="50"></textarea>
+		</div>
+
+		<!-- comment submit and rss -->
+		<div id="submitbox">
+            <input name="submit" type="submit" id="submit" class="button" tabindex="5" value="Submit Comment" pmbx_context="AA864E0B-39AA-4820-895F-288322A5AF2B">
+            <a class="feed" href="http://www.mobilexweb.com/comments/feed">Subscribe to comments feed</a>
+						<input type="hidden" name="comment_post_ID" value="38" pmbx_context="719D767E-41D4-4432-B6BF-5C062A48D879">
+
+		</div>
+
+	</div>
+	</form>
+
+</div>
+<!-- //wordpress-tab -->
+</div>
+<!-- //comment-tabs -->
+
+	
+</div>
+<!-- /main content -->
+
+</div>
+<!-- /main -->
+</div>
+<!-- /main wrapper -->
+
+
+ <!-- sidebar (container) -->
+<div id="sidebar">
+  <!-- sidebar wrap -->
+  <div class="wrap">
+     <ul>
+     <li>
+          		</li>
+
+
+			
+
+           <li id="text-3" class="widget widget_text"><div class="box">			<div class="textwidget">Thoughts, researchs and samples about mobile web by <a href="http://firt.mobi/" target="_blank">Maximiliano Firtman</a>, speaker, trainer and author of O'Reilly books <a href="http://www.mobilexweb.com/blog/book/">Programming the Mobile Web</a> and <a href="http://www.mobilexweb.com/blog/book/">jQuery Mobile</a>.
+<br><br>
+<a href="http://www.twitter.com/firt" target="_blank"><img src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/followme.png" width="135" height="26" alt="Follow me @firt" vspace="5" style="margin-right: 10px"></a>
+<a href="http://www.twitter.com/mobilexweb" target="_blank"><img src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/followblog.png" width="135" height="26" alt="Follow this blog updates &amp; news" vspace="5"></a>
+<div style="height: 10px"></div></div>
+		</div></li><li id="text-5" class="widget widget_text"><div class="box"><h2 class="widgettitle">My books</h2>			<div class="textwidget"><div style="margin-top: 15px; margin-bottom: -30px;">
+<a href="http://www.mobilexweb.com/book"><img src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/cat.gif" width="125" border="0" style="margin-right: 15px"><img src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/cat(1).gif" width="125" border="0"></a></div>
+
+
+
+</div>
+		</div></li><li id="text-7" class="widget widget_text"><div class="box">			<div class="textwidget"><div style="margin: 15px 0 -20px -10px"><!-- BuySellAds.com Ad Code -->
+<script type="text/javascript">
+(function(){
+  var bsa = document.createElement('script');
+     bsa.type = 'text/javascript';
+     bsa.async = true;
+     bsa.src = 'http://s3.buysellads.com/ac/bsa.js';
+  (document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(bsa);
+})();
+</script>
+<!-- End BuySellAds.com Ad Code -->
+<div id="bsap_1272855" class="bsarocks bsap_4709948f66d65168ec770c6ce588d807"></div>
+</div>
+<div style="margin: 10px 0 0 -10px; display: none">
+<a href="http://mobilehtml5.org/" target="_blank"><img src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/mobilehtml5.png" width="300"></a></div>
+<div style="margin-top:30px; text-align: center">
+<script src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/coin.js"></script>
+<script>
+CoinWidgetCom.go({
+	wallet_address: "15mBwMh8ikFJpbCMNu1N4w1UPh9q6yCvQ1"
+	, currency: "bitcoin"
+	, counter: "hide"
+	, alignment: "bc"
+	, qrcode: true
+	, auto_show: false
+	, lbl_button: "Donate with Bitcoins"
+	, lbl_address: "My Bitcoin Address:"
+	, lbl_count: "donations"
+	, lbl_amount: "BTC"
+});
+</script><span data-coinwidget-instance="0" class="COINWIDGETCOM_CONTAINER"><a class="COINWIDGETCOM_BUTTON_BITCOIN" href="http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5#"><img src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/icon_bitcoin.png"><span>Donate with Bitcoins</span></a></span></div></div>
+		</div></li>     </ul>
+  </div><!-- /sidebar wrap -->
+</div><!-- /sidebar -->
+  
+
+<!-- clear main & sidebar sections -->
+<br clear="left">
+<!-- /clear main & sidebar sections -->
+
+
+<!-- footer -->
+ <div id="footer">
+   <!-- please do not remove this. respect the authors :) -->
+   <p>Fusion theme by <a href="http://www.digitalnature.ro/projects/fusion">digitalnature</a> | powered by	<a href="http://wordpress.org/">WordPress</a><br>
+   <a class="rss" href="http://www.mobilexweb.com/feed">Entries (RSS)</a> and <a href="http://www.mobilexweb.com/comments/feed">Comments (RSS)</a>
+   <!-- 27 queries. 0.810 seconds. -->
+   </p>
+ </div>
+ <!-- /footer -->
+<a href="javascript:void(0);" class="setLiquid"><span>SetPageWidth</span></a>
+</div>
+<!-- /page -->
+
+</div>
+</div>
+<!-- /page wrappers -->
+
+
+
+<script type="text/javascript"><!--
+wpa2a.targets=[
+{title:'Safari on iPhone &amp; iPad 4.2: Accelerometer, WebSockets &amp; better HTML5 support',url:'http://www.mobilexweb.com/blog/safari-ios-accelerometer-websockets-html5'}];
+wpa2a.html_done=true;if(wpa2a.script_ready&&!wpa2a.done)wpa2a.init();wpa2a.script_load();
+//--></script><iframe name="oauth2relay607005441" id="oauth2relay607005441" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><script charset="UTF-8" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/nl.js"></script>
+<link rel="stylesheet" id="comments_evolved_tabs_css-css" href="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/plugin.css" type="text/css" media="all">
+<script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/core.min.js"></script>
+<script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/widget.min.js"></script>
+<script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/tabs.min.js"></script>
+<script type="text/javascript" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/comment-reply.min.js"></script>
+<!-- Comments Evolved plugin -->
+<script>jQuery("#comment-tabs").tabs();</script>
+<!-- //Comments Evolved plugin -->
+
+
+<div style="position: static;"><div class="a2a_overlay" id="a2apage_overlay"></div><div class="a2a_menu a2a_full" id="a2apage_full" role="dialog" tabindex="-1" aria-label="Deel"><div class="a2a_full_header"><div id="a2apage_find_container" class="a2a_menu_find_container"><input id="a2apage_find" class="a2a_menu_find" type="text" onclick="a2a.focus_find()" onkeyup="a2a.do_find()" autocomplete="off" title="Vind andere diensten"><span id="a2apage_find_icon" class="a2a_svg a2a_s_find" onclick="a2a.focus_find()"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" width="24" height="24" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve"><path fill="#CCCCCC" d="M19.7 18.2l-4.5-4.5c0.7-1.1 1.2-2.3 1.2-3.6 0-3.5-2.8-6.3-6.3-6.3 -3.5 0-6.3 2.8-6.3 6.3 0 3.5 2.8 6.3 6.3 6.3 1.4 0 2.6-0.4 3.6-1.2l4.5 4.5c0.6 0.6 1.3 0.7 1.7 0.2C20.4 19.5 20.3 18.8 19.7 18.2zM10.1 14.6c-2.5 0-4.5-2.1-4.5-4.5 0-2.5 2.1-4.5 4.5-4.5 2.5 0 4.5 2.1 4.5 4.5C14.6 12.5 12.6 14.6 10.1 14.6z"></path></svg></span></div></div><div class="a2a_full_services" id="a2apage_full_services" role="presentation"><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_facebook"></span>Facebook</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_twitter"></span>Twitter</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_google_plus"></span>Google+</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_pinterest"></span>Pinterest</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_email"></span>Email</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_linkedin"></span>LinkedIn</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_reddit"></span>Reddit</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_tumblr"></span>Tumblr</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_wordpress"></span>WordPress</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_stumbleupon"></span>StumbleUpon</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_gmail"></span>Google Gmail</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_whatsapp"></span>WhatsApp</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_aim"></span>AIM</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_amazon"></span>Amazon Wish List</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_aol"></span>AOL Mail</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_app_net"></span>App.net</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_baidu"></span>Baidu</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_balatarin"></span>Balatarin</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_bibsonomy"></span>BibSonomy</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_bitty"></span>Bitty Browser</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_blinklist"></span>Blinklist</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_blogger"></span>Blogger Post</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_blogmarks"></span>BlogMarks</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_bookmarks_fr"></span>Bookmarks.fr</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_box"></span>Box.net</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_buddymarks"></span>BuddyMarks</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_buffer"></span>Buffer</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_care2"></span>Care2 News</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_citeulike"></span>CiteULike</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_delicious"></span>Delicious</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_designfloat"></span>Design Float</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_diary_ru"></span>Diary.Ru</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_diaspora"></span>Diaspora</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_digg"></span>Digg</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_dihitt"></span>diHITT</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_diigo"></span>Diigo</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_dzone"></span>DZone</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_evernote"></span>Evernote</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_fark"></span>Fark</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_flipboard"></span>Flipboard</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_folkd"></span>Folkd</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_google"></span>Google Bookmarks</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_y18"></span>Hacker News</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_hatena"></span>Hatena</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_instapaper"></span>Instapaper</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_jamespot"></span>Jamespot</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_kakao"></span>Kakao</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_kindle"></span>Kindle It</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_known"></span>Known</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_line"></span>Line</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_livejournal"></span>LiveJournal</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_mail_ru"></span>Mail.Ru</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_mendeley"></span>Mendeley</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_meneame"></span>Meneame</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_mixi"></span>Mixi</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_myspace"></span>MySpace</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_netlog"></span>Netlog</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_netvouz"></span>Netvouz</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_newstrust"></span>NewsTrust</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_newsvine"></span>NewsVine</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_nujij"></span>NUjij</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_odnoklassniki"></span>Odnoklassniki</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_oknotizie"></span>Oknotizie</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_outlook_com"></span>Outlook.com</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_pinboard"></span>Pinboard</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_plurk"></span>Plurk</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_pocket"></span>Pocket</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_print"></span>Print</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_printfriendly"></span>PrintFriendly</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_protopage"></span>Protopage Bookmarks</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_pusha"></span>Pusha</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_qzone"></span>Qzone</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_rediff"></span>Rediff MyPage</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_renren"></span>Renren</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_segnalo"></span>Segnalo</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_sina_weibo"></span>Sina Weibo</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_sitejot"></span>SiteJot</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_slashdot"></span>Slashdot</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_stumpedia"></span>Stumpedia</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_svejo"></span>Svejo</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_symbaloo"></span>Symbaloo Feeds</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_tuenti"></span>Tuenti</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_twiddla"></span>Twiddla</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_typepad"></span>TypePad Post</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_viadeo"></span>Viadeo</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_vk"></span>VK</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_wanelo"></span>Wanelo</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_webnews"></span>Webnews</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_wykop"></span>Wykop</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_xing"></span>XING</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_yahoo"></span>Yahoo Bookmarks</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_yahoo"></span>Yahoo Mail</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_yim"></span>Yahoo Messenger</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_yoolink"></span>Yoolink</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_youmob"></span>YouMob</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_yummly"></span>Yummly</a><i class="a2a_i"></i><i class="a2a_i"></i></div><div class="a2a_full_footer"><a href="https://www.addtoany.com/" title="Share Buttons" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_a2a"></span>AddToAny</a></div></div><div id="a2apage_dropdown" class="a2a_menu a2a_mini" onmouseover="a2a.onMouseOver_stay()" onmouseout="a2a.onMouseOut_delay()" tabindex="-1" aria-label="Deel" style="display:none"><div id="a2apage_title_container" class="a2a_menu_title_container" style="display:none"><input id="a2apage_title" class="a2a_menu_title"></div><div class="a2a_mini_services" id="a2apage_mini_services"><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_facebook"></span>Facebook</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_twitter"></span>Twitter</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_google_plus"></span>Google+</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_pinterest"></span>Pinterest</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_email"></span>Email</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_linkedin"></span>LinkedIn</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_reddit"></span>Reddit</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_tumblr"></span>Tumblr</a></div><div id="a2apage_cols_container" class="a2a_cols_container"><div class="a2a_col1" id="a2apage_col1"></div><div id="a2apage_2_col1" style="display:none"><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_gmail"></span>Google Gmail</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_aol"></span>AOL Mail</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_outlook_com"></span>Outlook.com</a><a rel="nofollow" class="a2a_i" href="http://www.mobilexweb.com/" target="_blank"><span class="a2a_svg a2a_s__default a2a_s_yahoo"></span>Yahoo Mail</a><a rel="nofollow" class="a2a_i a2a_emailer" href="http://www.mobilexweb.com/" target="_blank" id="a2apage_any_email"><span class="a2a_svg a2a_s__default a2a_s_email"></span>Any email</a><a rel="nofollow" class="a2a_i a2a_emailer a2a_email_client" href="http://www.mobilexweb.com/" target="" id="a2apage_email_client"><span class="a2a_svg a2a_s__default a2a_s_email"></span>Email app</a></div><div class="a2a_clear"></div></div><div class="a2apage_wide a2a_wide"><a href="" id="a2apage_show_more_less" class="a2a_menu_show_more_less a2a_more" title="Toon alles"><span class="a2a_svg a2a_s__default a2a_s_a2a"></span>Meer…</a></div></div><div style="height: 1px; width: 1px; position: absolute; z-index: 100000; top: 0px; visibility: hidden;"><iframe id="a2apage_sm_ifr" height="1" width="1" title="AddToAny Utility Frame" transparency="true" allowtransparency="true" frameborder="0" src="./Safari on iPhone & iPad 4.2_ Accelerometer, WebSockets & better HTML5 support _ Breaking the Mobile Web_files/sm13.html" style="height: 1px; width: 1px; border: 0px; left: 0px; top: 0px; position: absolute; z-index: 100000; display: none;"></iframe></div></div></body></html>

@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<!-- saved from url=(0061)https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5 -->
+<html lang="en-US" dir="ltr" class="redesign " data-ffo-opensanslight="true" data-ffo-opensans="true" pmbx_context="AA384300-5849-4C9B-96D0-5C46CEA04FD7"><head prefix="og: http://ogp.me/ns#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge"><script type="text/javascript" src="./HTML5 - Web developer guide _ MDN_files/42869b6ed3"></script><script src="./HTML5 - Web developer guide _ MDN_files/nr-686.min.js"></script><script async="" src="./HTML5 - Web developer guide _ MDN_files/analytics.js"></script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VgAEV1RTGwABU1NSAAQ="};window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({QJf3ax:[function(t,e){function n(t){function e(e,n,a){t&&t(e,n,a),a||(a={});for(var c=s(e),f=c.length,u=i(a,o,r),d=0;f>d;d++)c[d].apply(u,n);return u}function a(t,e){f[t]=s(t).concat(e)}function s(t){return f[t]||[]}function c(){return n(e)}var f={};return{on:a,emit:e,create:c,listeners:s,_events:f}}function r(){return{}}var o="nr@context",i=t("gos");e.exports=n()},{gos:"7eSDFh"}],ee:[function(t,e){e.exports=t("QJf3ax")},{}],3:[function(t){function e(t){try{i.console&&console.log(t)}catch(e){}}var n,r=t("ee"),o=t(1),i={};try{n=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(i.console=!0,-1!==n.indexOf("dev")&&(i.dev=!0),-1!==n.indexOf("nr_dev")&&(i.nrDev=!0))}catch(a){}i.nrDev&&r.on("internal-error",function(t){e(t.stack)}),i.dev&&r.on("fn-err",function(t,n,r){e(r.stack)}),i.dev&&(e("NR AGENT IN DEVELOPMENT MODE"),e("flags: "+o(i,function(t){return t}).join(", ")))},{1:23,ee:"QJf3ax"}],4:[function(t){function e(t,e,n,i,s){try{c?c-=1:r("err",[s||new UncaughtException(t,e,n)])}catch(f){try{r("ierr",[f,(new Date).getTime(),!0])}catch(u){}}return"function"==typeof a?a.apply(this,o(arguments)):!1}function UncaughtException(t,e,n){this.message=t||"Uncaught error with no additional information",this.sourceURL=e,this.line=n}function n(t){r("err",[t,(new Date).getTime()])}var r=t("handle"),o=t(6),i=t("ee"),a=window.onerror,s=!1,c=0;t("loader").features.err=!0,t(5),window.onerror=e;try{throw new Error}catch(f){"stack"in f&&(t(1),t(2),"addEventListener"in window&&t(3),window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)&&t(4),s=!0)}i.on("fn-start",function(){s&&(c+=1)}),i.on("fn-err",function(t,e,r){s&&(this.thrown=!0,n(r))}),i.on("fn-end",function(){s&&!this.thrown&&c>0&&(c-=1)}),i.on("internal-error",function(t){r("ierr",[t,(new Date).getTime(),!0])})},{1:10,2:9,3:7,4:11,5:3,6:24,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],5:[function(t){t("loader").features.ins=!0},{loader:"G9z0Bl"}],6:[function(t){function e(){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var n=t("ee"),r=t("handle"),o=t(1),i=t(2);t("loader").features.stn=!0,t(3),n.on("fn-start",function(t){var e=t[0];e instanceof Event&&(this.bstStart=Date.now())}),n.on("fn-end",function(t,e){var n=t[0];n instanceof Event&&r("bst",[n,e,this.bstStart,Date.now()])}),o.on("fn-start",function(t,e,n){this.bstStart=Date.now(),this.bstType=n}),o.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),this.bstType])}),i.on("fn-start",function(){this.bstStart=Date.now()}),i.on("fn-end",function(t,e){r("bstTimer",[e,this.bstStart,Date.now(),"requestAnimationFrame"])}),n.on("pushState-start",function(){this.time=Date.now(),this.startPath=location.pathname+location.hash}),n.on("pushState-end",function(){r("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),"addEventListener"in window.performance&&(window.performance.addEventListener("webkitresourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.webkitClearResourceTimings()},!1),window.performance.addEventListener("resourcetimingbufferfull",function(){r("bstResource",[window.performance.getEntriesByType("resource")]),window.performance.clearResourceTimings()},!1)),document.addEventListener("scroll",e,!1),document.addEventListener("keypress",e,!1),document.addEventListener("click",e,!1)}},{1:10,2:9,3:8,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],7:[function(t,e){function n(t){i.inPlace(t,["addEventListener","removeEventListener"],"-",r)}function r(t){return t[1]}var o=t("ee").create(),i=t(1)(o),a=t("gos");if(e.exports=o,n(window),"getPrototypeOf"in Object){for(var s=document;s&&!s.hasOwnProperty("addEventListener");)s=Object.getPrototypeOf(s);s&&n(s);for(var c=XMLHttpRequest.prototype;c&&!c.hasOwnProperty("addEventListener");)c=Object.getPrototypeOf(c);c&&n(c)}else XMLHttpRequest.prototype.hasOwnProperty("addEventListener")&&n(XMLHttpRequest.prototype);o.on("addEventListener-start",function(t){if(t[1]){var e=t[1];"function"==typeof e?this.wrapped=t[1]=a(e,"nr@wrapped",function(){return i(e,"fn-",null,e.name||"anonymous")}):"function"==typeof e.handleEvent&&i.inPlace(e,["handleEvent"],"fn-")}}),o.on("removeEventListener-start",function(t){var e=this.wrapped;e&&(t[1]=e)})},{1:25,ee:"QJf3ax",gos:"7eSDFh"}],8:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window.history,["pushState"],"-")},{1:25,ee:"QJf3ax"}],9:[function(t,e){var n=t("ee").create(),r=t(1)(n);e.exports=n,r.inPlace(window,["requestAnimationFrame","mozRequestAnimationFrame","webkitRequestAnimationFrame","msRequestAnimationFrame"],"raf-"),n.on("raf-start",function(t){t[0]=r(t[0],"fn-")})},{1:25,ee:"QJf3ax"}],10:[function(t,e){function n(t,e,n){t[0]=o(t[0],"fn-",null,n)}var r=t("ee").create(),o=t(1)(r);e.exports=r,o.inPlace(window,["setTimeout","setInterval","setImmediate"],"setTimer-"),r.on("setTimer-start",n)},{1:25,ee:"QJf3ax"}],11:[function(t,e){function n(){f.inPlace(this,p,"fn-")}function r(t,e){f.inPlace(e,["onreadystatechange"],"fn-")}function o(t,e){return e}function i(t,e){for(var n in t)e[n]=t[n];return e}var a=t("ee").create(),s=t(1),c=t(2),f=c(a),u=c(s),d=window.XMLHttpRequest,p=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"];e.exports=a,window.XMLHttpRequest=function(t){var e=new d(t);try{a.emit("new-xhr",[],e),u.inPlace(e,["addEventListener","removeEventListener"],"-",o),e.addEventListener("readystatechange",n,!1)}catch(r){try{a.emit("internal-error",[r])}catch(i){}}return e},i(d,XMLHttpRequest),XMLHttpRequest.prototype=d.prototype,f.inPlace(XMLHttpRequest.prototype,["open","send"],"-xhr-",o),a.on("send-xhr-start",r),a.on("open-xhr-start",r)},{1:7,2:25,ee:"QJf3ax"}],12:[function(t){function e(t){var e=this.params,r=this.metrics;if(!this.ended){this.ended=!0;for(var i=0;c>i;i++)t.removeEventListener(s[i],this.listener,!1);if(!e.aborted){if(r.duration=(new Date).getTime()-this.startTime,4===t.readyState){e.status=t.status;var a=t.responseType,f="arraybuffer"===a||"blob"===a||"json"===a?t.response:t.responseText,u=n(f);if(u&&(r.rxSize=u),this.sameOrigin){var d=t.getResponseHeader("X-NewRelic-App-Data");d&&(e.cat=d.split(", ").pop())}}else e.status=0;r.cbTime=this.cbTime,o("xhr",[e,r,this.startTime])}}}function n(t){if("string"==typeof t&&t.length)return t.length;if("object"!=typeof t)return void 0;if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if("undefined"!=typeof FormData&&t instanceof FormData)return void 0;try{return JSON.stringify(t).length}catch(e){return void 0}}function r(t,e){var n=i(e),r=t.params;r.host=n.hostname+":"+n.port,r.pathname=n.pathname,t.sameOrigin=n.sameOrigin}if(window.XMLHttpRequest&&XMLHttpRequest.prototype&&XMLHttpRequest.prototype.addEventListener&&!/CriOS/.test(navigator.userAgent)){t("loader").features.xhr=!0;var o=t("handle"),i=t(2),a=t("ee"),s=["load","error","abort","timeout"],c=s.length,f=t(1);t(4),t(3),a.on("new-xhr",function(){this.totalCbs=0,this.called=0,this.cbTime=0,this.end=e,this.ended=!1,this.xhrGuids={}}),a.on("open-xhr-start",function(t){this.params={method:t[0]},r(this,t[1]),this.metrics={}}),a.on("open-xhr-end",function(t,e){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&e.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),a.on("send-xhr-start",function(t,e){var r=this.metrics,o=t[0],i=this;if(r&&o){var f=n(o);f&&(r.txSize=f)}this.startTime=(new Date).getTime(),this.listener=function(t){try{"abort"===t.type&&(i.params.aborted=!0),("load"!==t.type||i.called===i.totalCbs&&(i.onloadCalled||"function"!=typeof e.onload))&&i.end(e)}catch(n){try{a.emit("internal-error",[n])}catch(r){}}};for(var u=0;c>u;u++)e.addEventListener(s[u],this.listener,!1)}),a.on("xhr-cb-time",function(t,e,n){this.cbTime+=t,e?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof n.onload||this.end(n)}),a.on("xhr-load-added",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&!this.xhrGuids[n]&&(this.xhrGuids[n]=!0,this.totalCbs+=1)}),a.on("xhr-load-removed",function(t,e){var n=""+f(t)+!!e;this.xhrGuids&&this.xhrGuids[n]&&(delete this.xhrGuids[n],this.totalCbs-=1)}),a.on("addEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-added",[t[1],t[2]],e)}),a.on("removeEventListener-end",function(t,e){e instanceof XMLHttpRequest&&"load"===t[0]&&a.emit("xhr-load-removed",[t[1],t[2]],e)}),a.on("fn-start",function(t,e,n){e instanceof XMLHttpRequest&&("onload"===n&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=(new Date).getTime()))}),a.on("fn-end",function(t,e){this.xhrCbStart&&a.emit("xhr-cb-time",[(new Date).getTime()-this.xhrCbStart,this.onload,e],e)})}},{1:"XL7HBI",2:13,3:11,4:7,ee:"QJf3ax",handle:"D5DuLP",loader:"G9z0Bl"}],13:[function(t,e){e.exports=function(t){var e=document.createElement("a"),n=window.location,r={};e.href=t,r.port=e.port;var o=e.href.split("://");return!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=e.hostname||n.hostname,r.pathname=e.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname),r.sameOrigin=!e.hostname||e.hostname===document.domain&&e.port===n.port&&e.protocol===n.protocol,r}},{}],14:[function(t,e){function n(t){return function(){r(t,[(new Date).getTime()].concat(i(arguments)))}}var r=t("handle"),o=t(1),i=t(2);"undefined"==typeof window.newrelic&&(newrelic=window.NREUM);var a=["setPageViewName","addPageAction","setCustomAttribute","finished","addToTrace","inlineHit","noticeError"];o(a,function(t,e){window.NREUM[e]=n("api-"+e)}),e.exports=window.NREUM},{1:23,2:24,handle:"D5DuLP"}],gos:[function(t,e){e.exports=t("7eSDFh")},{}],"7eSDFh":[function(t,e){function n(t,e,n){if(r.call(t,e))return t[e];var o=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,e,{value:o,writable:!0,enumerable:!1}),o}catch(i){}return t[e]=o,o}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],D5DuLP:[function(t,e){function n(t,e,n){return r.listeners(t).length?r.emit(t,e,n):void(r.q&&(r.q[t]||(r.q[t]=[]),r.q[t].push(e)))}var r=t("ee").create();e.exports=n,n.ee=r,r.q={}},{ee:"QJf3ax"}],handle:[function(t,e){e.exports=t("D5DuLP")},{}],XL7HBI:[function(t,e){function n(t){var e=typeof t;return!t||"object"!==e&&"function"!==e?-1:t===window?0:i(t,o,function(){return r++})}var r=1,o="nr@id",i=t("gos");e.exports=n},{gos:"7eSDFh"}],id:[function(t,e){e.exports=t("XL7HBI")},{}],G9z0Bl:[function(t,e){function n(){var t=p.info=NREUM.info,e=f.getElementsByTagName("script")[0];if(t&&t.licenseKey&&t.applicationID&&e){s(d,function(e,n){e in t||(t[e]=n)});var n="https"===u.split(":")[0]||t.sslForHttp;p.proto=n?"https://":"http://",a("mark",["onload",i()]);var r=f.createElement("script");r.src=p.proto+t.agent,e.parentNode.insertBefore(r,e)}}function r(){"complete"===f.readyState&&o()}function o(){a("mark",["domContent",i()])}function i(){return(new Date).getTime()}var a=t("handle"),s=t(1),c=window,f=c.document;t(2);var u=(""+location).split("?")[0],d={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-686.min.js"},p=e.exports={offset:i(),origin:u,features:{}};f.addEventListener?(f.addEventListener("DOMContentLoaded",o,!1),c.addEventListener("load",n,!1)):(f.attachEvent("onreadystatechange",r),c.attachEvent("onload",n)),a("mark",["firstbyte",i()])},{1:23,2:14,handle:"D5DuLP"}],loader:[function(t,e){e.exports=t("G9z0Bl")},{}],23:[function(t,e){function n(t,e){var n=[],o="",i=0;for(o in t)r.call(t,o)&&(n[i]=e(o,t[o]),i+=1);return n}var r=Object.prototype.hasOwnProperty;e.exports=n},{}],24:[function(t,e){function n(t,e,n){e||(e=0),"undefined"==typeof n&&(n=t?t.length:0);for(var r=-1,o=n-e||0,i=Array(0>o?0:o);++r<o;)i[r]=t[e+r];return i}e.exports=n},{}],25:[function(t,e){function n(t){return!(t&&"function"==typeof t&&t.apply&&!t[i])}var r=t("ee"),o=t(1),i="nr@wrapper",a=Object.prototype.hasOwnProperty;e.exports=function(t){function e(t,e,r,a){function nrWrapper(){var n,i,s,f;try{i=this,n=o(arguments),s=r&&r(n,i)||{}}catch(d){u([d,"",[n,i,a],s])}c(e+"start",[n,i,a],s);try{return f=t.apply(i,n)}catch(p){throw c(e+"err",[n,i,p],s),p}finally{c(e+"end",[n,i,f],s)}}return n(t)?t:(e||(e=""),nrWrapper[i]=!0,f(t,nrWrapper),nrWrapper)}function s(t,r,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<r.length;c++)s=r[c],a=t[s],n(a)||(t[s]=e(a,f?s+o:o,i,s))}function c(e,n,r){try{t.emit(e,n,r)}catch(o){u([o,e,n,r])}}function f(t,e){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(t);return n.forEach(function(n){Object.defineProperty(e,n,{get:function(){return t[n]},set:function(e){return t[n]=e,e}})}),e}catch(r){u([r])}for(var o in t)a.call(t,o)&&(e[o]=t[o]);return e}function u(e){try{t.emit("internal-error",e)}catch(n){}}return t||(t=r),e.inPlace=s,e.flag=i,e}},{1:24,ee:"QJf3ax"}]},{},["G9z0Bl",4,12,6,5]);</script><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","queueTime":1,"licenseKey":"42869b6ed3","agent":"js-agent.newrelic.com/nr-686.min.js","transactionName":"b1QHMUtVDRdSW0YKXVYeIxBXVxcNXFYdCEdVUEsSUF8KSkVRVxRBAlUKBkxZBgpH","applicationID":"3172075","errorBeacon":"bam.nr-data.net","applicationTime":257}</script>
+  <script>(function(d) { d.className = d.className.replace(/\bno-js/, ''); })(document.documentElement);</script>
+        
+    <title>HTML5 - Web developer guide | MDN</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index, follow">
+  <link rel="home" href="https://developer.mozilla.org/en-US/">
+  <link rel="copyright" href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5#copyright">
+
+              <link rel="stylesheet" media="all" href="https://developer.cdn.mozilla.net/media/css/mdn-min.css?build=0e7ce0f">
+
+      
+    <link rel="stylesheet" media="all" href="https://developer.cdn.mozilla.net/media/css/wiki-min.css?build=0e7ce0f">
+
+    
+    
+  <!-- common social tags -->
+    <meta property="og:type" content="website">
+  <meta property="og:image" content="https://developer.mozilla.org/media/img/opengraph-logo.png">
+  <meta property="og:site_name" content="Mozilla Developer Network">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://developer.mozilla.org/media/img/opengraph-logo.png">
+  <meta name="twitter:site" content="@MozDevNet">
+  <meta name="twitter:creator" content="@MozDevNet">
+
+  <link rel="search" type="application/opensearchdescription+xml" href="https://developer.mozilla.org/en-US/search/xml" title="Mozilla Developer Network">
+
+  <!-- third-generation iPad with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://developer.cdn.mozilla.net/media/img/favicon144.png">
+  <!-- iPhone with high-resolution Retina display: -->
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://developer.cdn.mozilla.net/media/img/favicon114.png">
+  <!-- first- and second-generation iPad: -->
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://developer.cdn.mozilla.net/media/img/favicon72.png">
+  <!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+  <link rel="apple-touch-icon-precomposed" href="https://developer.cdn.mozilla.net/media/img/favicon57.png">
+  <!-- basic favicon -->
+          <link rel="shortcut icon" href="https://developer.cdn.mozilla.net/media/img/favicon32.png">
+  <!--[if IE]>
+  <meta http-equiv="imagetoolbar" content="no">
+  <script src="https://developer.cdn.mozilla.net/media/js/libs/html5.js"></script>
+  <![endif]-->
+
+    <link rel="alternate" type="application/json" href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5$json">
+  <link rel="canonical" href="./HTML5 - Web developer guide _ MDN_files/HTML5 - Web developer guide _ MDN.html">
+
+            <link rel="alternate" hreflang="ar" href="https://developer.mozilla.org/ar/docs/Web/Guide/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="az" href="https://developer.mozilla.org/az/docs/Web/Guide/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="bn-BD" href="https://developer.mozilla.org/bn-BD/docs/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="cs" href="https://developer.mozilla.org/cs/docs/cs_HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="de" href="https://developer.mozilla.org/de/docs/Web/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="es" href="https://developer.mozilla.org/es/docs/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="fa" href="https://developer.mozilla.org/fa/docs/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="fr" href="https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="he" href="https://developer.mozilla.org/he/docs/Web/Guide/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="id" href="https://developer.mozilla.org/id/docs/Web/Guide/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="it" href="https://developer.mozilla.org/it/docs/Web/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="ja" href="https://developer.mozilla.org/ja/docs/Web/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="ko" href="https://developer.mozilla.org/ko/docs/Web/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="pl" href="https://developer.mozilla.org/pl/docs/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="pt-BR" href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="pt-PT" href="https://developer.mozilla.org/pt-PT/docs/Web/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="ro" href="https://developer.mozilla.org/ro/docs/Web/Guide/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="ru" href="https://developer.mozilla.org/ru/docs/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="tr" href="https://developer.mozilla.org/tr/docs/Web/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="zh-CN" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5" title="HTML5">
+          <link rel="alternate" hreflang="zh-TW" href="https://developer.mozilla.org/zh-TW/docs/Web/HTML/HTML5" title="HTML5">
+      
+  <!-- document-specific social tags -->
+  <meta property="og:title" content="HTML5">
+  <meta property="og:url" content="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+  <meta name="twitter:url" content="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5">
+  <meta name="twitter:title" content="HTML5">
+    <meta property="og:description" content="HTML5 is the latest evolution of the standard that defines HTML. It is a new version of the language HTML, with new elements, attributes, and behaviors, and a larger set of technologies that allows more diverse and powerful Web sites and applications.">
+  <meta name="description" content="HTML5 is the latest evolution of the standard that defines HTML. It is a new version of the language HTML, with new elements, attributes, and behaviors, and a larger set of technologies that allows more diverse and powerful Web sites and applications.">
+  <meta name="twitter:description" content="HTML5 is the latest evolution of the standard that defines HTML. It is a new version of the language HTML, with new elements, attributes, and behaviors, and a larger set of technologies that allows more diverse and powerful Web sites and applications.">
+  
+      <script type="text/javascript">
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-36116321-5', 'mozilla.org');
+    ga('set', 'anonymizeIp', true);
+
+    
+            // dimension4 == "top contributors"
+        ga('set', 'dimension4', 'Yes');
+    
+    
+    (function() {
+        // http://cfsimplicity.com/61/removing-analytics-clutter-from-campaign-urls
+        var win = window;
+        var removeUtms = function(){
+            var location = win.location;
+            if (location.href.indexOf('utm') != -1 && win.history.replaceState) {
+                win.history.replaceState({}, '', location.pathname);
+            }
+        };
+
+        ga('send', 'pageview', {'hitCallback': removeUtms});
+    })();
+</script>
+  </head>
+<body data-slug="Web/Guide/HTML/HTML5" contextmenu="edit-history-menu" class="document  ">
+
+  <script type="text/javascript">
+    
+
+(function (globals) {
+
+  var django = globals.django || (globals.django = {});
+
+  
+  django.pluralidx = function (count) { return (count == 1) ? 0 : 1; };
+  
+
+  
+  /* gettext identity library */
+
+  django.gettext = function (msgid) { return msgid; };
+  django.ngettext = function (singular, plural, count) { return (count == 1) ? singular : plural; };
+  django.gettext_noop = function (msgid) { return msgid; };
+  django.pgettext = function (context, msgid) { return msgid; };
+  django.npgettext = function (context, singular, plural, count) { return (count == 1) ? singular : plural; };
+  
+
+  django.interpolate = function (fmt, obj, named) {
+    if (named) {
+      return fmt.replace(/%\(\w+\)s/g, function(match){return String(obj[match.slice(2,-2)])});
+    } else {
+      return fmt.replace(/%s/g, function(match){return String(obj.shift())});
+    }
+  };
+
+
+  /* formatting library */
+
+  django.formats = {
+    "DATETIME_FORMAT": "N j, Y, P", 
+    "DATETIME_INPUT_FORMATS": [
+      "%Y-%m-%d %H:%M:%S", 
+      "%Y-%m-%d %H:%M:%S.%f", 
+      "%Y-%m-%d %H:%M", 
+      "%Y-%m-%d", 
+      "%m/%d/%Y %H:%M:%S", 
+      "%m/%d/%Y %H:%M:%S.%f", 
+      "%m/%d/%Y %H:%M", 
+      "%m/%d/%Y", 
+      "%m/%d/%y %H:%M:%S", 
+      "%m/%d/%y %H:%M:%S.%f", 
+      "%m/%d/%y %H:%M", 
+      "%m/%d/%y"
+    ], 
+    "DATE_FORMAT": "N j, Y", 
+    "DATE_INPUT_FORMATS": [
+      "%Y-%m-%d", 
+      "%m/%d/%Y", 
+      "%m/%d/%y"
+    ], 
+    "DECIMAL_SEPARATOR": ".", 
+    "FIRST_DAY_OF_WEEK": "0", 
+    "MONTH_DAY_FORMAT": "F j", 
+    "NUMBER_GROUPING": "3", 
+    "SHORT_DATETIME_FORMAT": "m/d/Y P", 
+    "SHORT_DATE_FORMAT": "m/d/Y", 
+    "THOUSAND_SEPARATOR": ",", 
+    "TIME_FORMAT": "P", 
+    "TIME_INPUT_FORMATS": [
+      "%H:%M:%S", 
+      "%H:%M:%S.%f", 
+      "%H:%M"
+    ], 
+    "YEAR_MONTH_FORMAT": "F Y"
+  };
+
+  django.get_format = function (format_type) {
+    var value = django.formats[format_type];
+    if (typeof(value) == 'undefined') {
+      return format_type;
+    } else {
+      return value;
+    }
+  };
+
+  /* add to global namespace */
+  globals.pluralidx = django.pluralidx;
+  globals.gettext = django.gettext;
+  globals.ngettext = django.ngettext;
+  globals.gettext_noop = django.gettext_noop;
+  globals.pgettext = django.pgettext;
+  globals.npgettext = django.npgettext;
+  globals.interpolate = django.interpolate;
+  globals.get_format = django.get_format;
+
+}(this));
+
+
+
+    (function(win) {
+        'use strict';
+
+                    (function(){
+  var FLAGS = {
+    'dirtiness_tracking': true,'fellowship_applications_open': false,'header_feedback': false,'header_tools': false,'helpfulness': false,'kumaediting': false,'mdn10_logo': true,'mdn10_tile': true,'page_move': false,'promote_script': false,'redirect_messages': false,'registration_disabled': false,'search_explanation': false,'search_suggestions': false,'share_links': false,'top_contributors': true,'wiki_samples': false,'wiki_spellcheck': false
+    },
+    SWITCHES = {
+    'wiki_error_on_delete': false,'wiki_force_immediate_rendering': false,'enable_optimizely': false,'welcome_email': true,'application_ACAO': false,'store_revision_ips': true,'dumb_doc_urls': true
+    },
+    SAMPLES = {
+    
+    };
+  window.waffle = {
+    "flag_is_active": function waffle_flag(flag_name) {
+      
+      return !!FLAGS[flag_name];
+    },
+    "switch_is_active": function waffle_switch(switch_name) {
+      
+      return !!SWITCHES[switch_name];
+    },
+    "sample_is_active": function waffle_sample(sample_name) {
+      
+      return !!SAMPLES[sample_name];
+    },
+    "FLAGS": FLAGS,
+    "SWITCHES": SWITCHES,
+    "SAMPLES": SAMPLES
+  };
+})();
+
+        
+        // This represents the site configuration
+        win.mdn = {
+            build: '0e7ce0f',
+            // Properties and settings for CKEditor will go here
+            ckeditor: {},
+            // Feature test results and methods will be placed here
+            features: {},
+            // The path to media (images, CSS, JS) in MDN
+            mediaPath: 'https://developer.cdn.mozilla.net/media/',
+            // Optimizely API
+            optimizely: win['optimizely'] || [],
+            // Site notifications
+                        notifications: [],
+                        // Wiki-specific settings will be placed here
+            wiki: {
+                autosuggestTitleUrl: '/en-US/docs/get-documents'
+            }
+        };
+    })(this);
+</script>
+  
+
+  <ul id="nav-access">
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5#document-main" id="skip-main">Skip to main content</a></li>
+    <li><a id="skip-language" href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5#language">Select language</a></li>
+          <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5#q" id="skip-search">Skip to search</a></li>
+      </ul>
+
+  <!-- Header -->
+  <header id="main-header"><div class="center">
+
+    <div id="tabzilla">
+        <a href="https://www.mozilla.org/" class="no-track">mozilla</a>
+    </div>
+
+    <div class="clear header-clear"></div>
+
+            <a href="https://developer.mozilla.org/en-US/" class="logo logo-mdn10">Mozilla Developer Network</a>
+    
+    <div id="nav-sec">
+        
+                          
+    
+    <form pmbx_context="42167ADB-62D3-4102-9B7D-F9EA5A67EE86">
+      <div class="oauth-login-container">
+          <div class="oauth-login-options" tabindex="0">
+              <span class="oauth-login-options-text">
+                <span class="oauth-login-options-text-icons">Sign in with</span>
+                <span class="oauth-login-options-text-no-icons">Sign in</span>
+              </span>
+              <span class="oauth-icon oauth-persona launch-persona-login wait-for-persona" data-service="Persona" data-next="/en-US/docs/Web/Guide/HTML/HTML5" title="Persona"><i class="icon-user" aria-hidden="true"></i></span>
+              <span class="oauth-icon oauth-github" data-service="GitHub" data-href="/users/github/login/?next=%2Fen-US%2Fdocs%2FWeb%2FGuide%2FHTML%2FHTML5" title="GitHub"><i class="icon-github" aria-hidden="true"></i></span>
+          </div>
+          <div class="oauth-login-picker" aria-hidden="true">
+              <ul>
+                  <li class="wait-for-persona"><a href="https://developer.mozilla.org/en-US/users/signin" class="login-link launch-persona-login" data-next="/en-US/docs/Web/Guide/HTML/HTML5" data-service="Persona"><i class="icon-user" aria-hidden="true"></i>Persona</a></li>
+                  <li><a href="https://developer.mozilla.org/users/github/login/?next=%2Fen-US%2Fdocs%2FWeb%2FGuide%2FHTML%2FHTML5" class="login-link" data-service="GitHub"><i class="icon-github" aria-hidden="true"></i>GitHub</a></li>
+              </ul>
+          </div>
+      </div>
+    </form>
+                        </div>
+
+    <nav id="main-nav" role="navigation"><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web">Web Platform<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+        <div class="submenu submenu-cols-2 js-submenu" id="nav-platform-submenu">
+          <div class="submenu-column">
+            <div class="title">Technologies</div>
+            <ul>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">HTML</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/Graphics">Graphics</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/API">APIs / DOM</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/Apps">Apps</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/MathML">MathML</a></li>
+            </ul>
+          </div><div class="submenu-column last">
+            <div class="title">References &amp; Guides</div>
+            <ul>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Learn">Learn the Web</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/Tutorials">Tutorials</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/Reference">References</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide">Developer Guides</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">Accessibility</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/demos/">Demos</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web">...more docs</a></li>
+            </ul>
+          </div>
+        </div>
+      </li><li><a href="https://developer.mozilla.org/en-US/docs/Zones">Mozilla Docs<i aria-hidden="true" class="icon-caret-down"></i></a>
+
+        <div class="submenu js-submenu" id="nav-zones-submenu" aria-hidden="true" style="z-index: 99998;">
+          <div class="submenu-column">
+            <ul>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons">Add-ons</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Firefox">Firefox</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Marketplace">Firefox Marketplace</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Firefox_OS">Firefox OS</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/Persona">Persona</a></li>
+            </ul>
+          </div>
+        <button type="button" class="submenu-close transparent"><span class="offscreen">Close submenu</span><i aria-hidden="true" class="icon-remove-sign"></i></button></div>
+      </li><li><a href="https://developer.mozilla.org/en-US/docs/Tools">Developer Tools</a></li><li><a href="https://developer.mozilla.org/en-US/demos/">Demos</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Connect">Connect</a></li><li class="nav-search-link"><a href="https://developer.mozilla.org/en-US/search" title="Search"><i aria-hidden="true" class="icon-search"></i></a></li><li class="main-nav-search"><form action="https://developer.mozilla.org/en-US/search" method="get" role="search" pmbx_context="0F524D1A-FDBC-4538-B498-6D7DB1BA4222">
+        <div class="search-wrap">
+          <label for="main-q" class="offscreen">Search</label>
+          <input type="search" id="main-q" name="q" placeholder="Search" data-value="" value="" pmbx_context="F13665B0-3460-45A4-8453-068F83447D98">
+          <span class="search-trigger"><i aria-hidden="true" class="icon-search"></i></span>&nbsp;
+          <button type="submit" class="offscreen">Search</button>
+        </div>
+      </form></li></ul></nav>
+  </div></header>
+
+  <!-- Content will go here -->
+  <main id="content"><div class="center clear">
+  
+   <!-- end is_zone -->
+
+
+    <div class="wiki-main-content" id="document-main" role="main"><div class="center">
+            <div class="article-meta">
+        <!-- action buttons -->
+        
+        
+        
+
+  <ul class="page-buttons" data-sticky="false"><li><button id="languages-menu" class="transparent" aria-haspopup="true" aria-owns="languages-menu-submenu" aria-expanded="false"><span>Languages</span><i aria-hidden="true" class="icon-globe"></i></button>
+
+        <div class="submenu js-submenu" id="languages-menu-submenu">
+          <div class="submenu-column">
+            <ul id="translations">
+                                                <li><bdi><a rel="internal" href="https://developer.mozilla.org/ar/docs/Web/Guide/HTML/HTML5" title="HTML5">عربي</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/az/docs/Web/Guide/HTML/HTML5" title="HTML5">Azərbaycanca</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/bn-BD/docs/HTML/HTML5" title="HTML5">বাংলা (বাংলাদেশ)</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/cs/docs/cs_HTML/HTML5" title="HTML5">Čeština</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/de/docs/Web/HTML/HTML5" title="HTML5">Deutsch</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/es/docs/HTML/HTML5" title="HTML5">Español</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/fa/docs/HTML/HTML5" title="HTML5">فارسی</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/fr/docs/Web/Guide/HTML/HTML5" title="HTML5">Français</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/he/docs/Web/Guide/HTML/HTML5" title="HTML5">עברית</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/id/docs/Web/Guide/HTML/HTML5" title="HTML5">Bahasa Indonesia</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/it/docs/Web/HTML/HTML5" title="HTML5">Italiano</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/ja/docs/Web/HTML/HTML5" title="HTML5">日本語</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/ko/docs/Web/HTML/HTML5" title="HTML5">한국어</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/pl/docs/HTML/HTML5" title="HTML5">Polski</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/HTML5" title="HTML5">Português (do&nbsp;Brasil)</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/pt-PT/docs/Web/HTML/HTML5" title="HTML5">Português (Europeu)</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/ro/docs/Web/Guide/HTML/HTML5" title="HTML5">română</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/ru/docs/HTML/HTML5" title="HTML5">Русский</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/tr/docs/Web/HTML/HTML5" title="HTML5">Türkçe</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5" title="HTML5">中文 (简体)</a></bdi></li>
+                                  <li><bdi><a rel="internal" href="https://developer.mozilla.org/zh-TW/docs/Web/HTML/HTML5" title="HTML5">正體中文 (繁體)</a></bdi></li>
+                              
+                              <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5$locales" rel="nofollow, noindex" id="translations-add">Add a translation</a></li>
+                          </ul>
+          </div>
+        </div></li><li class="page-buttons-edit"><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5$edit" class="button" data-optimizely-hook="button-edit-doc" id="edit-button">Edit<i aria-hidden="true" class="icon-pencil"></i></a></li><li><button id="advanced-menu" class="only-icon" aria-haspopup="true" aria-owns="advanced-menu-submenu" aria-expanded="false"><span>Advanced</span><i aria-hidden="true" class="icon-cog"></i></button>
+
+        <div class="submenu js-submenu" id="advanced-menu-submenu">
+          <!-- this page -->
+          <div class="submenu-column">
+            <div class="title">Advanced</div>
+            <ul>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5$history" rel="nofollow, noindex">History</a></li>
+                                                                
+                
+                                                                <li class="page-print"><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5#" onclick="return window.print();">Print this page</a></li>
+            </ul>
+          </div>
+        </div>
+  </li></ul>
+
+        <!-- crumbs -->
+          <nav class="crumbs" role="navigation"><ol xmlns:v="http://rdf.data-vocabulary.org/#" aria-label="breadcrumbs">
+    <li typeof="v:Breadcrumb"><a href="https://developer.mozilla.org/en-US" rel="v:url" property="v:title">MDN</a></li>
+          <li class="crumb" typeof="v:Breadcrumb"><a href="https://developer.mozilla.org/en-US/docs/Web" rel="v:url" property="v:title">Web technology for developers</a></li>
+          <li class="crumb" typeof="v:Breadcrumb"><a href="https://developer.mozilla.org/en-US/docs/Web/Guide" rel="v:url" property="v:title">Web developer guide</a></li>
+          <li class="crumb" typeof="v:Breadcrumb"><a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML" rel="v:url" property="v:title">HTML developer guide</a></li>
+        <li class="crumb" typeof="v:Breadcrumb" property="v:title">HTML5</li>
+  </ol></nav>
+      </div>
+
+      <!-- heading -->
+      <div id="wiki-document-head" class="document-head">
+          <span class="from-search-previous-box">
+            <a class="button from-search-previous only-icon disabled" title="Previous Search Result" data-empty-title="No Previous Search Result"><i aria-hidden="true" class="icon-chevron-left"></i></a>
+          </span>
+          <span class="from-search-navigate-wrap">
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5#" class="from-search-navigate"><span class="from-search-navigate-up"><i aria-hidden="true" class="icon-double-angle-up"></i></span><span class="from-search-navigate-down"><i aria-hidden="true" class="icon-double-angle-down"></i></span></a>
+          </span>
+          <div class="from-search-toc submenu">
+            <span class="title">Your Search Results</span>
+            <ol></ol>
+          </div>
+          <span class="from-search-next-box">
+            <a class="button from-search-next only-icon disabled" title="Next Search Result" data-empty-title="No Previous Search Result"><i aria-hidden="true" class="icon-chevron-right"></i></a>
+          </span>
+
+        <h1>HTML5</h1>
+
+        
+                <div class="contributor-avatars" data-all-text="Show all…&lt;span class=&#39;hidden&#39;&gt;contributors&lt;/span&gt;" data-has-hidden="1">
+            <span class="quickstat">
+            by 85 contributors:            </span>
+            <ul>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/Sheppy" title="View profile: Sheppy">
+                <img src="./HTML5 - Web developer guide _ MDN_files/945076feb88f2d7003891ffbf06f32bf" class="avatar loaded" alt="Sheppy"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/shottiebl8714" title="View profile: shottiebl8714">
+                <img src="./HTML5 - Web developer guide _ MDN_files/707cffb847955d40fe5491929d74574a" class="avatar loaded" alt="shottiebl8714"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/jsx" title="View profile: jsx">
+                <img src="./HTML5 - Web developer guide _ MDN_files/8cc61d4e2dc63e75976a334348d473bc" class="avatar loaded" alt="jsx"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/danielinux7" title="View profile: danielinux7">
+                <img src="./HTML5 - Web developer guide _ MDN_files/a4700abc9ace312fe70f5d9b93d0a4ef" class="avatar loaded" alt="danielinux7"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/sxxxsz" title="View profile: sxxxsz">
+                <img src="./HTML5 - Web developer guide _ MDN_files/5d45f330b1948c9862588d5870b10dae" class="avatar loaded" alt="sxxxsz"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/saidkocdemir" title="View profile: saidkocdemir">
+                <img src="./HTML5 - Web developer guide _ MDN_files/f84fa46afd0821f3bc90d0f6be7ef8fe" class="avatar loaded" alt="saidkocdemir"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/teoli" title="View profile: teoli">
+                <img src="./HTML5 - Web developer guide _ MDN_files/d0d90148e08e3b64ccf75c46f31442c5" class="avatar loaded" alt="teoli"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/sparky11478" title="View profile: sparky11478">
+                <img src="./HTML5 - Web developer guide _ MDN_files/3e8e2f2032426b369e77610fdb5594d7" class="avatar loaded" alt="sparky11478"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/nasko83" title="View profile: nasko83">
+                <img src="./HTML5 - Web developer guide _ MDN_files/330427971838058d2ac7b1ef934b59bd" class="avatar loaded" alt="nasko83"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/jswisher" title="View profile: jswisher">
+                <img src="./HTML5 - Web developer guide _ MDN_files/38185c2812cbcae186ebbe4a82910661" class="avatar loaded" alt="jswisher"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/janokar" title="View profile: janokar">
+                <img src="./HTML5 - Web developer guide _ MDN_files/f0ec81f8f56c9109a0a64030193a9f5d" class="avatar loaded" alt="janokar"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/ecal" title="View profile: ecal">
+                <img src="./HTML5 - Web developer guide _ MDN_files/6b86fedb4aea2979815645c65ed02472" class="avatar loaded" alt="ecal"></a>
+                </li>
+                            <li class="shown">
+                <a href="https://developer.mozilla.org/en-US/profiles/Windforce" title="View profile: Windforce">
+                <img src="./HTML5 - Web developer guide _ MDN_files/30b12be54ba856f8fab232457cf855d8" class="avatar loaded" alt="Windforce"></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/amalraj" title="View profile: amalraj">
+                <noscript data-class="avatar" data-alt="amalraj" data-src="https://secure.gravatar.com/avatar/547adee4242cd618f432efc14c3a6a09?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">amalraj</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/abhishek93" title="View profile: abhishek93">
+                <noscript data-class="avatar" data-alt="abhishek93" data-src="https://secure.gravatar.com/avatar/c498a252997cad1e0172d07ff375c40f?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">abhishek93</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/masa86" title="View profile: masa86">
+                <noscript data-class="avatar" data-alt="masa86" data-src="https://secure.gravatar.com/avatar/dcb68671da8fcaa2e3c71fe6ce2380cb?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">masa86</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/mdmanuwerhussain" title="View profile: mdmanuwerhussain">
+                <noscript data-class="avatar" data-alt="mdmanuwerhussain" data-src="https://secure.gravatar.com/avatar/bef8deb97de247c0b6ef2d6f0e03870d?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">mdmanuwerhussain</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/EmilyG" title="View profile: EmilyG">
+                <noscript data-class="avatar" data-alt="EmilyG" data-src="https://secure.gravatar.com/avatar/c56a9fec1921582d8a4ca7343346329e?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">EmilyG</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/jtthackery" title="View profile: jtthackery">
+                <noscript data-class="avatar" data-alt="jtthackery" data-src="https://secure.gravatar.com/avatar/01bf26654d2571d80faa6ea5f684a0bd?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">jtthackery</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/John.Smith" title="View profile: John.Smith">
+                <noscript data-class="avatar" data-alt="John.Smith" data-src="https://secure.gravatar.com/avatar/e679eee8b763c06f30d513e933135df3?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">John.Smith</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/TanyaSharma" title="View profile: TanyaSharma">
+                <noscript data-class="avatar" data-alt="TanyaSharma" data-src="https://secure.gravatar.com/avatar/1c2fc25c2d3f6bc8c3763ab84afaafd6?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">TanyaSharma</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/sivsivsree" title="View profile: sivsivsree">
+                <noscript data-class="avatar" data-alt="sivsivsree" data-src="https://secure.gravatar.com/avatar/40298bf6e0bf967fd35c5cbf86647de5?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">sivsivsree</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Dbs" title="View profile: Dbs">
+                <noscript data-class="avatar" data-alt="Dbs" data-src="https://secure.gravatar.com/avatar/bb90709be0297214309fe0e8b19d653b?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Dbs</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/melchiorb" title="View profile: melchiorb">
+                <noscript data-class="avatar" data-alt="melchiorb" data-src="https://secure.gravatar.com/avatar/736f9f8e49e5c801f49425009aa0ede1?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">melchiorb</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Cforcloud" title="View profile: Cforcloud">
+                <noscript data-class="avatar" data-alt="Cforcloud" data-src="https://secure.gravatar.com/avatar/6a6ec6bb752fed07775c0779877fb357?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Cforcloud</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/indrani7" title="View profile: indrani7">
+                <noscript data-class="avatar" data-alt="indrani7" data-src="https://secure.gravatar.com/avatar/f2cf7709e5c463f9e18f5c420b20dc70?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">indrani7</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/ZawNaingOo" title="View profile: ZawNaingOo">
+                <noscript data-class="avatar" data-alt="ZawNaingOo" data-src="https://secure.gravatar.com/avatar/3b949eeb56b811d01d962f4f3cc074d9?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">ZawNaingOo</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/kscarfone" title="View profile: kscarfone">
+                <noscript data-class="avatar" data-alt="kscarfone" data-src="https://secure.gravatar.com/avatar/89c1e54a9703125168e40d22316d2b49?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">kscarfone</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/dac" title="View profile: dac">
+                <noscript data-class="avatar" data-alt="dac" data-src="https://secure.gravatar.com/avatar/e5abf41f7c7543ee4cb1c3bbc4caa5ee?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">dac</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Timmi" title="View profile: Timmi">
+                <noscript data-class="avatar" data-alt="Timmi" data-src="https://secure.gravatar.com/avatar/1e4b3c365cc4c56d641806f8f37451d4?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Timmi</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/imonlhec22" title="View profile: imonlhec22">
+                <noscript data-class="avatar" data-alt="imonlhec22" data-src="https://secure.gravatar.com/avatar/4af6956cb3fa3bbbbfb60ab3467b0955?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">imonlhec22</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/SteveFaulkner" title="View profile: SteveFaulkner">
+                <noscript data-class="avatar" data-alt="SteveFaulkner" data-src="https://secure.gravatar.com/avatar/81d4896889881ab794df2415b6de3a37?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">SteveFaulkner</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/ginapugalee" title="View profile: ginapugalee">
+                <noscript data-class="avatar" data-alt="ginapugalee" data-src="https://secure.gravatar.com/avatar/e6c8d0352b25c24fc6be47453062fddc?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">ginapugalee</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/ethertank" title="View profile: ethertank">
+                <noscript data-class="avatar" data-alt="ethertank" data-src="https://secure.gravatar.com/avatar/abac73ba2093b500bf7599c76d80280c?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">ethertank</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/gati_mahesh" title="View profile: gati_mahesh">
+                <noscript data-class="avatar" data-alt="gati_mahesh" data-src="https://secure.gravatar.com/avatar/f2ae74e6edd55253755d961d503063d6?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">gati_mahesh</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/sharwoodjr" title="View profile: sharwoodjr">
+                <noscript data-class="avatar" data-alt="sharwoodjr" data-src="https://secure.gravatar.com/avatar/8983a0899a739ea1597c2515385c21e6?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">sharwoodjr</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/anisur3036" title="View profile: anisur3036">
+                <noscript data-class="avatar" data-alt="anisur3036" data-src="https://secure.gravatar.com/avatar/4b4d6f3f0edf385a43e983ba581e40d1?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">anisur3036</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Sannymei1960" title="View profile: Sannymei1960">
+                <noscript data-class="avatar" data-alt="Sannymei1960" data-src="https://secure.gravatar.com/avatar/a93e6e69a17189616a1b426d6ec699d1?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Sannymei1960</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/ACSHN" title="View profile: ACSHN">
+                <noscript data-class="avatar" data-alt="ACSHN" data-src="https://secure.gravatar.com/avatar/c93d7e734105f4f0db63e9ae80fafca6?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">ACSHN</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/openjck" title="View profile: openjck">
+                <noscript data-class="avatar" data-alt="openjck" data-src="https://secure.gravatar.com/avatar/990aba50a39806f6cb0f97e00ad5685c?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">openjck</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/haboqueferus" title="View profile: haboqueferus">
+                <noscript data-class="avatar" data-alt="haboqueferus" data-src="https://secure.gravatar.com/avatar/87d659da4bb92cd4d843829b58b3e6b6?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">haboqueferus</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/iwo" title="View profile: iwo">
+                <noscript data-class="avatar" data-alt="iwo" data-src="https://secure.gravatar.com/avatar/c74fa2f24733003c67dc623fab9ab5f7?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">iwo</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/soulxshajjad" title="View profile: soulxshajjad">
+                <noscript data-class="avatar" data-alt="soulxshajjad" data-src="https://secure.gravatar.com/avatar/4d6bd748ab1a2db4a6e7c9a73277d86b?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">soulxshajjad</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/pablocubico" title="View profile: pablocubico">
+                <noscript data-class="avatar" data-alt="pablocubico" data-src="https://secure.gravatar.com/avatar/ff3702880a83912831470753acf092d0?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">pablocubico</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/94423450" title="View profile: 94423450">
+                <noscript data-class="avatar" data-alt="94423450" data-src="https://secure.gravatar.com/avatar/e14f9cd9363a56dfc4b231e9f069ac0b?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">94423450</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/princetoad%40gmail.com" title="View profile: princetoad@gmail.com">
+                <noscript data-class="avatar" data-alt="princetoad@gmail.com" data-src="https://secure.gravatar.com/avatar/99b8ff24ef13eabedf5be491ded30227?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">princetoad@gmail.com</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Deadsparrow" title="View profile: Deadsparrow">
+                <noscript data-class="avatar" data-alt="Deadsparrow" data-src="https://secure.gravatar.com/avatar/6d4c1f88fb9ed02ab609cb4bdb8b8cfc?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Deadsparrow</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/KyleBarnhart" title="View profile: KyleBarnhart">
+                <noscript data-class="avatar" data-alt="KyleBarnhart" data-src="https://secure.gravatar.com/avatar/3a77a0ac287c7fa1b8b51e1e501663fc?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">KyleBarnhart</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/harangozo" title="View profile: harangozo">
+                <noscript data-class="avatar" data-alt="harangozo" data-src="https://secure.gravatar.com/avatar/fccfda4315b2cf2a3c0d062d5ed4cdde?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">harangozo</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/msrishikesh" title="View profile: msrishikesh">
+                <noscript data-class="avatar" data-alt="msrishikesh" data-src="https://secure.gravatar.com/avatar/f2c8ad97c1c4c5a1924f68d2b1f14449?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">msrishikesh</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/juliepagano" title="View profile: juliepagano">
+                <noscript data-class="avatar" data-alt="juliepagano" data-src="https://secure.gravatar.com/avatar/b5fb0c3d8076017b0fafad67ba26b518?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">juliepagano</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Mohammed_Hossam" title="View profile: Mohammed_Hossam">
+                <noscript data-class="avatar" data-alt="Mohammed_Hossam" data-src="https://secure.gravatar.com/avatar/80bad1761db3aaa81deaa9fc9951f6a1?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Mohammed_Hossam</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/iSpellbinder" title="View profile: iSpellbinder">
+                <noscript data-class="avatar" data-alt="iSpellbinder" data-src="https://secure.gravatar.com/avatar/f1ab10ae132695cd610b384dd6d8eb44?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">iSpellbinder</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/bdnd" title="View profile: bdnd">
+                <noscript data-class="avatar" data-alt="bdnd" data-src="https://secure.gravatar.com/avatar/cce893165efde43e9b468e464bc7f402?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">bdnd</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/trevorh" title="View profile: trevorh">
+                <noscript data-class="avatar" data-alt="trevorh" data-src="https://secure.gravatar.com/avatar/1638bc67341673005fa05e5def8f3c4d?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">trevorh</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/louisremi" title="View profile: louisremi">
+                <noscript data-class="avatar" data-alt="louisremi" data-src="https://secure.gravatar.com/avatar/1d924ae6b834d2c43d313a94137ac6fe?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">louisremi</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/vigia122" title="View profile: vigia122">
+                <noscript data-class="avatar" data-alt="vigia122" data-src="https://secure.gravatar.com/avatar/9d1fcec8edd6fc33e4845d49a3435cfe?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">vigia122</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/berkerpeksag" title="View profile: berkerpeksag">
+                <noscript data-class="avatar" data-alt="berkerpeksag" data-src="https://secure.gravatar.com/avatar/df8e51d7618d5ed7ccbbc8dea9a9afee?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">berkerpeksag</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/auco" title="View profile: auco">
+                <noscript data-class="avatar" data-alt="auco" data-src="https://secure.gravatar.com/avatar/b1e2336a797d87bb028829f592dfb1e6?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">auco</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/tw2113" title="View profile: tw2113">
+                <noscript data-class="avatar" data-alt="tw2113" data-src="https://secure.gravatar.com/avatar/a5d7c934621fa1c025b83ee79bc62366?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">tw2113</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/vladikoff" title="View profile: vladikoff">
+                <noscript data-class="avatar" data-alt="vladikoff" data-src="https://secure.gravatar.com/avatar/13b097b3a9dfacddbda2dff787593452?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">vladikoff</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/markg" title="View profile: markg">
+                <noscript data-class="avatar" data-alt="markg" data-src="https://secure.gravatar.com/avatar/a6bdd84b4732a2c3c7ecadd886b3c64a?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">markg</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/medimnos" title="View profile: medimnos">
+                <noscript data-class="avatar" data-alt="medimnos" data-src="https://secure.gravatar.com/avatar/18941ba6f3389f916f04eb42fa299e0d?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">medimnos</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/lmorchard" title="View profile: lmorchard">
+                <noscript data-class="avatar" data-alt="lmorchard" data-src="https://secure.gravatar.com/avatar/b45c48fc9e05922e2f368a9d7d7d8de1?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">lmorchard</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Jay" title="View profile: Jay">
+                <noscript data-class="avatar" data-alt="Jay" data-src="https://secure.gravatar.com/avatar/9d04cf5a92ebd6e40f74f9b19e1d0e45?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Jay</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Ptak82" title="View profile: Ptak82">
+                <noscript data-class="avatar" data-alt="Ptak82" data-src="https://secure.gravatar.com/avatar/c971ad02ceb36d77de6f9bc8b0c0d5c1?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Ptak82</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Jason23" title="View profile: Jason23">
+                <noscript data-class="avatar" data-alt="Jason23" data-src="https://secure.gravatar.com/avatar/ce2a5c01be16b39830070d42bbcb7e30?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Jason23</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/thatsmekaustubh" title="View profile: thatsmekaustubh">
+                <noscript data-class="avatar" data-alt="thatsmekaustubh" data-src="https://secure.gravatar.com/avatar/84226ee7c786ce24dd8a78f0acd77d56?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">thatsmekaustubh</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Carleial" title="View profile: Carleial">
+                <noscript data-class="avatar" data-alt="Carleial" data-src="https://secure.gravatar.com/avatar/34eb5c658776a6502ea0f14dab5c542d?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Carleial</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Dwchiang" title="View profile: Dwchiang">
+                <noscript data-class="avatar" data-alt="Dwchiang" data-src="https://secure.gravatar.com/avatar/2f42f32689c8244280dd01d864f92079?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Dwchiang</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Jesse" title="View profile: Jesse">
+                <noscript data-class="avatar" data-alt="Jesse" data-src="https://secure.gravatar.com/avatar/d2dc9227eafcd0ec5ba3712ee4f19b75?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Jesse</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/jisung" title="View profile: jisung">
+                <noscript data-class="avatar" data-alt="jisung" data-src="https://secure.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">jisung</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/coder" title="View profile: coder">
+                <noscript data-class="avatar" data-alt="coder" data-src="https://secure.gravatar.com/avatar/712ae8b93660e58afb92e24b7f2a15b4?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">coder</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/xaky" title="View profile: xaky">
+                <noscript data-class="avatar" data-alt="xaky" data-src="https://secure.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">xaky</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/leegorous" title="View profile: leegorous">
+                <noscript data-class="avatar" data-alt="leegorous" data-src="https://secure.gravatar.com/avatar/2a1e5f0c16883280e29c4b946abb3934?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">leegorous</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/makkes" title="View profile: makkes">
+                <noscript data-class="avatar" data-alt="makkes" data-src="https://secure.gravatar.com/avatar/2f2dd7b5570e554b56d47b71f14ecc89?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">makkes</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/funkyeah" title="View profile: funkyeah">
+                <noscript data-class="avatar" data-alt="funkyeah" data-src="https://secure.gravatar.com/avatar/476d9e9c7145896c08aa4d341d210090?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">funkyeah</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Verruckt" title="View profile: Verruckt">
+                <noscript data-class="avatar" data-alt="Verruckt" data-src="https://secure.gravatar.com/avatar/31fdd23935bf6941e12b3019c418da0d?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Verruckt</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/sebmozilla" title="View profile: sebmozilla">
+                <noscript data-class="avatar" data-alt="sebmozilla" data-src="https://secure.gravatar.com/avatar/383bc200ba24630fe7523e24fdf3d5a0?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">sebmozilla</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Ms2ger" title="View profile: Ms2ger">
+                <noscript data-class="avatar" data-alt="Ms2ger" data-src="https://secure.gravatar.com/avatar/42f6fa059df34a3d5c3e4091c50ebde7?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Ms2ger</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Izel" title="View profile: Izel">
+                <noscript data-class="avatar" data-alt="Izel" data-src="https://secure.gravatar.com/avatar/2f111b1314d9547b42248e9ae741ded8?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Izel</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/f.sanxz" title="View profile: f.sanxz">
+                <noscript data-class="avatar" data-alt="f.sanxz" data-src="https://secure.gravatar.com/avatar/009914a0888f4cdb7c6a8033953e8445?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">f.sanxz</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Crash" title="View profile: Crash">
+                <noscript data-class="avatar" data-alt="Crash" data-src="https://secure.gravatar.com/avatar/d41d8cd98f00b204e9800998ecf8427e?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Crash</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/BenoitL" title="View profile: BenoitL">
+                <noscript data-class="avatar" data-alt="BenoitL" data-src="https://secure.gravatar.com/avatar/f383cd79ac30207f746361c2b124db98?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">BenoitL</noscript></a>
+                </li>
+                            <li class="hidden">
+                <a href="https://developer.mozilla.org/en-US/profiles/Marsf" title="View profile: Marsf">
+                <noscript data-class="avatar" data-alt="Marsf" data-src="https://secure.gravatar.com/avatar/ad00649afe235adeecc876a86ded16e2?s=34&amp;r=pg&amp;d=https%3A%2F%2Fdeveloper.cdn.mozilla.net%2Fmedia%2F%2Fimg%2Favatar.png">Marsf</noscript></a>
+                </li>
+                        </ul>
+        <button type="button" class="transparent">Show all…<span class="hidden">contributors</span></button></div>
+        
+      </div>
+      
+      <!-- start the main content container -->
+        <div id="wiki-column-container" class="wiki-right-closed wiki-right-none wiki-left-closed wiki-left-none">
+
+          
+          <!-- content row with three strips -->
+          <div class="column-container column-container-reverse">
+
+            
+                                                  
+            <!-- center: main article content -->
+            <div id="wiki-content" class="column-all wiki-column text-content">
+
+              
+              
+                                                                                          
+              <!-- just the article content -->
+              <article id="wikiArticle">
+                                                      <div class="callout-box">
+<div class="summary">
+<p id="HTML5_Demos" style="font-style: normal; font-variant: normal; font-weight: normal; font-size: 20px; line-height: normal; font-family: &quot;Bebas Neue&quot;,&quot;League Gothic&quot;,Haettenschweiler,Impact,&quot;Arial Narrow&quot;,sans-serif; text-transform: uppercase;">HTML5 Demos</p>
+</div>
+
+<p>A <a href="https://developer.mozilla.org/en-US/demos/tag/tech:html5" title="demos/tag/tech:html5/">collection of demos</a> showing the latest HTML technologies in action.</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/HTML/HTML5" title="html5"><img src="./HTML5 - Web developer guide _ MDN_files/=HTML5_Logo_128.png" alt="HTML5_Logo_128.png" class="default internal"></a></p>
+</div>
+
+<p><span class="seoSummary"><strong>HTML5</strong> is the latest evolution of the standard that defines <a href="https://developer.mozilla.org/en-US/docs/HTML" title="HTML">HTML</a>. </span>The term represents two different concepts:</p>
+
+<ul>
+ <li><span class="seoSummary">It is a new version of the <em>language</em> HTML, with new elements, attributes, and behaviors,</span></li>
+ <li><span class="seoSummary">and a larger set of <strong>technologies</strong> that allows more diverse and powerful Web sites and applications.</span> This set is sometimes called <em>HTML5 &amp; friends</em> and often shortened to just <em>HTML5</em>.</li>
+</ul>
+
+<p>Designed to be usable by all Open Web developers, this reference page links to numerous resources about HTML5 technologies, classified into several groups based on their function.</p>
+
+<ul>
+ <li><em>Semantics</em>: allowing you to describe more precisely what your content is.</li>
+ <li><em>Connectivity</em>: allowing you to communicate with the server in new and innovative ways.</li>
+ <li><em>Offline &amp; Storage</em>: allowing webpages to store data on the client-side locally and operate offline more efficiently.</li>
+ <li><em>Multimedia</em>: making video and audio first-class citizens in the Open Web.</li>
+ <li><em>2D/3D Graphics &amp; Effects</em>: allowing a much more diverse range of presentation options.</li>
+ <li><em>Performance &amp; Integration</em>: providing greater speed optimization and better usage of computer hardware.</li>
+ <li><em>Device Access</em>: allowing for the usage of various input and output devices.</li>
+ <li><em>Styling</em>: letting authors write more sophisticated themes.</li>
+</ul>
+
+<div class="cleared row topicpage-table">
+<h2 id="SemantIcs" style="margin: 0pt 0pt 0.25em; font: 200 24px/1 &#39;Bebas Neue&#39;,&#39;League Gothic&#39;,Haettenschweiler,&#39;Arial Narrow&#39;,sans-serif; letter-spacing: 1px; text-transform: uppercase; border: medium none;"><img src="./HTML5 - Web developer guide _ MDN_files/HTML5_Semantics_512.png" style="height: 64px; padding-right: 0.5em; vertical-align: middle; width: 64px;" alt="">SemantIcs</h2>
+
+<dl>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Sections_and_Outlines_of_an_HTML5_document" title="Sections and Outlines of an HTML5 document">Sections and Outlines in HTML5</a></dt>
+ <dd>A look at the new outlining and sectioning elements in HTML5: <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/section" title="The HTML Section Element (&lt;section&gt;) represents a generic section of a document, i.e., a thematic grouping of content, typically with a heading. Each &lt;section&gt; should be identified, typically by including a heading (&lt;h1&gt;-&lt;h6&gt; element) as a child of the &lt;section&gt; element."><code>&lt;section&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/article" title="The HTML Article Element (&lt;article&gt;) represents a self-contained composition in a document, page, application, or site, which is intended to be independently distributable or reusable, e.g., in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, or any other independent item of content. Each &lt;article&gt; should be identified, typically by including a heading (h1-h6 element) as a child of the &lt;article&gt; element."><code>&lt;article&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/nav" title="The HTML Navigation Element (&lt;nav&gt;) represents a section of a page that links to other pages or to parts within the page: a section with navigation links."><code>&lt;nav&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/header" title="The HTML &lt;header&gt; Element represents a group of introductory or navigational aids. It may contain some heading elements but also other elements like a logo, wrapped section&#39;s header, a search form, and so on."><code>&lt;header&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/footer" title="The HTML Footer Element (&lt;footer&gt;) represents a footer for its nearest sectioning content or sectioning root element. A footer typically contains information about the author of the section, copyright data or links to related documents."><code>&lt;footer&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/aside" title="The HTML &lt;aside&gt; element represents a section of the page with content connected tangentially to the rest, which could be considered separate from that content. These sections are often represented as sidebars or inserts. They often contain the definitions on the sidebars, such as definitions from the glossary; there may also be other types of information, such as related advertisements; the biography of the author; web applications; profile information or related links on the blog."><code>&lt;aside&gt;</code></a>.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Using_HTML5_audio_and_video" title="Using_audio_and_video_in_Firefox">Using HTML5 Audio and Video</a></dt>
+ <dd>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio" title="The HTML &lt;audio&gt; element is used to embed sound content in documents. It may contain several audio sources, represented using the src attribute or the &lt;source&gt; element; the browser will choose the most suitable one."><code>&lt;audio&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video" title="The HTML &lt;video&gt; element is used to embed video content. It may contain several video sources, represented using the src attribute or the &lt;source&gt; element; the browser will choose the most suitable one."><code>&lt;video&gt;</code></a> elements embed and allow the manipulation of new multimedia content.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/HTML/Forms_in_HTML" title="Forms in HTML5">Forms in HTML5</a></dt>
+ <dd>A look at improvements to web forms in HTML5: the constraint validation API, several new attributes, new values for the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" title="The HTML &lt;input&gt; element is used to create interactive controls for web-based forms in order to accept data from the user. How an &lt;input&gt; works varies considerably depending on the value of its type attribute."><code>&lt;input&gt;</code></a> attribute <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-type">type</a></code> and the new <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output" title="The HTML &lt;output&gt; element represents the result of a calculation or user action."><code>&lt;output&gt;</code></a> element.</dd>
+ <dt>New Semantic Elements</dt>
+ <dd>Beside sections, media and forms elements, there are numerous new elements, like <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark" title="The HTML Mark Element (&lt;mark&gt;) represents highlighted text, i.e., a run of text marked for reference purpose, due to its relevance in a particular context. For example it can be used in a page showing search results to highlight every instance of the searched-for word."><code>&lt;mark&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure" title="The HTML &lt;figure&gt; Element represents self-contained content, frequently with a caption (&lt;figcaption&gt;), and is typically referenced as a single unit. While it is related to the main flow, its position is independent of the main flow. Usually this is an image, an illustration, a diagram, a code snippet, or a schema that is referenced in the main text, but that can be moved to another page or to an appendix without affecting the main flow."><code>&lt;figure&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption" title="The HTML &lt;figcaption&gt; Element represents a caption or a legend associated with a figure or an illustration described by the rest of the data of the &lt;figure&gt; element which is its immediate ancestor which means &lt;figcaption&gt; can be the first or last element inside a &lt;figure&gt; block. Also, the HTML Figcaption Element is optional; if not provided, then the parent figure element will have no caption."><code>&lt;figcaption&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/data" title="The HTML &lt;data&gt; Element links a given content with a machine-readable translation. If the content is time- or date-related, the &lt;time&gt; must be used."><code>&lt;data&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time" title="The HTML &lt;time&gt; element represents either a time on a 24-hour clock or a precise date in the Gregorian calendar (with optional time and timezone information)."><code>&lt;time&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output" title="The HTML &lt;output&gt; element represents the result of a calculation or user action."><code>&lt;output&gt;</code></a>, <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress" title="The HTML &lt;progress&gt; Element is used to view the completion progress of a task. While the specifics of how it&#39;s displayed is left up to the browser developer, it&#39;s typically displayed as a progress bar. Javascript can be used to manipulate the value of progress bar."><code>&lt;progress&gt;</code></a>, or <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meter" title="The HTML &lt;meter&gt; Element represents either a scalar value within a known range or a fractional value."><code>&lt;meter&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main" title="The HTML Main Element (&lt;main&gt;) can be used as a container for the dominant contents of the document. The main content area consists of content that is directly related to, or expands upon the central topic of a section or the central functionality of an application. This content should be unique to the document, excluding any content that is repeated across a set of documents such as sidebars, navigation links, copyright information, site logos, and search forms (unless, of course, the document&#39;s main function is as a search form). Unlike &lt;article&gt; and &lt;section&gt;, this element does not contribute to the document outline."><code>&lt;main&gt;</code></a>, increasing the amount of <a href="https://developer.mozilla.org/en-US/docs/HTML/HTML5/HTML5_element_list" title="HTML/HTML5/HTML5_element_list">valid HTML5 elements</a>.</dd>
+ <dt>Improvement in <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" title="The HTML Inline Frame Element (&lt;iframe&gt;) represents a nested browsing context, effectively embedding another HTML page into the current page. In HTML 4.01, a document may contain a head and a body or a head and a frame-set, but not both a body and a frame-set. However, an &lt;iframe&gt; can be used within a normal document body. Each browsing context has its own session history and active document. The browsing context that contains the embedded content is called the parent browsing context. The top-level browsing context (which has no parent) is typically the browser window."><code>&lt;iframe&gt;</code></a></dt>
+ <dd>Using the <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox">sandbox</a></code>, <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-seamless">seamless</a></code>, and <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-srcdoc">srcdoc</a></code> attributes, authors can now be precise about the level of security and the wished rendering of an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe" title="The HTML Inline Frame Element (&lt;iframe&gt;) represents a nested browsing context, effectively embedding another HTML page into the current page. In HTML 4.01, a document may contain a head and a body or a head and a frame-set, but not both a body and a frame-set. However, an &lt;iframe&gt; can be used within a normal document body. Each browsing context has its own session history and active document. The browsing context that contains the embedded content is called the parent browsing context. The top-level browsing context (which has no parent) is typically the browser window."><code>&lt;iframe&gt;</code></a> element.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/MathML" title="MathML">MathML</a></dt>
+ <dd>Allows directly embedding mathematical formulas.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/HTML/HTML5/Introduction_to_HTML5" title="HTML/HTML5/Introduction_to_HTML5">Introduction to HTML5</a></dt>
+ <dd>This article introduces how to indicate to the browser that you are using HTML5 in your web design or web application.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/HTML/HTML5/HTML5_Parser" title="HTML/HTML5/HTML5 parser">HTML5-Compliant Parser</a></dt>
+ <dd>The parser, which turns the bytes of an HTML document into a DOM, has been extended and now precisely defines the behavior to use in all cases, even when faced with invalid HTML. This leads to far greater predictability and interoperability between HTML5-compliant browsers.</dd>
+</dl>
+
+<h2 id="ConnectIvIty" style="margin: 0pt 0pt 0.25em; font: 200 24px/1 &#39;Bebas Neue&#39;,&#39;League Gothic&#39;,Haettenschweiler,&#39;Arial Narrow&#39;,sans-serif; letter-spacing: 1px; text-transform: uppercase; border: medium none;"><img src="./HTML5 - Web developer guide _ MDN_files/HTML5_Connectivity_512.png" style="height: 64px; padding-right: 0.5em; vertical-align: middle; width: 64px;" alt="">ConnectIvIty</h2>
+
+<dl>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/WebSockets" title="WebSockets">Web Sockets</a></dt>
+ <dd>Allows creating a permanent connection between the page and the server and to exchange non-HTML data through that means.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Server-sent_events/Using_server-sent_events" title="Server-sent_events/Using_server-sent_events">Server-Sent Events</a></dt>
+ <dd>Allows a server to push events to a client, rather than the classical paradigm where the server could send data only in response to a client's request.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/WebRTC" title="WebRTC">WebRTC</a></dt>
+ <dd>This technology, where RTC stands for Real-Time Communication, allows connecting to other people and controlling videoconferencing directly in the browser, without the need for a plugin or an external application.</dd>
+</dl>
+
+<h2 id="OfflIne_storage" style="margin: 0pt 0pt 0.25em; font: 200 24px/1 &#39;Bebas Neue&#39;,&#39;League Gothic&#39;,Haettenschweiler,&#39;Arial Narrow&#39;,sans-serif; letter-spacing: 1px; text-transform: uppercase; border: medium none;"><img src="./HTML5 - Web developer guide _ MDN_files/HTML5_Offline_Storage_512.png" style="height: 64px; padding-right: 0.5em; vertical-align: middle; width: 64px;" alt="">OfflIne &amp; storage</h2>
+
+<dl>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/HTML/Using_the_application_cache" title="Offline_resources_in_Firefox">Offline Resources: The Application Cache</a></dt>
+ <dd>Firefox fully supports the HTML5 offline resource specification. Most others have offline resource support at some level.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Online_and_offline_events" title="Online_and_offline_events">Online and offline events</a></dt>
+ <dd>Firefox 3 supports WHATWG online and offline events, which let applications and extensions detect whether or not there's an active Internet connection, as well as to detect when the connection goes up and down.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/DOM/Storage" title="DOM/Storage">WHATWG Client-Side Session and Persistent Storage (aka DOM Storage)</a></dt>
+ <dd>Client-side session and persistent storage allows web applications to store structured data on the client side.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/IndexedDB" title="IndexedDB">IndexedDB</a></dt>
+ <dd>IndexedDB is a web standard for the storage of significant amounts of structured data in the browser and for high performance searches on this data using indexes.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Using_files_from_web_applications" title="Using_files_from_web_applications">Using Files From Web Applications</a></dt>
+ <dd>Support for the new HTML5 File API has been added to Gecko, making it possible for web applications to access local files selected by the user. This includes support for selecting multiple files using the <span style="font-family: monospace;"><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input" title="The HTML &lt;input&gt; element is used to create interactive controls for web-based forms in order to accept data from the user. How an &lt;input&gt; works varies considerably depending on the value of its type attribute."><code>&lt;input&gt;</code></a></span> of <a href="https://developer.mozilla.org/en-US/docs/HTML/Element/Input#attr-type" title="HTML/Element/input#attr-type"><strong>type</strong></a> <span style="font-family: courier new;">file</span> HTML element's new <a href="https://developer.mozilla.org/en-US/docs/HTML/Element/Input#attr-multiple" title="HTML/Element/input#attr-multiple"><strong>multiple</strong></a> attribute. There also is <a href="https://developer.mozilla.org/en-US/docs/DOM/FileReader" title="DOM/FileReader"><code>FileReader</code></a>.</dd>
+</dl>
+
+<h2 id="MultImedIa" style="margin: 0pt 0pt 0.25em; font: 200 24px/1 &#39;Bebas Neue&#39;,&#39;League Gothic&#39;,Haettenschweiler,&#39;Arial Narrow&#39;,sans-serif; letter-spacing: 1px; text-transform: uppercase; border: medium none;"><img src="./HTML5 - Web developer guide _ MDN_files/HTML5_Multimedia_512.png" style="height: 64px; padding-right: 0.5em; vertical-align: middle; width: 64px;" alt="">MultImedIa</h2>
+
+<dl>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Using_HTML5_audio_and_video" title="Using_audio_and_video_in_Firefox">Using HTML5 Audio and Video</a></dt>
+ <dd>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio" title="The HTML &lt;audio&gt; element is used to embed sound content in documents. It may contain several audio sources, represented using the src attribute or the &lt;source&gt; element; the browser will choose the most suitable one."><code>&lt;audio&gt;</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video" title="The HTML &lt;video&gt; element is used to embed video content. It may contain several video sources, represented using the src attribute or the &lt;source&gt; element; the browser will choose the most suitable one."><code>&lt;video&gt;</code></a> elements embed and allow the manipulation of new multimedia content.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/WebRTC" title="WebRTC">WebRTC</a></dt>
+ <dd>This technology, where RTC stands for Real-Time Communication, allows connecting to other people and controlling videoconferencing directly in the browser, without the need for a plugin or an external application.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/DOM/Using_the_Camera_API" title="DOM/Using_the_Camera_API">Using the Camera API</a></dt>
+ <dd>Allows using, manipulating, and storing an image from the computer's camera.</dd>
+ <dt>Track and WebVTT</dt>
+ <dd>The&nbsp;<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/track" title="The HTML &lt;track&gt; element is used as a child of the media elements—&lt;audio&gt; and &lt;video&gt;. It lets you specify timed text tracks (or time-based data), for example to automatically handle subtitles. The tracks are formatted in WebVTT format (.vtt files) — Web Video Text Tracks."><code>&lt;track&gt;</code></a> element allows subtitles and chapters. <a href="https://developer.mozilla.org/en-US/docs/HTML/WebVTT" title="HTML/WebVTT">WebVTT</a> is a text track format.</dd>
+</dl>
+
+<h2 id="3D_graphIcs_AND_effects" style="margin: 0pt 0pt 0.25em; font: 200 24px/1 &#39;Bebas Neue&#39;,&#39;League Gothic&#39;,Haettenschweiler,&#39;Arial Narrow&#39;,sans-serif; letter-spacing: 1px; text-transform: uppercase; border: medium none;"><img src="./HTML5 - Web developer guide _ MDN_files/HTML5_3D_Effects_512.png" style="height: 64px; padding-right: 0.5em; vertical-align: middle; width: 64px;" alt="">3D&nbsp;graphIcs AND&nbsp;effects</h2>
+
+<dl>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Canvas_tutorial" title="Canvas tutorial">Canvas Tutorial</a></dt>
+ <dd>Learn about the new <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas" title="The HTML &lt;canvas&gt; Element can be used to draw graphics via scripting (usually JavaScript). For example, it can be used to draw graphs, make photo compositions or even perform animations. You may (and should) provide alternate content inside the &lt;canvas&gt; block. That content will be rendered both on older browsers that don&#39;t support canvas and in browsers with JavaScript disabled."><code>&lt;canvas&gt;</code></a></code> element and how to draw graphs and other objects in Firefox.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Drawing_text_using_a_canvas" title="Drawing_text_using_a_canvas">HTML5 Text API For <code>&lt;canvas&gt;</code>&nbsp;Elements</a></dt>
+ <dd>The HTML5 text API is now supported by <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas" title="The HTML &lt;canvas&gt; Element can be used to draw graphics via scripting (usually JavaScript). For example, it can be used to draw graphs, make photo compositions or even perform animations. You may (and should) provide alternate content inside the &lt;canvas&gt; block. That content will be rendered both on older browsers that don&#39;t support canvas and in browsers with JavaScript disabled."><code>&lt;canvas&gt;</code></a> elements.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/WebGL" title="WebGL">WebGL</a></dt>
+ <dd>WebGL brings 3D graphics to the Web by introducing an API that closely conforms to OpenGL ES 2.0 that can be used in HTML5 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas" title="The HTML &lt;canvas&gt; Element can be used to draw graphics via scripting (usually JavaScript). For example, it can be used to draw graphs, make photo compositions or even perform animations. You may (and should) provide alternate content inside the &lt;canvas&gt; block. That content will be rendered both on older browsers that don&#39;t support canvas and in browsers with JavaScript disabled."><code>&lt;canvas&gt;</code></a> elements.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/SVG" title="SVG">SVG</a></dt>
+ <dd>An XML-based format of vectorial images that can directly be embedded in the HTML.</dd>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ <br>
+ &nbsp;
+ <dd>&nbsp;</dd>
+ <dd>&nbsp;</dd>
+ <dd>&nbsp;</dd>
+ <dd>&nbsp;</dd>
+ <dd>&nbsp;</dd>
+ <dd>&nbsp;</dd>
+ <dd>&nbsp;</dd>
+ <dd>&nbsp;</dd>
+ <dd>&nbsp;</dd>
+ <dd>&nbsp;</dd>
+ <dd>&nbsp;</dd>
+</dl>
+
+<div class="section">
+<h2 id="Performance_and_IntegratIon" style="margin: 0pt 0pt 0.25em; font: 200 24px/1 &#39;Bebas Neue&#39;,&#39;League Gothic&#39;,Haettenschweiler,&#39;Arial Narrow&#39;,sans-serif; letter-spacing: 1px; text-transform: uppercase; border: medium none;"><img src="./HTML5 - Web developer guide _ MDN_files/HTML5_Performance_512.png" style="height: 64px; padding-right: 0.5em; vertical-align: middle; width: 64px;" alt="">Performance and&nbsp;IntegratIon</h2>
+
+<dl>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/DOM/Using_web_workers" title="Using web workers">Web Workers</a></dt>
+ <dd>Allows delegation of JavaScript evaluation to background threads, allowing these activities to prevent slowing down interactive events.</dd>
+ <dt><code><a href="https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest" title="XMLHttpRequest">XMLHttpRequest</a></code> Level 2</dt>
+ <dd>Allows fetching asynchronously some parts of the page, allowing it to display dynamic content, varying according to the time and user actions. This is the technology behind <a href="https://developer.mozilla.org/en-US/docs/AJAX" title="AJAX">Ajax</a>.</dd>
+ <dt>JIT-compiling JavaScript engines</dt>
+ <dd>The new generation of JavaScript engines is much more powerful, leading to greater performance.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/DOM/Manipulating_the_browser_history" title="DOM/Manipulating_the_browser_history">History API</a></dt>
+ <dd>Allows the manipulation of the browser history. This is especially useful for pages loading interactively new information.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/HTML/Content_Editable" title="HTML/Content Editable">The contentEditable Attribute: Transform Your Website to a Wiki!</a></dt>
+ <dd>HTML5 has standardized the contentEditable attribute. Learn more about this feature.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/DragDrop/Drag_and_Drop" title="DragDrop/Drag_and_Drop">Drag and Drop</a></dt>
+ <dd>The HTML5 drag and drop API allows support for dragging and dropping items within and between web sites. This also provides a simpler API for use by extensions and Mozilla-based applications.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Focus_management_in_HTML" title="Focus_management_in_HTML">Focus Management in HTML</a></dt>
+ <dd>The new HTML5 <code>activeElement</code> and <code>hasFocus</code> attributes are supported.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Web-based_protocol_handlers" title="Web-based_protocol_handlers">Web-Based Protocol Handlers</a></dt>
+ <dd>You can now register web applications as protocol handlers using the <code>navigator.registerProtocolHandler()</code> method.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame" title="Web-based_protocol_handlers" style="font-weight: bold;">requestAnimationFrame</a></dt>
+ <dd>Allows control of animations rendering to obtain optimal performance.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/DOM/Using_full-screen_mode" title="DOM/Using_full-screen_mode">Fullscreen API</a></dt>
+ <dd>Controls the usage of the whole screen for a Web page or application, without the browser UI displayed.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/API/Pointer_Lock_API" title="API/Pointer_Lock_API">Pointer Lock API</a></dt>
+ <dd>Allows locking the pointer to the content, so games and similar applications don't lose focus when the pointer reaches the window limit.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Online_and_offline_events" title="Online_and_offline_events">Online and Offline Events</a></dt>
+ <dd>In order to build a good offline-capable web application, you need to know when your application is actually offline. Incidentally, you also need to know when your application has returned to an online status again.</dd>
+</dl>
+
+<h2 id="DevIce_access" style="margin: 0pt 0pt 0.25em; font: 200 24px/1 &#39;Bebas Neue&#39;,&#39;League Gothic&#39;,Haettenschweiler,&#39;Arial Narrow&#39;,sans-serif; letter-spacing: 1px; text-transform: uppercase; border: medium none;"><img src="./HTML5 - Web developer guide _ MDN_files/HTML5_Device_Access_512.png" style="height: 66px; padding-right: 0.5em; vertical-align: middle; width: 77px;" alt="">DevIce access</h2>
+
+<dl>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/DOM/Using_the_Camera_API" title="DOM/Using_the_Camera_API">Using the Camera API</a></dt>
+ <dd>Allows using, manipulating, and storing an image from the computer's camera.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/DOM/Touch_events" title="DOM/Touch_events">Touch Events</a></dt>
+ <dd>Handlers to react to events created by a user pressing touch screens.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Using_geolocation" title="Using geolocation">Using Geolocation</a></dt>
+ <dd>Let browsers locate the position of the user using geolocation.</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/Detecting_device_orientation" title="Detecting_device_orientation">Detecting Device Orientation</a></dt>
+ <dd>Get the information when the device on which the browser runs changes orientation. This can be used as an input device (e.g., to make games that react to the position of the device) or to adapt the layout of a page to the orientation of the screen (portrait or landscape).</dd>
+ <dt><a href="https://developer.mozilla.org/en-US/docs/API/Pointer_Lock_API" title="API/Pointer_Lock_API">Pointer Lock API</a></dt>
+ <dd>Allows locking the pointer to the content, so games and similar application don't lose focus when the pointer reaches the window limit.</dd>
+</dl>
+
+<h2 id="StylIng" style="margin: 0pt 0pt 0.25em; font: 200 24px/1 &#39;Bebas Neue&#39;,&#39;League Gothic&#39;,Haettenschweiler,&#39;Arial Narrow&#39;,sans-serif; letter-spacing: 1px; text-transform: uppercase; border: medium none;"><img src="./HTML5 - Web developer guide _ MDN_files/HTML5_Styling_512.png" style="height: 64px; padding-right: 0.5em; vertical-align: middle; width: 64px;" alt="">StylIng</h2>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/CSS" title="CSS">CSS</a> has been extended to be able to style elements in a much more complex way. This is often referred as <a href="https://developer.mozilla.org/en-US/docs/CSS/CSS3" title="CSS/CSS3">CSS3</a>, though CSS is not a monolithic specification any more and the different modules are not all at level 3: some are at level 1 and others at level 4, with all the intermediate levels covered.</p>
+
+<dl>
+ <dt>New Background Styling Features</dt>
+ <dd>It is now possible to put a shadow to a box, using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow" title="The box-shadow property describes one or more shadow effects as a comma-separated list."><code>box-shadow</code></a> and <a href="https://developer.mozilla.org/en-US/docs/CSS/Multiple_backgrounds" title="CSS/Multiple_backgrounds">multiple backgrounds</a> can be set.</dd>
+ <dt>More Fancy Borders</dt>
+ <dd>Not only it is now possible to use images to style borders, using <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image" title="The border-image CSS property allows drawing an image on the borders of elements. This makes drawing complex looking widgets much simpler than it has been and removes the need for nine boxes in some cases. The border-image is used instead of the border styles given by the border-style properties."><code>border-image</code></a> and its associated longhand properties, but rounded borders are supported via the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius" title="The border-radius CSS property allows Web authors to define how rounded border corners are. The curve of each corner is defined using one or two radii, defining its shape: circle or ellipse."><code>border-radius</code></a> property.</dd>
+ <dt>Animating Your Style</dt>
+ <dd>Using <a href="https://developer.mozilla.org/en-US/docs/CSS/Using_CSS_transitions" title="CSS/Using_CSS_transitions">CSS Transitions</a> to animate between different states or using <a href="https://developer.mozilla.org/en-US/docs/CSS/Using_CSS_animations" title="CSS/Using_CSS_animations">CSS Animations</a> to animate parts of the page without a triggering event, you can now control mobile elements on your page.</dd>
+ <dt>Typography Improvement</dt>
+ <dd>Authors have better control to reach better typography. They can control <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/text-overflow" title="The text-overflow property determines how overflowed content that is not displayed is signaled to users. It can be clipped, display an ellipsis (&#39;…&#39;, U+2026 Horizontal Ellipsis), or display a custom string."><code>text-overflow</code></a> and <a href="https://developer.mozilla.org/en-US/docs/CSS/hyphens" title="CSS/hyphens">hyphenation</a>, but also can add a <a href="https://developer.mozilla.org/en-US/docs/CSS/text-shadow" title="CSS/text-shadow">shadow</a> to it or control more precisely its <a href="https://developer.mozilla.org/en-US/docs/CSS/text-decoration" title="SVG/Attribute/text-decoration">decorations</a>. Custom typefaces can be downloaded and applied thanks to the new <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" title="The @font-face CSS at-rule allows authors to specify online fonts to display text on their web pages. By allowing authors to provide their own fonts, @font-face eliminates the need to depend on the limited number of fonts users have installed on their computers. The @font-face at-rule may be used not only at the top level of a CSS, but also inside any CSS conditional-group at-rule."><code>@font-face</code></a> at-rule.</dd>
+ <dt>New Presentational Layouts</dt>
+ <dd>In order to improve the flexibility of designs, two new layouts have been added: the <a href="https://developer.mozilla.org/en-US/docs/CSS/Using_CSS_multi-column_layouts" title="CSS/Using_CSS_multi-column_layouts">CSS multi-column layout</a>, and the <a href="https://developer.mozilla.org/en-US/docs/CSS/Flexbox" title="CSS/Flexbox">CSS flexible box layout</a>.</dd>
+</dl>
+</div>
+</div>
+
+<p>&nbsp;</p>
+                                                </article>
+
+            
+
+              
+                <!-- contributors -->
+                <div class="wiki-block contributors">
+                  <h2 class="offscreen">Document Tags and Contributors</h2>
+                                      <div class="tag-attach-list contributors-sub">
+    <i aria-hidden="true" class="icon-tags"></i>
+    <strong>Tags:</strong>&nbsp;
+    <ul class="tags tags-small">
+              <li><a href="https://developer.mozilla.org/en-US/docs/tag/Guide">Guide</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/tag/guide">guide</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/tag/HTML">HTML</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/tag/HTML5">HTML5</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/tag/Overview">Overview</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/tag/Web">Web</a></li>
+              <li><a href="https://developer.mozilla.org/en-US/docs/tag/Web%20Development">Web Development</a></li>
+          </ul>
+  </div>
+
+                                      <div class="contributors-sub"> <i aria-hidden="true" class="icon-group"></i><strong>Contributors to this page:</strong>         <a href="https://developer.mozilla.org/en-US/profiles/Sheppy">Sheppy</a>,             <a href="https://developer.mozilla.org/en-US/profiles/shottiebl8714">shottiebl8714</a>,             <a href="https://developer.mozilla.org/en-US/profiles/jsx">jsx</a>,             <a href="https://developer.mozilla.org/en-US/profiles/danielinux7">danielinux7</a>,             <a href="https://developer.mozilla.org/en-US/profiles/sxxxsz">sxxxsz</a>,             <a href="https://developer.mozilla.org/en-US/profiles/saidkocdemir">saidkocdemir</a>,             <a href="https://developer.mozilla.org/en-US/profiles/teoli">teoli</a>,             <a href="https://developer.mozilla.org/en-US/profiles/sparky11478">sparky11478</a>,             <a href="https://developer.mozilla.org/en-US/profiles/nasko83">nasko83</a>,             <a href="https://developer.mozilla.org/en-US/profiles/jswisher">jswisher</a>,             <a href="https://developer.mozilla.org/en-US/profiles/janokar">janokar</a>,             <a href="https://developer.mozilla.org/en-US/profiles/ecal">ecal</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Windforce">Windforce</a>,             <a href="https://developer.mozilla.org/en-US/profiles/amalraj">amalraj</a>,             <a href="https://developer.mozilla.org/en-US/profiles/abhishek93">abhishek93</a>,             <a href="https://developer.mozilla.org/en-US/profiles/masa86">masa86</a>,             <a href="https://developer.mozilla.org/en-US/profiles/mdmanuwerhussain">mdmanuwerhussain</a>,             <a href="https://developer.mozilla.org/en-US/profiles/EmilyG">EmilyG</a>,             <a href="https://developer.mozilla.org/en-US/profiles/jtthackery">jtthackery</a>,             <a href="https://developer.mozilla.org/en-US/profiles/John.Smith">John.Smith</a>,             <a href="https://developer.mozilla.org/en-US/profiles/TanyaSharma">TanyaSharma</a>,             <a href="https://developer.mozilla.org/en-US/profiles/sivsivsree">sivsivsree</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Dbs">Dbs</a>,             <a href="https://developer.mozilla.org/en-US/profiles/melchiorb">melchiorb</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Cforcloud">Cforcloud</a>,             <a href="https://developer.mozilla.org/en-US/profiles/indrani7">indrani7</a>,             <a href="https://developer.mozilla.org/en-US/profiles/ZawNaingOo">ZawNaingOo</a>,             <a href="https://developer.mozilla.org/en-US/profiles/kscarfone">kscarfone</a>,             <a href="https://developer.mozilla.org/en-US/profiles/dac">dac</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Timmi">Timmi</a>,             <a href="https://developer.mozilla.org/en-US/profiles/imonlhec22">imonlhec22</a>,             <a href="https://developer.mozilla.org/en-US/profiles/SteveFaulkner">SteveFaulkner</a>,             <a href="https://developer.mozilla.org/en-US/profiles/ginapugalee">ginapugalee</a>,             <a href="https://developer.mozilla.org/en-US/profiles/ethertank">ethertank</a>,             <a href="https://developer.mozilla.org/en-US/profiles/gati_mahesh">gati_mahesh</a>,             <a href="https://developer.mozilla.org/en-US/profiles/sharwoodjr">sharwoodjr</a>,             <a href="https://developer.mozilla.org/en-US/profiles/anisur3036">anisur3036</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Sannymei1960">Sannymei1960</a>,             <a href="https://developer.mozilla.org/en-US/profiles/ACSHN">ACSHN</a>,             <a href="https://developer.mozilla.org/en-US/profiles/openjck">openjck</a>,             <a href="https://developer.mozilla.org/en-US/profiles/haboqueferus">haboqueferus</a>,             <a href="https://developer.mozilla.org/en-US/profiles/iwo">iwo</a>,             <a href="https://developer.mozilla.org/en-US/profiles/soulxshajjad">soulxshajjad</a>,             <a href="https://developer.mozilla.org/en-US/profiles/pablocubico">pablocubico</a>,             <a href="https://developer.mozilla.org/en-US/profiles/94423450">94423450</a>,             <a href="https://developer.mozilla.org/en-US/profiles/princetoad%40gmail.com">princetoad@gmail.com</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Deadsparrow">Deadsparrow</a>,             <a href="https://developer.mozilla.org/en-US/profiles/KyleBarnhart">KyleBarnhart</a>,             <a href="https://developer.mozilla.org/en-US/profiles/harangozo">harangozo</a>,             <a href="https://developer.mozilla.org/en-US/profiles/msrishikesh">msrishikesh</a>,             <a href="https://developer.mozilla.org/en-US/profiles/juliepagano">juliepagano</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Mohammed_Hossam">Mohammed_Hossam</a>,             <a href="https://developer.mozilla.org/en-US/profiles/iSpellbinder">iSpellbinder</a>,             <a href="https://developer.mozilla.org/en-US/profiles/bdnd">bdnd</a>,             <a href="https://developer.mozilla.org/en-US/profiles/trevorh">trevorh</a>,             <a href="https://developer.mozilla.org/en-US/profiles/louisremi">louisremi</a>,             <a href="https://developer.mozilla.org/en-US/profiles/vigia122">vigia122</a>,             <a href="https://developer.mozilla.org/en-US/profiles/berkerpeksag">berkerpeksag</a>,             <a href="https://developer.mozilla.org/en-US/profiles/auco">auco</a>,             <a href="https://developer.mozilla.org/en-US/profiles/tw2113">tw2113</a>,             <a href="https://developer.mozilla.org/en-US/profiles/vladikoff">vladikoff</a>,             <a href="https://developer.mozilla.org/en-US/profiles/markg">markg</a>,             <a href="https://developer.mozilla.org/en-US/profiles/medimnos">medimnos</a>,             <a href="https://developer.mozilla.org/en-US/profiles/lmorchard">lmorchard</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Jay">Jay</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Ptak82">Ptak82</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Jason23">Jason23</a>,             <a href="https://developer.mozilla.org/en-US/profiles/thatsmekaustubh">thatsmekaustubh</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Carleial">Carleial</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Dwchiang">Dwchiang</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Jesse">Jesse</a>,             <a href="https://developer.mozilla.org/en-US/profiles/jisung">jisung</a>,             <a href="https://developer.mozilla.org/en-US/profiles/coder">coder</a>,             <a href="https://developer.mozilla.org/en-US/profiles/xaky">xaky</a>,             <a href="https://developer.mozilla.org/en-US/profiles/leegorous">leegorous</a>,             <a href="https://developer.mozilla.org/en-US/profiles/makkes">makkes</a>,             <a href="https://developer.mozilla.org/en-US/profiles/funkyeah">funkyeah</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Verruckt">Verruckt</a>,             <a href="https://developer.mozilla.org/en-US/profiles/sebmozilla">sebmozilla</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Ms2ger">Ms2ger</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Izel">Izel</a>,             <a href="https://developer.mozilla.org/en-US/profiles/f.sanxz">f.sanxz</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Crash">Crash</a>,             <a href="https://developer.mozilla.org/en-US/profiles/BenoitL">BenoitL</a>,             <a href="https://developer.mozilla.org/en-US/profiles/Marsf">Marsf</a>     </div>                  
+                                      <div class="contributors-sub">
+                      <i aria-hidden="true" class="icon-clock-o"></i><strong>Last updated by:</strong>
+                      <a href="https://developer.mozilla.org/en-US/profiles/Sheppy">Sheppy</a>,
+                      <time datetime="2015-07-24T09:01:31-07:00">Jul 24, 2015, 9:01:31 AM</time>
+                    </div>
+                                  </div>
+                          </div>
+
+                      </div>
+        </div>
+      </div>
+    </div> <!-- ends "main-content" -->
+
+  <menu type="context" id="edit-history-menu">
+    <menuitem data-action="/en-US/docs/Web/Guide/HTML/HTML5$edit" label="Edit page"></menuitem>
+    <menuitem data-action="/en-US/docs/Web/Guide/HTML/HTML5$history" label="View page history"></menuitem>
+  </menu>
+  </div></main>
+
+  <!-- Footer -->
+  <footer><div class="center">
+    <div class="column-container">
+      <div class="column-main">
+                <p>
+          <bdi>© 2005-2015 Mozilla Developer Network and individual contributors<br> Content is available under <a href="https://developer.mozilla.org/en-US/docs/MDN/About#Copyrights_and_licenses">these licenses</a> · <a href="https://developer.mozilla.org/docs/MDN/About">About MDN</a> · <a href="https://www.mozilla.org/about/legal/terms/mozilla">Terms</a> · <a href="https://www.mozilla.org/privacy/websites/">Privacy</a> · <a href="https://www.mozilla.org/privacy/websites/#cookies">Cookies</a> · <a href="https://github.com/mozilla/kuma">Contribute to the code</a></bdi>        </p>
+              </div>
+      <div class="column-strip">
+                        <form class="languages go" method="get" action="https://developer.mozilla.org/en-US/docs/Web" pmbx_context="38F069FF-8376-4CE9-8B43-6CCAA29E1C4D">
+      <label for="language">Other languages:</label>
+      <select id="language" class="wiki-l10n" name="next" dir="ltr">
+        <option value="/en-US/docs/Web/Guide/HTML/HTML5" selected="">
+          English (US)
+        </option>
+                  <option value="/ar/docs/Web/Guide/HTML/HTML5">
+            عربي
+          </option>          <option value="/az/docs/Web/Guide/HTML/HTML5">
+            Azərbaycanca
+          </option>          <option value="/bn-BD/docs/HTML/HTML5">
+            বাংলা (বাংলাদেশ)
+          </option>          <option value="/cs/docs/cs_HTML/HTML5">
+            Čeština
+          </option>          <option value="/de/docs/Web/HTML/HTML5">
+            Deutsch
+          </option>          <option value="/es/docs/HTML/HTML5">
+            Español
+          </option>          <option value="/fa/docs/HTML/HTML5">
+            فارسی
+          </option>          <option value="/fr/docs/Web/Guide/HTML/HTML5">
+            Français
+          </option>          <option value="/he/docs/Web/Guide/HTML/HTML5">
+            עברית
+          </option>          <option value="/id/docs/Web/Guide/HTML/HTML5">
+            Bahasa Indonesia
+          </option>          <option value="/it/docs/Web/HTML/HTML5">
+            Italiano
+          </option>          <option value="/ja/docs/Web/HTML/HTML5">
+            日本語
+          </option>          <option value="/ko/docs/Web/HTML/HTML5">
+            한국어
+          </option>          <option value="/pl/docs/HTML/HTML5">
+            Polski
+          </option>          <option value="/pt-BR/docs/Web/HTML/HTML5">
+            Português (do&nbsp;Brasil)
+          </option>          <option value="/pt-PT/docs/Web/HTML/HTML5">
+            Português (Europeu)
+          </option>          <option value="/ro/docs/Web/Guide/HTML/HTML5">
+            română
+          </option>          <option value="/ru/docs/HTML/HTML5">
+            Русский
+          </option>          <option value="/tr/docs/Web/HTML/HTML5">
+            Türkçe
+          </option>          <option value="/zh-CN/docs/Web/Guide/HTML/HTML5">
+            中文 (简体)
+          </option>          <option value="/zh-TW/docs/Web/HTML/HTML5">
+            正體中文 (繁體)
+          </option>      </select>
+      <noscript>&lt;button type="submit"&gt;Go&lt;/button&gt;</noscript>
+    </form>
+                </div>
+    </div>
+  </div></footer>
+
+  <!-- site js -->
+      <!--[if lte IE 8]><script src="/media/js/libs/selectivizr-1.0.2/selectivizr-build.js"></script><![endif]-->
+
+    <form id="_persona_login" method="post" action="https://developer.mozilla.org/users/persona/signin" data-csrf-token-url="/users/persona/csrf" data-request="{&quot;siteName&quot;: &quot;Mozilla Developer Network&quot;, &quot;siteLogo&quot;: &quot;/media/img/opengraph-logo.png&quot;}" data-persona-script="https://login.persona.org/include.js" pmbx_context="19E1749F-6F61-4F7C-B141-1E31641431C9">
+  <input type="hidden" name="csrfmiddlewaretoken" value="" id="_persona_csrf_token" pmbx_context="4B5DFE7B-7EF7-4193-AC1D-B253FBF51D1E">
+  <input type="hidden" name="next" value="" id="_persona_next_url" pmbx_context="8F700418-E151-4AD6-814D-9135073CCB0E">
+  <input type="hidden" name="process" value="" id="_persona_process" pmbx_context="316E5FFE-3E4D-4543-8440-2E9164C458A9">
+  <input type="hidden" name="assertion" id="_persona_assertion" pmbx_context="7E9AF1EA-B9FA-4A82-8CB2-BC9FBE79F6AC">
+</form>
+
+    <script src="./HTML5 - Web developer guide _ MDN_files/main-min.js"></script>
+
+      <script>
+        if(window.mdn && mdn.analytics) mdn.analytics.trackOutboundLinks();
+      </script>
+
+          <script src="./HTML5 - Web developer guide _ MDN_files/wiki-min.js"></script>
+      
+    <script type="text/javascript">
+      if(window.jQuery) jQuery('.from-search-toc').mozSearchResults('');
+
+            mdn.optimizely.push(['activate', 2796520257]);
+  </script>
+
+  
+  
+
+</body></html>
